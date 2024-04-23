@@ -1,0 +1,177 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+	scroll-behavior: smooth;
+}
+
+.box-shadow {
+	box-shadow: 0px 20px 100px -10px rgba(66, 71, 91, 0.1);
+}
+
+nav {
+	position: sticky;
+}
+
+.loading {
+	box-shadow: 0 0 0 0 rgba(0, 0, 0, 1);
+	transform: scale(1);
+	animation: pulse 2.2s infinite;
+}
+
+.gradiant {
+	background: linear-gradient(
+		180deg,
+		rgba(237, 235, 227, 1) 0%,
+		rgba(8, 12, 20, 1) 8%
+	);
+}
+@keyframes loading {
+	0% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0.7);
+	}
+
+	70% {
+		transform: scale(1);
+		box-shadow: 0 0 0 10px rgba(0, 0, 0, 0);
+	}
+
+	100% {
+		transform: scale(0.95);
+		box-shadow: 0 0 0 0 rgba(0, 0, 0, 0);
+	}
+}
+
+.linel {
+	position: relative;
+	bottom: 16rem;
+	right: -2rem;
+	height: 0.5px;
+	width: 150px;
+	z-index: 3;
+}
+
+.mgrowth {
+	position: relative;
+	bottom: 10rem;
+	left: 8rem;
+	width: 60px;
+	height: 60px;
+	z-index: 5;
+}
+
+.scale-up-center:hover {
+	-webkit-animation: scale-up-center 0.5s cubic-bezier(0.39, 0.575, 0.565, 1)
+		both;
+	animation: scale-up-center 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+
+.scale-up-center2:hover {
+	-webkit-animation: scale-up-center 0.5s cubic-bezier(0.39, 0.575, 0.565, 1)
+		both;
+	animation: scale-up-center 0.5s cubic-bezier(0.39, 0.575, 0.565, 1) both;
+}
+.slide-left {
+	-webkit-animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+	animation: slide-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
+}
+
+@-webkit-keyframes slide-left {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(-50px);
+		transform: translateX(-50px);
+	}
+}
+@keyframes slide-left {
+	0% {
+		-webkit-transform: translateX(0);
+		transform: translateX(0);
+	}
+	100% {
+		-webkit-transform: translateX(-50px);
+		transform: translateX(-50px);
+	}
+}
+
+@-webkit-keyframes scale-up-center {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	100% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+}
+@keyframes scale-up-center {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	100% {
+		-webkit-transform: scale(1.1);
+		transform: scale(1.1);
+	}
+}
+
+@-webkit-keyframes scale-up-center2 {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	100% {
+		-webkit-transform: scale(300);
+		transform: scale(300);
+	}
+}
+@keyframes scale-up-center2 {
+	0% {
+		-webkit-transform: scale(1);
+		transform: scale(1);
+	}
+	100% {
+		-webkit-transform: scale(300);
+		transform: scale(300);
+	}
+}
+
+/* Style each slide */
+.slide {
+	display: none;
+	width: 100%;
+	height: 100%;
+}
+
+.dot {
+	cursor: pointer;
+	height: 15px;
+	width: 15px;
+	margin: 0 5px;
+	background-color: #ccc;
+	border-radius: 50%;
+	display: inline-block;
+	transition: 0.5s;
+}
+
+/* Fading animation */
+.fade {
+	animation-name: fade;
+	animation-duration: 1.5s;
+}
+
+@keyframes fade {
+	from {
+		opacity: 0.3;
+	}
+	to {
+		opacity: 1;
+	}
+}
