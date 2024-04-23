@@ -70,12 +70,8 @@ const ProductCard = () => {
 								<Link
 									to={`/product/${product.id}`}
 									className="cursor-pointer hover:underline underline-offset-3 text-black">
-									More Details &gt;
+									Details &gt;
 								</Link>
-
-								<button className="bg-amber-800 rounded-2xl py-1 px-3 hover:bg-amber-700 text-white">
-									Add to Cart
-								</button>
 							</div>
 						</motion.div>
 					))}

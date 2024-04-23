@@ -1,6 +1,7 @@
 import { useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
 import ProductCard from "./ProductCard";
+import { Outlet } from "react-router-dom";
 const Products = () => {
 	const ref = useRef();
 	const { scrollYProgress } = useScroll({
@@ -13,7 +14,7 @@ const Products = () => {
 		<section
 			id="design"
 			ref={ref}
-			className="flex  flex-col w-full justify-start gap-5  items-center h-[80vh] ">
+			className="flex  flex-col w-full justify-start gap-5  items-center  ">
 			<motion.div
 				style={{ opacity: blobY }}
 				className="flex flex-col justify-center items-center sm:px-16 ">
@@ -27,6 +28,7 @@ const Products = () => {
 			</motion.div>
 
 			<ProductCard />
+			<Outlet />
 		</section>
 	);
 };

@@ -17,8 +17,6 @@ class Customer(models.Model):
 class Product(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     name = models.CharField(max_length=100)
-    creator = models.ForeignKey(
-        User, on_delete=models.CASCADE, related_name='product_creator', blank=True, null=True)
     description = models.TextField()
     color = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=5, decimal_places=2)

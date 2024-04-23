@@ -2,7 +2,7 @@
 import { useRef } from "react";
 import { motion, useScroll, useTransform } from "framer-motion";
 
-const StickyImage = ({ imgUrl, width }) => {
+const StickyImage = ({ imgUrl, width, height }) => {
 	const targetRef = useRef(null);
 
 	const { scrollYProgress } = useScroll({
@@ -19,7 +19,7 @@ const StickyImage = ({ imgUrl, width }) => {
 			ref={targetRef}>
 			<motion.img
 				style={{
-					height: ` calc(100vh -$(IMG_PADDING * 2}px)`,
+					height: height,
 					width: width,
 					top: 10,
 					scale,

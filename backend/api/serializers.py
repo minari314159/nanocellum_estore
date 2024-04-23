@@ -6,7 +6,7 @@ from .models import OrderItem, Product, Customer, Order, ShippingAddress
 class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'name', 'creator',
+        fields = ['id', 'name',
                   'description', 'color', 'price', 'image']
         extra_kwargs = {"creator": {"read_only": True}}
 

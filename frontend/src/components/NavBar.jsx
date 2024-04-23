@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { close, logo, menu, cart, login, logout } from "../assets";
+import { close, logo, menu, cart, login } from "../assets";
 import { navLinks } from "../index";
 import { NavLink, Link } from "react-router-dom";
 
@@ -36,13 +36,7 @@ const NavBar = () => {
 						className="w-[28px] h-[28px] object-contain"
 					/>
 				</NavLink>
-				<NavLink to="/logout">
-					<img
-						src={logout}
-						alt="Menu"
-						className="w-[28px] h-[28px] object-contain"
-					/>
-				</NavLink>
+
 				<img
 					src={toggle ? close : menu}
 					alt="Menu"
@@ -72,6 +66,9 @@ const NavBar = () => {
 								</Link>
 							</li>
 						))}
+						<NavLink to="/logout">
+							<p className="text-[15px]  mt-2 text-gray-500 p-1 ">Logout </p>
+						</NavLink>
 						<NavLink
 							to="/order"
 							className="ml-4 mt-3 px-2 py-1 rounded-lg hover:animate-pulse bg-orange-300 text-gray-700 text-[14px] ">

@@ -9,7 +9,7 @@ import {
 	ComingSoon,
 	ParallaxContent,
 } from "../components/components";
-import { herolamp, chambers, microgrowth, blob } from "../assets";
+import { herolamp, chambers, microgrowth } from "../assets";
 
 const App = () => {
 	return (
@@ -21,7 +21,8 @@ const App = () => {
 					subheading="The Next"
 					heading="Bio-Integrated Lighting"
 					textColor
-					width={450}>
+					height={700}
+					width={500}>
 					<Hero />
 				</ParallaxContent>
 				<ParallaxContent
@@ -34,6 +35,7 @@ const App = () => {
 					imgUrl={chambers}
 					subheading=" "
 					heading="The Growth Chamber"
+					height={580}
 					width={800}>
 					<Growth />
 				</ParallaxContent>
@@ -41,16 +43,16 @@ const App = () => {
 					imgUrl={microgrowth}
 					subheading=" "
 					heading="Watch it Grow"
+					height={580}
 					width={800}
 					textColor>
 					<Transition />
 				</ParallaxContent>
 				<ParallaxContent
-					imgUrl={blob}
-					subheading="Tailor cellulose to your colour preference."
-					heading="Choose Your Design."
-					width={700}>
-					<Products/>
+					imgUrl=" "
+					subheading="Tailer the cellulose to your colour preference."
+					heading="Choose Your Design.">
+					<Products />
 				</ParallaxContent>
 
 				<ComingSoon />

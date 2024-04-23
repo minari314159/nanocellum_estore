@@ -15,24 +15,22 @@ class RegisterUserView(generics.CreateAPIView):
 
 # -------------------------------Product CRUD ----------------------------------#
 
-class ProductsListCreate(generics.ListAPIView):
+class ProductsListCreate(generics.ListCreateAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [AllowAny]
 
+    def update(self, request, *args, **kwargs):
+        if not request.user.is_superuser:
+            return Response(status=status.HTTP_403_FORBIDDEN)
+        return super().update(request, *args, **kwargs)
 
-class ProductView(generics.ListAPIView):
+
+class ProductDetails(generics.RetrieveAPIView):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
     permission_classes = [AllowAny]
     lookup_field = "pk"
-
-    def perform_create(self, serializer):
-        if serializer.is_valid():
-            serializer.save(creator=self.request.user)
-        else:
-            print(serializer.errors)
-
 # -------------------------------CART CRUD ----------------------------------#
 
 
