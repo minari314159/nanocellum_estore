@@ -54,9 +54,6 @@ const NavBar = () => {
 						toggle ? "flex" : "hidden"
 					} p-6 bg-dimWhite absolute top-20 right-0 mx-4 my2 min-w-[140px] rounded-xl sidebar `}>
 					<ul className="list-none flex flex-col justify-end items-center flex-1">
-						<NavLink className="mb-3 text-gray-500" to="/products">
-							Products
-						</NavLink>
 						{navLinks.map((nav, index) => (
 							<li
 								key={nav.id}

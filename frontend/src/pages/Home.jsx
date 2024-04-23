@@ -4,12 +4,13 @@ import {
 	Detail,
 	Growth,
 	Transition,
-	Design,
+	Products,
 	Footer,
 	ComingSoon,
 	ParallaxContent,
 } from "../components/components";
-import { herolamp, chambers, microgrowth } from "../assets";
+import { herolamp, chambers, microgrowth, blob } from "../assets";
+
 const App = () => {
 	return (
 		<section className="bg-primary  w-full">
@@ -44,7 +45,14 @@ const App = () => {
 					textColor>
 					<Transition />
 				</ParallaxContent>
-				<Design />
+				<ParallaxContent
+					imgUrl={blob}
+					subheading="Tailor cellulose to your colour preference."
+					heading="Choose Your Design."
+					width={700}>
+					<Products/>
+				</ParallaxContent>
+
 				<ComingSoon />
 				<Footer />
 			</div>

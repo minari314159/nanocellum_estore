@@ -4,17 +4,23 @@ import { useEffect, useState } from "react";
 const ProductDetail = () => {
 	const [product, setProduct] = useState([]);
 
-	const fetchProduct = async () => {
-		const response = await api.get("products/pk");
-		setProduct(response.data);
+	const getProduct = () => {
+		api
+			.get(`api/products/${id}`)
+			.then((res) => res.data)
+			.then((data) => {
+				setProduct(data);
+				console.log(data);
+			})
+			.catch((err) => alert(err));
 	};
 
 	useEffect(() => {
-		fetchProduct();
+		getProduct();
 	}, []);
 
 	return (
-		<section className="w-[85%] h-screen flex flex-wrap justify-center rounded-xl outline mx-5">
+		<section className="w-full h-screen flex justify-center py-5  bg-primary">
 			ProductDetail: {product.name}
 		</section>
 	);

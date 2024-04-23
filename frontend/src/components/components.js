@@ -1,5 +1,4 @@
 import NavBar from "./NavBar";
-import Design from "./Design";
 import Detail from "./Detail";
 import Footer from "./Footer";
 import Hero from "./Hero";
@@ -14,11 +13,11 @@ import Overlay from "./Overlay";
 import StickyImage from "./StickyImage";
 import Transition from "./Transition";
 import ProductDetail from "./ProductDetail";
+import Products from "./Products";
 
 export {
 	NavBar,
 	Detail,
-	Design,
 	Footer,
 	Hero,
 	Growth,
@@ -32,4 +31,5 @@ export {
 	StickyImage,
 	Transition,
 	ProductDetail,
+	Products,
 };

@@ -9,10 +9,10 @@ import {
 } from "./assets";
 
 export const navLinks = [
-	// {
-	//   id: "product",
-	//   title: "Product",
-	// },
+	{
+		id: "product",
+		title: "Product",
+	},
 	{
 		id: "growth",
 		title: "How It's Grown",

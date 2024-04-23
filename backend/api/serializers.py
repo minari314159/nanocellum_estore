@@ -1,6 +1,6 @@
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Product, CartItem, Order
+from .models import OrderItem, Product, Customer, Order, ShippingAddress
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -11,20 +11,20 @@ class ProductSerializer(serializers.ModelSerializer):
         extra_kwargs = {"creator": {"read_only": True}}
 
 
-class CartItemSerializer(serializers.ModelSerializer):
+class OrderItemSerializer(serializers.ModelSerializer):
     product = ProductSerializer()
 
     class Meta:
-        model = CartItem
+        model = OrderItem
         fields = ['product', 'quantity']
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    items = CartItemSerializer(many=True)
+    items = OrderItemSerializer(many=True)
 
     class Meta:
         model = Order
-        fields = ['id', 'user', 'items', 'total_price', 'created_at']
+        fields = ['id', 'user', 'email', 'created_at']
 
 
 class UserSerializer(serializers.ModelSerializer):
