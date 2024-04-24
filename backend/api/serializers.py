@@ -19,11 +19,11 @@ class OrderItemSerializer(serializers.ModelSerializer):
 
 
 class OrderSerializer(serializers.ModelSerializer):
-    items = OrderItemSerializer(many=True)
 
     class Meta:
         model = Order
-        fields = ['id', 'user', 'email', 'created_at']
+        fields = ['transaction_id', 'customer',
+                  'complete', 'created_at']
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -37,3 +37,10 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
+
+
+class ShippingAddressSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = ShippingAddress
+        fields = ['customer', 'order', 'address',
+                  'state_province', 'postal_code', 'date_added']
