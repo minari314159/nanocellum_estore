@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Home, Login, NotFound, Register, Loader } from "./pages/pages";
+import { Home, Login, NotFound, Register, Loader, Order, Checkout } from "./pages/pages";
 
 import ProductDetail from "./components/ProductDetail";
 
@@ -33,6 +33,8 @@ const App = () => {
 						<Route path="/" element={<Home />}>
 							<Route path="/product/:id" element={<ProductDetail />} />
 						</Route>
+						<Route path="/order" element={<Order />} />
+						<Route path="/checkout" element={<Checkout />} />
 						<Route path="/login" element={<Login />} />
 						<Route path="/logout" element={<Logout />} />
 						<Route path="/register" element={<RegisterAndLogout />} />

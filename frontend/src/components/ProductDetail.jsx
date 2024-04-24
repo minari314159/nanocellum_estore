@@ -26,6 +26,7 @@ const ProductDetail = () => {
 	return (
 		<section className="w-[50%] flex flex-col justify-center py-5  bg-primary">
 			<h1 className="font-bold text-[2rem]">{product.name}</h1>
+			<h1 className="font-semibold italic text-[1rem]">{product.color}</h1>
 			<img src={product.image} alt={product.name} />
 			<h3>Price: {product.price}$</h3>
 			<p className="p-3">{product.description}</p>

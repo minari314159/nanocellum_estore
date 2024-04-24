@@ -14,6 +14,7 @@ import StickyImage from "./StickyImage";
 import Transition from "./Transition";
 import ProductDetail from "./ProductDetail";
 import Products from "./Products";
+import OrderItem from "./OrderItem";
 
 export {
 	NavBar,
@@ -32,4 +33,5 @@ export {
 	Transition,
 	ProductDetail,
 	Products,
+	OrderItem,
 };

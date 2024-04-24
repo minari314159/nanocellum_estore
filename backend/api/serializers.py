@@ -8,7 +8,6 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ['id', 'name',
                   'description', 'color', 'price', 'image']
-        extra_kwargs = {"creator": {"read_only": True}}
 
 
 class OrderItemSerializer(serializers.ModelSerializer):

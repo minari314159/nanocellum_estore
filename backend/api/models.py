@@ -23,7 +23,7 @@ class Product(models.Model):
     image = models.ImageField(upload_to='uploads/product/')
 
     def __str__(self):
-        return f'{self.name} : {self.creator}'
+        return f'{self.name}'
 
 
 class Order(models.Model):
