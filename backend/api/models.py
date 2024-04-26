@@ -7,11 +7,15 @@ import uuid
 class Customer(models.Model):
     user = models.OneToOneField(
         User, on_delete=models.CASCADE, null=True, blank=True, related_name='user')
-    name = models.CharField(max_length=200)
-    email = models.CharField(max_length=200)
+    first_name = models.CharField(max_length=255, null=True, blank=True)
+    last_name = models.CharField(max_length=255, null=True, blank=True)
+    email = models.EmailField(unique=True)
 
     def __str__(self):
-        return self.name
+        return f'{self.first_name} {self.last_name}'
+
+    class Meta:
+        ordering = ['first_name', 'last_name']
 
 
 class Product(models.Model):
@@ -27,37 +31,40 @@ class Product(models.Model):
 
 
 class Order(models.Model):
-    transaction_id = models.UUIDField(
-        primary_key=True, default=uuid.uuid4, editable=False)
-    customer = models.ForeignKey(
-        Customer, on_delete=models.SET_NULL, null=True, blank=True)
+    PAYMENT_STATUS_PENDING = 'P'
+    PAYMENT_STATUS_COMPLETE = 'C'
+    PAYMENT_STATUS_FAILED = 'F'
+    PAYMENT_STATUS_CHOICES = [
+        (PAYMENT_STATUS_PENDING, 'Pending'),
+        (PAYMENT_STATUS_COMPLETE, 'Complete'),
+        (PAYMENT_STATUS_FAILED, 'Failed')
+    ]
 
-    complete = models.BooleanField(default=False)
-    created_at = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'Order for {self.customer.name}'
+    placed_at = models.DateTimeField(auto_now_add=True)
+    payment_status = models.CharField(
+        max_length=1, choices=PAYMENT_STATUS_CHOICES, default=PAYMENT_STATUS_PENDING)
+    customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
 
 class OrderItem(models.Model):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    product = models.ForeignKey(Product, on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=0)
-    date_added = models.DateTimeField(auto_now_add=True)
-
-    def __str__(self):
-        return f'{self.quantity} : {self.product.name}'
+    order = models.ForeignKey(Order, on_delete=models.PROTECT)
+    product = models.ForeignKey(
+        Product, on_delete=models.PROTECT, related_name='orderitems')
+    quantity = models.PositiveSmallIntegerField()
 
 
-class ShippingAddress(models.Model):
+class Address(models.Model):
+    street = models.CharField(max_length=255)
+    city = models.CharField(max_length=255)
     customer = models.ForeignKey(
-        Customer, on_delete=models.SET_NULL, null=True, blank=True)
-    order = models.ForeignKey(Order, on_delete=models.CASCADE)
-    address = models.CharField(max_length=100)
-    state_province = models.CharField(max_length=100)
-    postal_code = models.CharField(max_length=100)
-    date_added = models.DateTimeField(auto_now_add=True)
+        Customer, on_delete=models.CASCADE)
 
-    def __str__(self):
-        return self.address
+
+class Cart(models.Model):
+    created_at = models.DateTimeField(auto_now_add=True)
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    product = models.ForeignKey(Product, on_delete=models.CASCADE)
+    quantity = models.PositiveSmallIntegerField()

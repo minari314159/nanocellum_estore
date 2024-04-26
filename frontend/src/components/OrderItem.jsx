@@ -1,8 +1,26 @@
-// eslint-disable-next-line react/prop-types
+import { useEffect, useState } from "react";
+import api from "../api";
+
 const OrderItem = () => {
+	const [orderitems, setOrder] = useState([]);
+
+	useEffect(() => {
+		const fetchOrderItems = async () => {
+			await api
+				.get(`api/orderitems/`)
+				.then((res) => res.data)
+				.then((data) => {
+					setOrder(data);
+					console.log(data);
+				})
+				.catch((err) => alert(err));
+		};
+		fetchOrderItems();
+		console.log(orderitems);
+	}, []);
 	return (
 		<>
-			{/* {order.map((item) => {
+			{/* {order.map((item) => { */}
 				<div className="flex border shadow-md rounded-lg w-[500px] gap-2 justify-between p-2">
 					<div className="flex justify-evenly gap-2">
 						<img
@@ -25,7 +43,7 @@ const OrderItem = () => {
 						</button>
 					</div>
 				</div>
-			})}*/}
+			{/* })} */}
 		</>
 	);
 };

@@ -1,29 +1,35 @@
+from decimal import Decimal
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import OrderItem, Product, Customer, Order, ShippingAddress
+from .models import OrderItem, Product, Customer, Order, Address
 
 
 class ProductSerializer(serializers.ModelSerializer):
+    price_with_tax = serializers.SerializerMethodField(
+        method_name="calculate_tax")
+
+    def calculate_tax(self, product):
+        return product.price * Decimal(1.1)
+
     class Meta:
         model = Product
         fields = ['id', 'name',
-                  'description', 'color', 'price', 'image']
+                  'description', 'color', 'price', 'image', 'price_with_tax']
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
-    product = ProductSerializer()
 
     class Meta:
         model = OrderItem
-        fields = ['product', 'quantity']
+        fields = ['product', 'order',  'quantity']
 
 
 class OrderSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Order
-        fields = ['transaction_id', 'customer',
-                  'complete', 'created_at']
+        fields = ['customer',
+                  'payment_status', 'placed_at']
 
 
 class UserSerializer(serializers.ModelSerializer):
@@ -37,10 +43,3 @@ class UserSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         user = User.objects.create_user(**validated_data)
         return user
-
-
-class ShippingAddressSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = ShippingAddress
-        fields = ['customer', 'order', 'address',
-                  'state_province', 'postal_code', 'date_added']
