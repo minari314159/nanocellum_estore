@@ -18,6 +18,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
+    quantity = serializers.IntegerField(min_value=1, read_only=False)
 
     class Meta:
         model = OrderItem

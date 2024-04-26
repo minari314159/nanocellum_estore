@@ -16,5 +16,5 @@ urlpatterns = [
     path('orders/', views.OrderListCreateView.as_view(), name='order_summary'),
     path('orderitems/', views.OrderItemCreateView.as_view(),
          name='orderitem-create'),
-  
+
 ]
