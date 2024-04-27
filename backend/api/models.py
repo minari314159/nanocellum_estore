@@ -1,3 +1,4 @@
+from os import name
 from django.db import models
 from django.contrib.auth.models import User
 import uuid
@@ -28,7 +29,15 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+class Review(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
+    description = models.TextField()
+    reviewer = models.ForeignKey(Customer, on_delete=models.CASCADE)
+    rating = models.PositiveSmallIntegerField()
+    date = models.DateTimeField(auto_now_add=True)
 
+    def __str__(self):
+        return f'{self.product} - {self.rating}'
 
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'

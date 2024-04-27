@@ -1,7 +1,7 @@
 from decimal import Decimal
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import OrderItem, Product, Customer, Order, Address
+from .models import OrderItem, Product, Review, Order, Address
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -15,6 +15,19 @@ class ProductSerializer(serializers.ModelSerializer):
         model = Product
         fields = ['id', 'name',
                   'description', 'color', 'price', 'image', 'price_with_tax']
+
+
+class ReviewSerializer(serializers.ModelSerializer):
+
+    class Meta:
+        model = Review
+        fields = ['id', 'date', 'reviewer', 'description',
+                  'rating']
+    # ensures that the product_id is passed to the serializer and therefore the view, don't forget to add the product_id to the context in the view 
+    def create(self, validated_data):
+        product_id = self.context['product_id']
+        return Review.objects.create(product_id=product_id, **validated_data)
+       
 
 
 class OrderItemSerializer(serializers.ModelSerializer):
