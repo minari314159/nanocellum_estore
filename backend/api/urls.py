@@ -1,4 +1,3 @@
-from email.mime import base
 from django.urls import path, include
 from rest_framework_nested import routers
 from . import views
@@ -6,10 +5,18 @@ from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 router = routers.DefaultRouter()
 router.register(r'products', views.ProductsViewSet, basename='products')
+router.register(r'cart', views.CartViewSet, basename='cart')
+router.register(r'cartitems', views.CartItemViewSet, basename='cartitems')
 router.urls
 
-products_router = routers.NestedDefaultRouter(router, 'products', lookup='product')
-products_router.register('reviews', views.ReviewViewSet, basename='product-reviews')
+products_router = routers.NestedDefaultRouter(
+    router, 'products', lookup='product')
+products_router.register('reviews', views.ReviewViewSet,
+                         basename='product-reviews')
+carts_router = routers.NestedDefaultRouter(
+    router, 'cart', lookup='cart')
+carts_router.register('items', views.CartItemViewSet,
+                         basename='cart-items')
 
 urlpatterns = [
     path("user/register/", views.RegisterUserView.as_view(), name="register"),
@@ -21,4 +28,4 @@ urlpatterns = [
     path('orderitems/', views.OrderItemCreateView.as_view(),
          name='orderitem-create'),
 
-] + router.urls + products_router.urls
+] + router.urls + products_router.urls + carts_router.urls

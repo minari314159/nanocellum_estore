@@ -1,7 +1,9 @@
+from dataclasses import field
 from decimal import Decimal
+from pyexpat import model
 from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import OrderItem, Product, Review, Order, Address
+from .models import OrderItem, Product, Review, Order, Cart, CartItem
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -23,11 +25,39 @@ class ReviewSerializer(serializers.ModelSerializer):
         model = Review
         fields = ['id', 'date', 'reviewer', 'description',
                   'rating']
-    # ensures that the product_id is passed to the serializer and therefore the view, don't forget to add the product_id to the context in the view 
+    # ensures that the product_id is passed to the serializer and therefore the view, don't forget to add the product_id to the context in the view
+
     def create(self, validated_data):
         product_id = self.context['product_id']
         return Review.objects.create(product_id=product_id, **validated_data)
-       
+class CartItemProductSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Product
+        fields = ['id', 'name', 'price', 'image']
+
+class CartItemSerializer(serializers.ModelSerializer):
+    product=CartItemProductSerializer()
+    total_price = serializers.SerializerMethodField()
+
+    def get_total_price(self, cart_item:CartItem):
+        return cart_item.product.price * cart_item.quantity
+    
+    class Meta:
+        model = CartItem
+        fields = ['id', 'product', 'quantity', 'total_price']
+
+
+class CartSerializer(serializers.ModelSerializer):
+    id = serializers.UUIDField(read_only=True)
+    items = CartItemSerializer(many=True, read_only=True)
+    total_price = serializers.SerializerMethodField()
+    
+    def get_total_price(self, cart):
+        return sum([item.quantity * item.product.price for item in cart.items.all()])
+
+    class Meta:
+        model = Cart
+        fields = ['id', 'items', 'total_price']
 
 
 class OrderItemSerializer(serializers.ModelSerializer):

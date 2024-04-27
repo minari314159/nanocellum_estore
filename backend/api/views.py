@@ -2,13 +2,14 @@
 from django.contrib.auth.models import User
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import ListCreateAPIView, CreateAPIView
-from rest_framework.viewsets import ModelViewSet
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
+from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.response import Response
 from rest_framework.permissions import AllowAny
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
-from .models import OrderItem, Product, Order, Review
-from .serializers import ProductSerializer, UserSerializer, OrderItemSerializer, OrderSerializer, ReviewSerializer
+from .models import OrderItem, Product, Order, Review, Cart, CartItem
+from .serializers import ProductSerializer, UserSerializer, OrderItemSerializer, OrderSerializer, ReviewSerializer, CartSerializer
 from .filters import ProductFilter
 
 
@@ -17,6 +18,7 @@ class RegisterUserView(CreateAPIView):
     serializer_class = UserSerializer
     permission_classes = [AllowAny]
 # -------------------------------Product CRUD ----------------------------------#
+
 
 class ProductsViewSet(ModelViewSet):
     queryset = Product.objects.all()
@@ -57,6 +59,28 @@ class ReviewViewSet(ModelViewSet):
 
 # -------------------------------CART CRUD ----------------------------------#
 
+
+class CartViewSet(CreateModelMixin,
+                  RetrieveModelMixin,
+                  DestroyModelMixin,
+                  GenericViewSet):
+    # prefetch_related allows the user to see the cart items in the cart view without making additional unnecessary queries to the database
+    # 'items__product' retrieves the product associated with the cart item so dont't have separate queries for each cart item
+    queryset = Cart.objects.prefetch_related('items__product').all()
+    serializer_class = CartSerializer
+
+
+class CartItemViewSet(ModelViewSet):
+    serializer_class = CartSerializer
+    # allows the user to only see the cart items for a specific cart in the url path will allow to see cart items without other cart properties like id
+
+    def get_queryset(self):
+        return CartItem.objects\
+            .filter(cart_id=self.kwargs['cart_pk'])\
+            .select_related('product')
+
+
+# -------------------------------Order CRUD ----------------------------------#
 
 class OrderListCreateView(ListCreateAPIView):
     queryset = Order.objects.all()

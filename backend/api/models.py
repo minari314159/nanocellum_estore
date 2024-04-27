@@ -1,4 +1,4 @@
-from os import name
+import random
 from django.db import models
 from django.contrib.auth.models import User
 import uuid
@@ -29,8 +29,11 @@ class Product(models.Model):
 
     def __str__(self):
         return f'{self.name}'
+
+
 class Review(models.Model):
-    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='reviews')
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name='reviews')
     description = models.TextField()
     reviewer = models.ForeignKey(Customer, on_delete=models.CASCADE)
     rating = models.PositiveSmallIntegerField()
@@ -38,6 +41,7 @@ class Review(models.Model):
 
     def __str__(self):
         return f'{self.product} - {self.rating}'
+
 
 class Order(models.Model):
     PAYMENT_STATUS_PENDING = 'P'
@@ -70,10 +74,17 @@ class Address(models.Model):
 
 
 class Cart(models.Model):
+    id = models.BigIntegerField(
+        primary_key=True, default=random.getrandbits(63), editable=False)
     created_at = models.DateTimeField(auto_now_add=True)
 
 
 class CartItem(models.Model):
-    cart = models.ForeignKey(Cart, on_delete=models.CASCADE)
+    cart = models.ForeignKey(
+        Cart, on_delete=models.CASCADE, related_name='items')
     product = models.ForeignKey(Product, on_delete=models.CASCADE)
     quantity = models.PositiveSmallIntegerField()
+    # using a unique constraint to ensure that a product is only added once to the cart
+
+    class Meta:
+        unique_together = [['cart', 'product']]
