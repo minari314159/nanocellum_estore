@@ -16,7 +16,7 @@ carts_router = routers.NestedDefaultRouter(router, 'carts', lookup='cart')
 carts_router.register('items', views.CartItemViewSet, basename='cart-items')
 
 urlpatterns = [
-    path("user/register/", views.RegisterUserView.as_view(), name="register"),
+    # path("user/register/", views.RegisterUserView.as_view(), name="register"),
     path("users/token/", TokenObtainPairView.as_view(), name="get_token"),
     path("users/token/refresh/", TokenRefreshView.as_view(), name="refresh_token"),
     path("api-auth/", include("rest_framework.urls")),

@@ -1,22 +1,17 @@
 
-from django.contrib.auth.models import User
+
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.generics import ListCreateAPIView, CreateAPIView
+from rest_framework.generics import ListCreateAPIView
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.response import Response
-from rest_framework.permissions import AllowAny
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
 from .models import OrderItem, Product, Order, Review, Cart, CartItem
-from .serializers import ProductSerializer, UserSerializer, OrderItemSerializer, OrderSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddToCartSerializer, UpdateCartItemSerializer
+from .serializers import ProductSerializer,OrderItemSerializer, OrderSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddToCartSerializer, UpdateCartItemSerializer
 from .filters import ProductFilter
 
 
-class RegisterUserView(CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [AllowAny]
 # -------------------------------Product CRUD ----------------------------------#
 
 
@@ -73,6 +68,7 @@ class CartViewSet(CreateModelMixin,
 class CartItemViewSet(ModelViewSet):
     http_method_names = ['get', 'post', 'patch', 'delete']
     # override serializer class to create dynamic use of serializer class based on the request method
+
     def get_serializer_class(self):
         if self.request.method == 'POST':
             return AddToCartSerializer

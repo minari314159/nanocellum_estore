@@ -1,6 +1,6 @@
-from dataclasses import field
+
 from decimal import Decimal
-from pyexpat import model
+
 from django.contrib.auth.models import User
 from rest_framework import serializers
 from .models import OrderItem, Product, Review, Order, Cart, CartItem
@@ -125,14 +125,3 @@ class OrderSerializer(serializers.ModelSerializer):
                   'payment_status', 'placed_at']
 
 
-class UserSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = User
-        fields = ["id", "username", "email", "password"]
-        # ensures password not returned/viewed
-        extra_kwargs = {"password": {"write_only": True}}
-# implements a emthod to create a new version fo the user
-
-    def create(self, validated_data):
-        user = User.objects.create_user(**validated_data)
-        return user
