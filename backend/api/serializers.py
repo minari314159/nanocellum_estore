@@ -30,28 +30,77 @@ class ReviewSerializer(serializers.ModelSerializer):
     def create(self, validated_data):
         product_id = self.context['product_id']
         return Review.objects.create(product_id=product_id, **validated_data)
+
+
 class CartItemProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'name', 'price', 'image']
 
+
 class CartItemSerializer(serializers.ModelSerializer):
-    product=CartItemProductSerializer()
+    product = CartItemProductSerializer()
     total_price = serializers.SerializerMethodField()
 
-    def get_total_price(self, cart_item:CartItem):
+    def get_total_price(self, cart_item: CartItem):
         return cart_item.product.price * cart_item.quantity
-    
+
     class Meta:
         model = CartItem
         fields = ['id', 'product', 'quantity', 'total_price']
 
+# Add to cart serializer
+
+
+class AddToCartSerializer(serializers.Serializer):
+    product_id = serializers.UUIDField()
+    quantity = serializers.IntegerField(min_value=1)
+
+    def validate_product_id(self, value):
+        if not Product.objects.filter(pk=value).exists():
+            raise serializers.ValidationError(
+                'No product with the given ID was found.')
+        return value
+
+    def save(self, **kwargs):
+        cart_id = self.context['cart_id']
+        product_id = self.validated_data['product_id']
+        quantity = self.validated_data['quantity']
+
+        if quantity is None:
+            raise serializers.ValidationError(
+                {"quantity": "This field is required."})
+        try:
+            # updating an existing cart item
+            # self.instance is used to return the created instance and follow the same pattern as the ModelSerializer
+            cart_item = CartItem.objects.get(
+                cart_id=cart_id, product_id=product_id)
+            cart_item.quantity += quantity
+            cart_item.save()
+            self.instance = cart_item
+
+        except CartItem.DoesNotExist:
+            # creating a new cart item
+            # self.instance is used to return the created instance and follow the same pattern as the ModelSerializer
+            self.instance = CartItem.objects.create(
+                cart_id=cart_id, **self.validated_data)
+
+        return self.instance
+
+    class Meta:
+        model = CartItem
+        fields = ['id', 'product_id', 'quantity']
+
+class UpdateCartItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CartItem
+        fields = ['quantity']
 
 class CartSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(read_only=True)
     items = CartItemSerializer(many=True, read_only=True)
     total_price = serializers.SerializerMethodField()
-    
+
     def get_total_price(self, cart):
         return sum([item.quantity * item.product.price for item in cart.items.all()])
 

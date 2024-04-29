@@ -9,7 +9,7 @@ from rest_framework.permissions import AllowAny
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
 from .models import OrderItem, Product, Order, Review, Cart, CartItem
-from .serializers import ProductSerializer, UserSerializer, OrderItemSerializer, OrderSerializer, ReviewSerializer, CartSerializer
+from .serializers import ProductSerializer, UserSerializer, OrderItemSerializer, OrderSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddToCartSerializer, UpdateCartItemSerializer
 from .filters import ProductFilter
 
 
@@ -71,7 +71,19 @@ class CartViewSet(CreateModelMixin,
 
 
 class CartItemViewSet(ModelViewSet):
-    serializer_class = CartSerializer
+    http_method_names = ['get', 'post', 'patch', 'delete']
+    # override serializer class to create dynamic use of serializer class based on the request method
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return AddToCartSerializer
+        elif self.request.method == 'PATCH':
+            return UpdateCartItemSerializer
+        return CartItemSerializer
+
+    # provides the cart_id to the serializer to automatically associate the cart item with the cart
+    def get_serializer_context(self):
+        return {'cart_id': self.kwargs['cart_pk']}
+
     # allows the user to only see the cart items for a specific cart in the url path will allow to see cart items without other cart properties like id
 
     def get_queryset(self):
@@ -85,16 +97,16 @@ class CartItemViewSet(ModelViewSet):
 class OrderListCreateView(ListCreateAPIView):
     queryset = Order.objects.all()
     serializer_class = OrderSerializer
-    # permission_classes = [IsAuthenticated]
+#     # permission_classes = [IsAuthenticated]
 
-    # def get_queryset(self):
-    #     return Order.objects.filter(customer__user=self.request.user)
+#     # def get_queryset(self):
+#     #     return Order.objects.filter(customer__user=self.request.user)
 
-    # def perform_create(self, serializer):
-    #     serializer.save(customer=self.request.user.customer)
+#     # def perform_create(self, serializer):
+#     #     serializer.save(customer=self.request.user.customer)
 
 
 class OrderItemCreateView(ListCreateAPIView):
     queryset = OrderItem.objects.all()
     serializer_class = OrderItemSerializer
-    # permission_classes = [IsAuthenticated]
+#     # permission_classes = [IsAuthenticated]
