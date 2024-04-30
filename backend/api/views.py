@@ -1,5 +1,6 @@
 
 
+from calendar import c
 from django_filters.rest_framework import DjangoFilterBackend
 from rest_framework.generics import ListCreateAPIView
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
@@ -11,7 +12,7 @@ from rest_framework.pagination import PageNumberPagination
 from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
 from .permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermission
 from .models import OrderItem, Product, Order, Review, Cart, CartItem, Customer
-from .serializers import ProductSerializer, OrderItemSerializer, OrderSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddToCartSerializer, UpdateCartItemSerializer, CustomerSerializer
+from .serializers import ProductSerializer, OrderSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddToCartSerializer, UpdateCartItemSerializer, CustomerSerializer
 from .filters import ProductFilter
 
 
@@ -92,8 +93,6 @@ class CartItemViewSet(ModelViewSet):
             .select_related('product')
 
 # -----------------------------Customer CRUD ----------------------------------#
-
-
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
@@ -122,19 +121,15 @@ class CustomerViewSet(ModelViewSet):
 # -------------------------------Order CRUD ----------------------------------#
 
 
-class OrderListCreateView(ListCreateAPIView):
-    queryset = Order.objects.all()
+class OrderViewSet(ModelViewSet):
     serializer_class = OrderSerializer
-#     # permission_classes = [IsAuthenticated]
-
-#     # def get_queryset(self):
-#     #     return Order.objects.filter(customer__user=self.request.user)
-
-#     # def perform_create(self, serializer):
-#     #     serializer.save(customer=self.request.user.customer)
-
-
-class OrderItemCreateView(ListCreateAPIView):
-    queryset = OrderItem.objects.all()
-    serializer_class = OrderItemSerializer
-#     # permission_classes = [IsAuthenticated]
+    permission_classes = [IsAuthenticated]
+    ordering_fields = ['placed_at']
+ 
+    def get_queryset(self):
+        user = self.request.user
+        if user.is_staff:
+            return Order.objects.all()
+        
+        customer_id = Customer.objects.only('id').get_or_create(user_id=user.id)
+        return Order.objects.filter(customer_id=customer_id)

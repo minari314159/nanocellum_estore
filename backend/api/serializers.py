@@ -1,9 +1,7 @@
 
 from decimal import Decimal
-
-from django.contrib.auth.models import User
 from rest_framework import serializers
-from .models import Customer, OrderItem, Product, Review, Order, Cart, CartItem
+from .models import Customer,  Product, Review, Order,OrderItem, Cart, CartItem
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -91,10 +89,12 @@ class AddToCartSerializer(serializers.Serializer):
         model = CartItem
         fields = ['id', 'product_id', 'quantity']
 
+
 class UpdateCartItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = CartItem
         fields = ['quantity']
+
 
 class CartSerializer(serializers.ModelSerializer):
     id = serializers.UUIDField(read_only=True)
@@ -108,27 +108,24 @@ class CartSerializer(serializers.ModelSerializer):
         model = Cart
         fields = ['id', 'items', 'total_price']
 
+
 class CustomerSerializer(serializers.ModelSerializer):
     user_id = serializers.IntegerField(read_only=True)
+
     class Meta:
         model = Customer
         fields = ['id', 'user_id', 'birth_date', 'membership']
 
-
-
+#Not including order in fields becuase will be used in the OrderSerializer
 class OrderItemSerializer(serializers.ModelSerializer):
-    quantity = serializers.IntegerField(min_value=1, read_only=False)
-
+    product = CartItemProductSerializer
     class Meta:
         model = OrderItem
-        fields = ['product', 'order',  'quantity']
-
+        fields = ['id','product', 'quantity', 'price']
 
 class OrderSerializer(serializers.ModelSerializer):
-
+    items = OrderItemSerializer(many=True)
     class Meta:
         model = Order
-        fields = ['customer',
+        fields = ['id', 'customer','items',
                   'payment_status', 'placed_at']
-
-
