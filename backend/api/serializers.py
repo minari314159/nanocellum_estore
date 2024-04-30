@@ -1,7 +1,8 @@
 
 from decimal import Decimal
+from django.db import transaction
 from rest_framework import serializers
-from .models import Customer,  Product, Review, Order,OrderItem, Cart, CartItem
+from .models import Customer,  Product, Review, Order, OrderItem, Cart, CartItem
 
 
 class ProductSerializer(serializers.ModelSerializer):
@@ -116,16 +117,66 @@ class CustomerSerializer(serializers.ModelSerializer):
         model = Customer
         fields = ['id', 'user_id', 'birth_date', 'membership']
 
-#Not including order in fields becuase will be used in the OrderSerializer
+# Not including order in fields becuase will be used in the OrderSerializer
+
+
 class OrderItemSerializer(serializers.ModelSerializer):
     product = CartItemProductSerializer
+
     class Meta:
         model = OrderItem
-        fields = ['id','product', 'quantity', 'price']
+        fields = ['id', 'product', 'quantity', 'price']
+
 
 class OrderSerializer(serializers.ModelSerializer):
     items = OrderItemSerializer(many=True)
+
     class Meta:
         model = Order
-        fields = ['id', 'customer','items',
+        fields = ['id', 'customer', 'items',
                   'payment_status', 'placed_at']
+
+
+class UpdateOrderSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Order
+        fields = ['payment_status']
+
+class CreateOrderSerializer(serializers.Serializer):
+    cart_id = serializers.UUIDField()
+
+    # override the save method to create the order and associate it with the customer
+    def save(self, **kwargs):
+        with transaction.atomic():
+            cart_id = self.validated_data['cart_id']
+
+            def validate_cart_id(self, cart_id):
+                if not Cart.objects.filter(pk=cart_id).exists():
+                    raise serializers.ValidationError(
+                        'No cart with the given ID was found.')
+                if CartItem.objects.filter(cart_id=cart_id).count() == 0:
+                    raise serializers.ValidationError('The cart is empty.')
+                return cart_id
+            
+            # get or create the customer
+            (customer, created) = Customer.objects.get_or_create(
+                user_id=self.context['user_id'])
+            order = Order.objects.create(customer=customer)
+
+            cart_items = CartItem.objects.select_related(
+                'product').filter(cart_id=cart_id)
+            # get the cart items and create order items list
+            order_items = [
+                OrderItem(
+                    order=order,
+                    product=item.product,
+                    price=item.product.price,
+                    quantity=item.quantity
+                ) for item in cart_items]
+            # bulk create the order items
+            OrderItem.objects.bulk_create(order_items)
+
+            # delete the cart items
+            Cart.objects.filter(pk=cart_id).delete()
+
+            return order

@@ -1,24 +1,19 @@
-
-
-from calendar import c
 from django_filters.rest_framework import DjangoFilterBackend
-from rest_framework.generics import ListCreateAPIView
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
 from rest_framework.decorators import action
 from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.response import Response
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from rest_framework.permissions import IsAuthenticated,IsAdminUser
 from .permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermission
-from .models import OrderItem, Product, Order, Review, Cart, CartItem, Customer
-from .serializers import ProductSerializer, OrderSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddToCartSerializer, UpdateCartItemSerializer, CustomerSerializer
+from .models import *
+from .serializers import *
 from .filters import ProductFilter
 
 
+
 # -------------------------------Product CRUD ----------------------------------#
-
-
 class ProductsViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
@@ -93,6 +88,8 @@ class CartItemViewSet(ModelViewSet):
             .select_related('product')
 
 # -----------------------------Customer CRUD ----------------------------------#
+
+
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
@@ -115,21 +112,44 @@ class CustomerViewSet(ModelViewSet):
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data)
-        
-    
+
 
 # -------------------------------Order CRUD ----------------------------------#
 
 
 class OrderViewSet(ModelViewSet):
-    serializer_class = OrderSerializer
-    permission_classes = [IsAuthenticated]
     ordering_fields = ['placed_at']
- 
+    http_method_names = ['get', 'post', 'patch', 'delete', 'head', 'options']
+
+    def get_permissions(self):
+        if self.request.method in ['PATCH', 'DELETE']:
+            return [IsAdminUser()]
+        return [IsAuthenticated()]
+    
+    def create(self, request, *args, **kwargs):
+        serializer = CreateOrderSerializer(data=request.data, context={
+                                           'user_id': self.request.user.id})
+        serializer.is_valid(raise_exception=True)
+        order = serializer.save()
+        serializer = OrderSerializer(order)
+        return Response(serializer.data)
+
+    # create dynamic use of serializer class based on the request method
+    def get_serializer_class(self):
+        if self.request.method == 'POST':
+            return CreateOrderSerializer
+        elif self.request.method == 'PATCH':
+            return UpdateOrderSerializer
+        return OrderSerializer
+
+    # allows the user to only see the orders associated with the user in the url path
     def get_queryset(self):
         user = self.request.user
         if user.is_staff:
             return Order.objects.all()
-        
-        customer_id = Customer.objects.only('id').get_or_create(user_id=user.id)
+
+        customer_id = Customer.objects.only(
+            'id').get_or_create(user_id=user.id)
         return Order.objects.filter(customer_id=customer_id)
+
+
