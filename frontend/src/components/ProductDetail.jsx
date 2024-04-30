@@ -13,7 +13,6 @@ const ProductDetail = () => {
 				.then((res) => res.data)
 				.then((data) => {
 					setProduct(data);
-					console.log(data);
 				})
 				.catch((err) => alert(err));
 		};
@@ -32,7 +31,9 @@ const ProductDetail = () => {
 				<b>Price:</b> {product.price_with_tax}$
 			</h3>
 			<p className="p-3">{product.description}</p>
-			<button className="bg-amber-800 rounded-2xl py-2 px-2 hover:bg-amber-700 text-white">
+			<button
+				onClick={null}
+				className="bg-amber-800 rounded-2xl py-2 px-2 hover:bg-amber-700 text-white">
 				Add to Cart
 			</button>
 		</section>

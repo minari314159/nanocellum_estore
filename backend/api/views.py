@@ -8,8 +8,8 @@ from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.response import Response
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated, AllowAny, DjangoModelPermissions
-from .permissions import IsAdminOrReadOnly
+from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from .permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermission
 from .models import OrderItem, Product, Order, Review, Cart, CartItem, Customer
 from .serializers import ProductSerializer, OrderItemSerializer, OrderSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddToCartSerializer, UpdateCartItemSerializer, CustomerSerializer
 from .filters import ProductFilter
@@ -43,6 +43,8 @@ class ProductsViewSet(ModelViewSet):
         return super().destroy(request, *args, **kwargs)
 
  # -------------------------------Review CRUD ----------------------------------#
+
+
 class ReviewViewSet(ModelViewSet):
     serializer_class = ReviewSerializer
     # allows the user to only see the reviews for a specific product in the url path
@@ -95,15 +97,14 @@ class CartItemViewSet(ModelViewSet):
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    permission_classes = [DjangoModelPermissions]
+    permission_classes = [IsAdminUser]
 
-    def get_permissions(self):
-        if self.request.method == 'GET':
-            return [AllowAny()]
-        return [IsAuthenticated()]
+    @action(detail=True, permission_classes=[ViewCustomerHistoryPermission])
+    def history(self, request, pk):
+        return Response({'message': 'History endpoint reached'})
 # allows the user to only see the customer associated with the user in the url path
 
-    @action(detail=False, methods=['GET', 'PUT'],permission_classes=[IsAuthenticated])
+    @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated])
     def me(self, request):
         (customer, created) = Customer.objects.get_or_create(
             user_id=request.user.id)
@@ -115,6 +116,8 @@ class CustomerViewSet(ModelViewSet):
             serializer.is_valid(raise_exception=True)
             serializer.save()
             return Response(serializer.data)
+        
+    
 
 # -------------------------------Order CRUD ----------------------------------#
 
