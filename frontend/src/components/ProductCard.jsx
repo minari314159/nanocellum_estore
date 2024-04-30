@@ -11,8 +11,8 @@ const ProductCard = () => {
 	//passing this in changes based on the x translate value (updates it)
 	const dragX = useMotionValue(0);
 	const fetchProducts = async () => {
-		const response = await api.get("api/products/");
-		setProducts(response.data);
+		const response = await api.get("/api/products/");
+		setProducts(response.data.results);
 	};
 
 	useEffect(() => {

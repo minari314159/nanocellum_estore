@@ -8,7 +8,7 @@ const Register = () => {
       <NavBar/>
  <div className="flex flex-col justify-center items-center w-full">
     <div className="p-[6rem]"></div>
-      <Form route="/api/user/register/" method="register"/>
+      <Form route="/api/customers/" method="register"/>
     </div>
     </section>
   )

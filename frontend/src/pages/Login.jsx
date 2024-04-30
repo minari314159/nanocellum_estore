@@ -7,7 +7,7 @@ const Login = () => {
 			<NavBar />
 			<div className="flex flex-col justify-center items-center w-full">
 				<div className="p-[6rem]" />
-				<Form route="api/users/token/" method="login" />
+				<Form route="auth/jwt/create/" method="login" />
 			</div>
 		</section>
 	);

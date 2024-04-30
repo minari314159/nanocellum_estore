@@ -28,7 +28,9 @@ const ProductDetail = () => {
 			<h1 className="font-bold text-[2rem]">{product.name}</h1>
 			<h1 className="font-semibold italic text-[1rem]">{product.color}</h1>
 			<img src={product.image} alt={product.name} />
-			<h3><b>Price:</b> {product.price}$</h3>
+			<h3>
+				<b>Price:</b> {product.price_with_tax}$
+			</h3>
 			<p className="p-3">{product.description}</p>
 			<button className="bg-amber-800 rounded-2xl py-2 px-2 hover:bg-amber-700 text-white">
 				Add to Cart

@@ -8,7 +8,7 @@ from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.response import Response
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated, AllowAny, IsAdminUser
+from rest_framework.permissions import IsAuthenticated, AllowAny, DjangoModelPermissions
 from .permissions import IsAdminOrReadOnly
 from .models import OrderItem, Product, Order, Review, Cart, CartItem, Customer
 from .serializers import ProductSerializer, OrderItemSerializer, OrderSerializer, ReviewSerializer, CartSerializer, CartItemSerializer, AddToCartSerializer, UpdateCartItemSerializer, CustomerSerializer
@@ -43,8 +43,6 @@ class ProductsViewSet(ModelViewSet):
         return super().destroy(request, *args, **kwargs)
 
  # -------------------------------Review CRUD ----------------------------------#
-
-
 class ReviewViewSet(ModelViewSet):
     serializer_class = ReviewSerializer
     # allows the user to only see the reviews for a specific product in the url path
@@ -97,7 +95,7 @@ class CartItemViewSet(ModelViewSet):
 class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    permission_classes = [IsAdminUser]
+    permission_classes = [DjangoModelPermissions]
 
     def get_permissions(self):
         if self.request.method == 'GET':
