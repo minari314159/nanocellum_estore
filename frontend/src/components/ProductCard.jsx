@@ -3,19 +3,23 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { motion, useMotionValue } from "framer-motion";
 
+
 const ProductCard = () => {
 	const [products, setProducts] = useState([]);
+
 	const DRAG_BUFFER = 50;
 
 	const [imgIndex, setImgIndex] = useState(0);
 	//passing this in changes based on the x translate value (updates it)
 	const dragX = useMotionValue(0);
-	const fetchProducts = async () => {
-		const response = await api.get("/api/products/");
-		setProducts(response.data.results);
-	};
-
 	useEffect(() => {
+		const fetchProducts = async () => {
+			const response = await api.get("/api/products/", {
+				headers: { "Content-Type": "multipart/form-data" },
+			});
+			setProducts(response.data.results);
+		};
+
 		fetchProducts();
 	}, []);
 
@@ -51,19 +55,19 @@ const ProductCard = () => {
 					transition={SPRING_OPTIONS}
 					onDragEnd={onDragEnd}
 					className="flex cursor-grab items-center active:cursor-grabbing">
-					{products.map((product) => (
+					{products.map((product, index) => (
 						<motion.div
-							key={product.id}
+							key={index}
 							style={{
-								backgroundImage: `url(${product.image})`,
+								backgroundImage: `url(${product.images[0].image})`,
 								backgroundSize: "cover",
-								backgroundPosition: "center",
 							}}
 							animate={{
 								scale: imgIndex === product.id ? 0.95 : 0.85,
 							}}
 							transition={SPRING_OPTIONS}
 							className="w-[48%] h-[15rem] shrink-0  flex flex-col justify-end items-center py-3 rounded-xl text-[14px] gap-1 ">
+							
 							<div className="flex flex-col items-center p-1 bg-primary rounded-xl bg-opacity-60">
 								<p className="font-bold text-black">{product.color}</p>
 
