@@ -3,6 +3,7 @@ from django.conf import settings
 from django.core.validators import MinValueValidator
 from django.db import models
 from uuid import uuid4
+from .validator import validate_file_size
 
 
 class Product(models.Model):
@@ -11,11 +12,16 @@ class Product(models.Model):
     description = models.TextField()
     color = models.CharField(max_length=100)
     price = models.DecimalField(max_digits=5, decimal_places=2)
-    image = models.ImageField(upload_to='uploads/product/')
 
     def __str__(self):
         return f'{self.name}'
+    
+    class Meta:
+        ordering = ['name']
 
+class ProductImage(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.CASCADE, related_name='images')
+    image = models.ImageField(upload_to='uploads/product/', validators=[validate_file_size])
 
 class Customer(models.Model):
     MEMBERSHIP_BRONZE = 'B'

@@ -15,7 +15,7 @@ from .filters import ProductFilter
 
 # -------------------------------Product CRUD ----------------------------------#
 class ProductsViewSet(ModelViewSet):
-    queryset = Product.objects.all()
+    queryset = Product.objects.prefetch_related('images').all()
     serializer_class = ProductSerializer
     permission_classes = [IsAdminOrReadOnly]
 # allows the user to filter the products by color by redifining the get_queryset method
@@ -37,6 +37,18 @@ class ProductsViewSet(ModelViewSet):
             return Response({'error': 'Product cannot be deleted because its associated with an orderitem pending'})
 
         return super().destroy(request, *args, **kwargs)
+    
+
+class ProductImageViewSet(ModelViewSet):
+    serializer_class = ProductImageSerializer
+    
+    # provides the product_id to the serializer to automatically associate the product image with the product
+    def get_serializer_context(self):
+        return {'product_id': self.kwargs['product_pk']}
+    
+    #where self.kwargs['product_pk'] is the product id from the url path
+    def get_queryset(self):
+        return ProductImage.objects.filter(product_id=self.kwargs['product_pk'])
 
  # -------------------------------Review CRUD ----------------------------------#
 

@@ -2,13 +2,25 @@
 from decimal import Decimal
 from django.db import transaction
 from rest_framework import serializers
-from .models import Customer,  Product, Review, Order, OrderItem, Cart, CartItem
+from .models import *
 from .signals import order_created
+
+
+class ProductImageSerializer(serializers.ModelSerializer):
+    # provides the product_id to the serializer to automatically associate the product image with the product when creating a new product image instance
+    def create(self, validated_data):
+        product_id = self.context['product_id']
+        return ProductImage.objects.create(product_id=product_id, **validated_data)
+
+    class Meta:
+        model = ProductImage
+        fields = ['id', 'image']
 
 
 class ProductSerializer(serializers.ModelSerializer):
     price_with_tax = serializers.SerializerMethodField(
         method_name="calculate_tax")
+    images = ProductImageSerializer(many=True, read_only=True )
 
     def calculate_tax(self, product):
         return product.price * Decimal(1.1)
@@ -16,7 +28,7 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'name',
-                  'description', 'color', 'price', 'image', 'price_with_tax']
+                  'description', 'color', 'price', 'price_with_tax', 'images']
 
 
 class ReviewSerializer(serializers.ModelSerializer):
@@ -143,6 +155,7 @@ class UpdateOrderSerializer(serializers.ModelSerializer):
         model = Order
         fields = ['payment_status']
 
+
 class CreateOrderSerializer(serializers.Serializer):
     cart_id = serializers.UUIDField()
 
@@ -158,7 +171,7 @@ class CreateOrderSerializer(serializers.Serializer):
                 if CartItem.objects.filter(cart_id=cart_id).count() == 0:
                     raise serializers.ValidationError('The cart is empty.')
                 return cart_id
-            
+
             # get or create the customer
             customer = Customer.objects.get(
                 user_id=self.context['user_id'])
