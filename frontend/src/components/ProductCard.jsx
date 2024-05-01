@@ -66,13 +66,14 @@ const ProductCard = () => {
 								scale: imgIndex === product.id ? 0.95 : 0.85,
 							}}
 							transition={SPRING_OPTIONS}
-							className="w-[48%] h-[15rem] shrink-0  flex flex-col justify-end items-center py-3 rounded-xl text-[14px] gap-1 ">
+							className="w-[48%] h-[15rem] shrink-0  flex flex-col justify-end items-center py-3 rounded-full text-[14px] gap-1 ">
 							
 							<div className="flex flex-col items-center p-1 bg-primary rounded-xl bg-opacity-60">
 								<p className="font-bold text-black">{product.color}</p>
 
 								<Link
 									to={`/product/${product.id}`}
+									
 									className="cursor-pointer hover:underline underline-offset-3 text-black">
 									Details &gt;
 								</Link>

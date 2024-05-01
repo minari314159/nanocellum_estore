@@ -1,10 +1,9 @@
 from django.contrib import admin
-from django.utils.html import format_html, urlencode
 from django.contrib import admin, messages
-from django.urls import reverse
+from django.utils.html import format_html
 from django.db.models.aggregates import Count
 from django.db.models.query import QuerySet
-from .models import OrderItem, Product, Customer, Order
+from .models import OrderItem, Product, Customer, Order, ProductImage
 
 
 @admin.register(Customer)
@@ -46,33 +45,43 @@ class InventoryFilter(admin.SimpleListFilter):
         if self.value() == '<10':
             return queryset.filter(inventory__lt=10)
 
+class ProductImageInline(admin.TabularInline):
+    model = ProductImage
+    readonly_fields = ['thumbnail']
+
+    def thumbnail(self, instance):
+        if instance.image.name != ' ':
+            return format_html(f'<img src="{instance.image.url}" class="thumbnail"/>')
+        return ''
+
 
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
 
     actions = ['clear_inventory']
-    list_display = ['name', 'price',
-                    'inventory_status',]
+    inlines = [ProductImageInline]
+    list_display = ['name', 'price']
     list_editable = ['price']
     list_per_page = 10
 
     search_fields = ['name']
 
-    @admin.display(ordering='inventory')
-    def inventory_status(self, product):
-        if product.inventory < 10:
-            return 'Low'
-        return 'OK'
+    # @admin.display(ordering='inventory')
+    # def inventory_status(self, product):
+    #     if product.inventory < 10:
+    #         return 'Low'
+    #     return 'OK'
 
-    @admin.action(description='Clear inventory')
-    def clear_inventory(self, request, queryset):
-        updated_count = queryset.update(inventory=0)
-        self.message_user(
-            request,
-            f'{updated_count} products were successfully updated.',
-            messages.ERROR
-        )
-
+    # @admin.action(description='Clear inventory')
+    # def clear_inventory(self, request, queryset):
+    #     updated_count = queryset.update(inventory=0)
+    #     self.message_user(
+    #         request,
+    #         f'{updated_count} products were successfully updated.',
+    #         messages.ERROR
+    #     )
+    class Media:
+        css = {'all': ['api/styles.css']}
 
 admin.site.register(Order)
 admin.site.register(OrderItem)

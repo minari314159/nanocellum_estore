@@ -1,3 +1,4 @@
+/* eslint-disable react/prop-types */
 import api from "../api";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
@@ -12,6 +13,7 @@ const ProductDetail = () => {
 				.get(`/api/products/${id}`)
 				.then((res) => res.data)
 				.then((data) => {
+					console.log(data)
 					setProduct(data);
 				})
 				.catch((err) => alert(err));
