@@ -1,4 +1,3 @@
-import re
 from django.contrib.auth.models import User
 from api.models import Product
 from rest_framework import status
@@ -46,4 +45,23 @@ class TestRetrieveProducts:
         response = api_client.get('/api/products/')
 
         assert response.status_code == status.HTTP_200_OK
-        
+
+    def test_if_no_products_exist_returns_404(self, api_client):
+        response = api_client.get('/api/products/')
+
+        assert response.status_code == status.HTTP_404_NOT_FOUND
+
+    
+@pytest.mark.django_db
+class TestDeleteProduct:
+    def test_if_product_does_not_exist_returns_404(self, api_client):
+        response = api_client.delete('/api/products/1/')
+
+        assert response.status_code == status.HTTP_404_NOT_FOUND
+
+    def test_if_product_exists_returns_204(self, api_client):
+        product = baker.make(Product)
+        response = api_client.delete(f'/api/products/{product.id}/')
+
+        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert not Product.objects.filter(id=product.id).exists()
