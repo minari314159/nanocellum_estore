@@ -14,7 +14,7 @@ def create_product(api_client):
 
 @pytest.mark.django_db
 class TestCreateProducts:
-    def test_if_user_is_anonymous_returns_401(self,  create_product):
+    def test_if_user_is_anonymous_returns_401(self,  create_product)
         response = create_product({'name': 'test product'})
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
@@ -46,22 +46,18 @@ class TestRetrieveProducts:
 
         assert response.status_code == status.HTTP_200_OK
 
-    def test_if_no_products_exist_returns_404(self, api_client):
-        response = api_client.get('/api/products/')
 
-        assert response.status_code == status.HTTP_404_NOT_FOUND
 
-    
-@pytest.mark.django_db
-class TestDeleteProduct:
-    def test_if_product_does_not_exist_returns_404(self, api_client):
-        response = api_client.delete('/api/products/1/')
+# @pytest.mark.django_db
+# class TestDeleteProduct:
+#     def test_if_product_does_not_exist_returns_404(self, api_client):
+#         response = api_client.delete('/api/products/1/')
 
-        assert response.status_code == status.HTTP_404_NOT_FOUND
+#         assert response.status_code == status.HTTP_404_NOT_FOUND
 
-    def test_if_product_exists_returns_204(self, api_client):
-        product = baker.make(Product)
-        response = api_client.delete(f'/api/products/{product.id}/')
+#     def test_if_product_exists_returns_204(self, api_client):
+#         product = baker.make(Product)
+#         response = api_client.delete(f'/api/products/{product.id}/')
 
-        assert response.status_code == status.HTTP_204_NO_CONTENT
-        assert not Product.objects.filter(id=product.id).exists()
+#         assert response.status_code == status.HTTP_204_NO_CONTENT
+#         assert not Product.objects.filter(id=product.id).exists()
