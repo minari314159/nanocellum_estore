@@ -5,12 +5,11 @@ from rest_framework.viewsets import ModelViewSet, GenericViewSet
 from rest_framework.response import Response
 from rest_framework.filters import SearchFilter, OrderingFilter
 from rest_framework.pagination import PageNumberPagination
-from rest_framework.permissions import IsAuthenticated,IsAdminUser
+from rest_framework.permissions import IsAuthenticated, IsAdminUser
 from .permissions import IsAdminOrReadOnly, ViewCustomerHistoryPermission
 from .models import *
 from .serializers import *
 from .filters import ProductFilter
-
 
 
 # -------------------------------Product CRUD ----------------------------------#
@@ -37,16 +36,16 @@ class ProductsViewSet(ModelViewSet):
             return Response({'error': 'Product cannot be deleted because its associated with an orderitem pending'})
 
         return super().destroy(request, *args, **kwargs)
-    
+
 
 class ProductImageViewSet(ModelViewSet):
     serializer_class = ProductImageSerializer
-    
+
     # provides the product_id to the serializer to automatically associate the product image with the product
     def get_serializer_context(self):
         return {'product_id': self.kwargs['product_pk']}
-    
-    #where self.kwargs['product_pk'] is the product id from the url path
+
+    # where self.kwargs['product_pk'] is the product id from the url path
     def get_queryset(self):
         return ProductImage.objects.filter(product_id=self.kwargs['product_pk'])
 
@@ -137,7 +136,7 @@ class OrderViewSet(ModelViewSet):
         if self.request.method in ['PATCH', 'DELETE']:
             return [IsAdminUser()]
         return [IsAuthenticated()]
-    
+
     def create(self, request, *args, **kwargs):
         serializer = CreateOrderSerializer(data=request.data, context={
                                            'user_id': self.request.user.id})
@@ -163,5 +162,3 @@ class OrderViewSet(ModelViewSet):
         customer_id = Customer.objects.only(
             'id').get(user_id=user.id)
         return Order.objects.filter(customer_id=customer_id)
-
-
