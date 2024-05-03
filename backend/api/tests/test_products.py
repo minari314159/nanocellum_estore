@@ -1,3 +1,4 @@
+from uuid import uuid4
 from django.contrib.auth.models import User
 from api.models import Product
 from rest_framework import status
@@ -14,7 +15,7 @@ def create_product(api_client):
 
 @pytest.mark.django_db
 class TestCreateProducts:
-    def test_if_user_is_anonymous_returns_401(self,  create_product)
+    def test_if_user_is_anonymous_returns_401(self,  create_product):
         response = create_product({'name': 'test product'})
         assert response.status_code == status.HTTP_401_UNAUTHORIZED
 
@@ -48,16 +49,20 @@ class TestRetrieveProducts:
 
 
 
-# @pytest.mark.django_db
-# class TestDeleteProduct:
-#     def test_if_product_does_not_exist_returns_404(self, api_client):
-#         response = api_client.delete('/api/products/1/')
+@pytest.mark.django_db
+class TestDeleteProduct:
+    def test_if_product_does_not_exist_returns_404(self, api_client):
+        api_client.force_authenticate(user=User(is_staff=True))
 
-#         assert response.status_code == status.HTTP_404_NOT_FOUND
+        response = api_client.delete(f'/api/products/{uuid4()}/')
 
-#     def test_if_product_exists_returns_204(self, api_client):
-#         product = baker.make(Product)
-#         response = api_client.delete(f'/api/products/{product.id}/')
+        assert response.status_code == status.HTTP_404_NOT_FOUND
 
-#         assert response.status_code == status.HTTP_204_NO_CONTENT
-#         assert not Product.objects.filter(id=product.id).exists()
+    def test_if_product_exists_returns_204(self, api_client):
+        product = baker.make(Product)
+        api_client.force_authenticate(user=User(is_staff=True))
+
+        response = api_client.delete(f'/api/products/{product.id}/')
+
+        assert response.status_code == status.HTTP_204_NO_CONTENT
+        assert not Product.objects.filter(id=product.id).exists()
