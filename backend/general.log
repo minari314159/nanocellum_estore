@@ -1,0 +1,22 @@
+2024-05-03 16:18:46,386 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 16:19:21,417 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-03 16:19:21,585 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 16:19:28,840 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-03 16:19:29,006 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 16:19:48,572 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-03 16:19:48,730 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 16:20:36,214 (WARNING) - django.request - Unauthorized: /api/products/
+2024-05-03 16:20:36,218 (WARNING) - django.request - Forbidden: /api/products/
+2024-05-03 16:20:36,220 (WARNING) - django.request - Bad Request: /api/products/
+2024-05-03 16:20:36,231 (WARNING) - django.request - Not Found: /api/products/fbf290e4-3078-4240-9f29-e84e0c38e0ab/
+2024-05-03 16:21:24,025 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings/common.py changed, reloading.
+2024-05-03 16:21:24,219 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 16:21:27,298 (WARNING) - django.request - Unauthorized: /api/products/
+2024-05-03 16:21:27,306 (WARNING) - django.request - Forbidden: /api/products/
+2024-05-03 16:21:27,313 (WARNING) - django.request - Bad Request: /api/products/
+2024-05-03 16:21:27,340 (WARNING) - django.request - Not Found: /api/products/3a372917-dd5e-45fb-90d2-ce05f9dfcf2f/
+2024-05-03 16:28:02,392 (WARNING) - django.request - Not Found: /auth/jwt/token/
+2024-05-03 16:28:22,632 (WARNING) - django.request - Method Not Allowed: /auth/jwt/create/
+2024-05-03 16:28:35,330 (WARNING) - django.request - Unauthorized: /auth/jwt/create/
+2024-05-03 16:28:49,752 (WARNING) - django.request - Unauthorized: /auth/jwt/create/
+2024-05-03 16:35:10,483 (WARNING) - django.request - Not Found: /api/products/fd54abe1-f8a1-4c3e-befd-ecb7af6f0406/image
