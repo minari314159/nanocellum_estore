@@ -18,8 +18,13 @@ import os
 load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent.parent
+BASE_DIR = Path(__file__).resolve().parent.parent
 
+# SECURITY WARNING: don't run with debug turned on in production!
+DEBUG = True
+
+# SECURITY WARNING: keep the secret key used in production secret!
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.0/howto/deployment/checklist/
@@ -71,7 +76,13 @@ MIDDLEWARE = [
 
 INTERNAL_IPS = [
     '127.0.0.1',
+    'localhost:8000'
 ]
+ALLOWED_HOSTS = ['nanocellum-prod.up.railway.app',
+                 '127.0.0.1',
+                 'localhost:8000'
+                 ]
+
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
     'http://127.0.0.1:5173',
@@ -97,6 +108,35 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = 'backend.wsgi.application'
+
+CSRF_TRUDTED_ORIGINS = ['https://nanocellum-prod.up.railway.app']
+
+SECRET_KEY = os.environ['SECRET_KEY']
+DATABASE_URL = os.environ['DATABASE_URL']
+
+if DEBUG == True:
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ['DB_DEV_NAME'],
+            'USER': os.environ['DB_DEV_USER'],
+            'PASSWORD': os.environ['DB_DEV_PASSWORD'],
+            'HOST': os.environ['DB_DEV_HOST'],
+            'PORT': os.environ['DB_DEV_PORT'],
+        }
+    }
+elif DEBUG == False:
+    DATABASE_URL = os.environ['DATABASE_URL']
+    DATABASES = {
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ['DB_NAME'],
+            'USER': os.environ['DB_USER'],
+            'PASSWORD': os.environ['DB_PASSWORD'],
+            'HOST': os.environ['DB_HOST'],
+            'PORT': os.environ['DB_PORT'],
+        }
+    }
 
 CACHES = {
     "default": {

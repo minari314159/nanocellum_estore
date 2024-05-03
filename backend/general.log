@@ -20,3 +20,59 @@
 2024-05-03 16:28:35,330 (WARNING) - django.request - Unauthorized: /auth/jwt/create/
 2024-05-03 16:28:49,752 (WARNING) - django.request - Unauthorized: /auth/jwt/create/
 2024-05-03 16:35:10,483 (WARNING) - django.request - Not Found: /api/products/fd54abe1-f8a1-4c3e-befd-ecb7af6f0406/image
+2024-05-03 17:40:06,766 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 18:24:57,505 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 18:48:12,895 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 18:52:57,740 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 18:53:00,235 (WARNING) - django.request - Not Found: /favicon.ico
+2024-05-03 19:01:09,293 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:01:09,471 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:01:10,660 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:01:10,859 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:01:13,055 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:01:13,236 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:02:52,493 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:02:52,689 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:03:02,058 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:03:02,265 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:03:05,505 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:03:05,664 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:03:07,858 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:03:08,025 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:03:10,218 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:03:10,390 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:03:43,314 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:03:43,515 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:03:46,723 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:07:59,677 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:08:38,661 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:09:10,632 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:10:47,035 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:11:52,210 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:11:52,394 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:12:00,762 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:12:00,936 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:12:02,098 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:12:02,265 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:12:05,465 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:12:05,638 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:12:06,814 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:12:06,982 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:12:10,212 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:12:10,386 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:13:15,509 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:13:15,781 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:13:28,244 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:13:28,431 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:13:29,607 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:13:29,796 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:21:06,555 (WARNING) - django.request - Not Found: /static/core/styles.css/
+2024-05-03 19:21:06,559 (WARNING) - django.request - Not Found: /static/core/logo.png/
+2024-05-03 19:21:08,728 (WARNING) - django.request - Not Found: /static/core/styles.css/
+2024-05-03 19:21:08,735 (WARNING) - django.request - Not Found: /static/core/logo.png/
+2024-05-03 19:22:32,104 (WARNING) - django.request - Not Found: /static/core/styles.css/
+2024-05-03 19:22:32,107 (WARNING) - django.request - Not Found: /static/core/logo.png/
+2024-05-03 19:22:44,591 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:26:11,255 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-03 19:26:11,541 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:30:11,238 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
