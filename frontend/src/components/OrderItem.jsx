@@ -2,25 +2,25 @@ import { useEffect, useState } from "react";
 import api from "../api";
 
 const OrderItem = () => {
-	const [orderitems, setOrder] = useState([]);
+	const [cartitem, setCart] = useState([]);
 
 	useEffect(() => {
 		const fetchOrderItems = async () => {
 			await api
-				.get(`api/orderitems/`)
+				.get(`/api/cart/items/`)
 				.then((res) => res.data)
 				.then((data) => {
-					setOrder(data);
+					setCart(data);
 					console.log(data);
 				})
 				.catch((err) => alert(err));
 		};
 		fetchOrderItems();
-		console.log(orderitems);
+		console.log(cartitem);
 	}, []);
 	return (
 		<>
-			{/* {order.map((item) => { */}
+			{/* {cart.map((item) => { */}
 				<div className="flex border shadow-md rounded-lg w-[500px] gap-2 justify-between p-2">
 					<div className="flex justify-evenly gap-2">
 						<img

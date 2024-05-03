@@ -76,3 +76,18 @@
 2024-05-03 19:26:11,255 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
 2024-05-03 19:26:11,541 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
 2024-05-03 19:30:11,238 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 19:48:27,393 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-03 20:06:24,938 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:06:24,944 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:06:24,946 (WARNING) - django.request - Not Found: /api/orderitems/
+2024-05-03 20:06:24,954 (WARNING) - django.request - Not Found: /api/orderitems/
+2024-05-03 20:13:58,591 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:14:06,655 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:14:06,657 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:14:06,658 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:14:06,659 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:14:23,068 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:14:23,069 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:14:23,071 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:14:23,073 (WARNING) - django.request - Unauthorized: /api/orders/
+2024-05-03 20:21:06,747 (WARNING) - django.request - Method Not Allowed: /api/carts/

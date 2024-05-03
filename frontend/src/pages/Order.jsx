@@ -9,7 +9,7 @@ const Order = () => {
 	useEffect(() => {
 		const fetchOrderItems = async () => {
 			await api
-				.get(`api/orders/`)
+				.get(`api/carts/`)
 				.then((res) => res.data)
 				.then((data) => {
 					setOrder(data);
@@ -44,8 +44,8 @@ const Order = () => {
 					</Link>
 				</div>
 				<div className=" flex flex-col items-start">
-					{order.length === 0 && <h2>No items in your order</h2>}
-					<p>{order.transaction_id}</p>
+					{/* {order.length === 0 && <h2>No items in your order</h2>}
+					<p>{order.transaction_id}</p> */}
 					<OrderItem />
 				</div>
 			</div>

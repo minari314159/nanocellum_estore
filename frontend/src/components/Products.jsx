@@ -28,7 +28,9 @@ const Products = () => {
 			</motion.div>
 
 			<ProductCard />
-			<Outlet />
+			<div className="flex flex-col items-center m-2 h-[500px]">
+				<Outlet />
+			</div>
 		</section>
 	);
 };
