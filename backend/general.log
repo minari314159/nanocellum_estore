@@ -91,3 +91,5 @@
 2024-05-03 20:14:23,071 (WARNING) - django.request - Unauthorized: /api/orders/
 2024-05-03 20:14:23,073 (WARNING) - django.request - Unauthorized: /api/orders/
 2024-05-03 20:21:06,747 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-05 23:56:11,573 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-05 23:56:13,745 (WARNING) - django.request - Not Found: /favicon.ico
