@@ -4,21 +4,28 @@ import { useEffect, useState } from "react";
 import api from "../api";
 
 const Order = () => {
-	const [order, setOrder] = useState({});
+	const [items, setItems] = useState({});
+
+	const fetchOrderItems = async () => {
+		const cart_id = localStorage.getItem("cart_id"); // Fetch cart_id from local storage
+		if (!cart_id) {
+			// Handle case where cart_id is not found
+			console.error("No cart_id found");
+			return;
+		}
+		await api
+			.get(`api/carts/${cart_id}`)
+			.then((res) => res.data)
+			.then((data) => {
+				setItems(data.items);
+				console.log(data);
+			})
+			.catch((err) => alert(err));
+	};
 
 	useEffect(() => {
-		const fetchOrderItems = async () => {
-			await api
-				.get(`api/carts/`)
-				.then((res) => res.data)
-				.then((data) => {
-					setOrder(data);
-					console.log(data);
-				})
-				.catch((err) => alert(err));
-		};
 		fetchOrderItems();
-		console.log(order);
+		console.log(items);
 	}, []);
 
 	return (

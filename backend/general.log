@@ -93,3 +93,29 @@
 2024-05-03 20:21:06,747 (WARNING) - django.request - Method Not Allowed: /api/carts/
 2024-05-05 23:56:11,573 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
 2024-05-05 23:56:13,745 (WARNING) - django.request - Not Found: /favicon.ico
+2024-05-06 19:12:56,880 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-06 19:16:56,391 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-06 19:16:59,620 (WARNING) - django.request - Not Found: /favicon.ico
+2024-05-06 19:18:54,323 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-06 19:18:54,328 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-06 19:18:54,331 (WARNING) - django.request - Not Found: /api/cart/items/
+2024-05-06 19:18:54,339 (WARNING) - django.request - Not Found: /api/cart/items/
+2024-05-06 19:40:40,189 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-06 19:47:28,320 (WARNING) - django.request - Not Found: /api/cart/items/
+2024-05-06 19:47:28,332 (WARNING) - django.request - Not Found: /api/cart/items/
+2024-05-06 19:50:09,958 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-06 19:52:39,605 (ERROR) - django.request - Internal Server Error: /api/carts/[object Promise]/items/fd54abe1-f8a1-4c3e-befd-ecb7af6f0406
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/deprecation.py", line 136, in __call__
+    response = self.process_response(request, response)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/middleware/common.py", line 108, in process_response
+    return self.response_redirect_class(self.get_full_path_with_slash(request))
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/middleware/common.py", line 87, in get_full_path_with_slash
+    raise RuntimeError(
+RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/carts/%5Bobject%20Promise%5D/items/fd54abe1-f8a1-4c3e-befd-ecb7af6f0406/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
+2024-05-06 20:04:14,520 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
