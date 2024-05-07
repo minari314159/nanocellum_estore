@@ -1,7 +1,8 @@
 import { useState } from "react";
-import { close, logo, menu, cart, login } from "../assets";
+import { close, logo, menu, login } from "../assets";
 import { navLinks } from "../index";
 import { NavLink, Link } from "react-router-dom";
+import CartWidget from "./CartWidget";
 
 const NavBar = () => {
 	const [toggle, setToggle] = useState(false);
@@ -10,7 +11,7 @@ const NavBar = () => {
 	const handleClick = () => {
 		setToggle((prev) => !prev);
 	};
-
+	const productsCount = 1
 	return (
 		<nav className="flex items-center m-0 py-8 px-8 top-0 z-20  justify-between sm:px-13 bg-transparent">
 			<NavLink to="/" className="rounded-lg hover:animate-pulse">
@@ -23,11 +24,7 @@ const NavBar = () => {
 
 			<div className=" flex flex-1 justify-end items-center gap-2">
 				<NavLink to="/order">
-					<img
-						src={cart}
-						alt="Menu"
-						className="w-[28px] h-[28px] object-contain"
-					/>
+					<CartWidget productsCount={productsCount} />
 				</NavLink>
 				<NavLink to="/login">
 					<img
@@ -68,11 +65,6 @@ const NavBar = () => {
 						))}
 						<NavLink to="/logout">
 							<p className="text-[15px]  mt-2 text-gray-500 p-1 ">Logout </p>
-						</NavLink>
-						<NavLink
-							to="/order"
-							className="ml-4 mt-3 px-2 py-1 rounded-lg hover:animate-pulse bg-orange-300 text-gray-700 text-[14px] ">
-							Pre-Order Now
 						</NavLink>
 					</ul>
 				</div>

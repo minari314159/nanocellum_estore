@@ -15,6 +15,7 @@ import Transition from "./Transition";
 import ProductDetail from "./ProductDetail";
 import Products from "./Products";
 import OrderItem from "./OrderItem";
+import CartWidget from "./CartWidget";
 
 export {
 	NavBar,
@@ -34,4 +35,5 @@ export {
 	ProductDetail,
 	Products,
 	OrderItem,
+	CartWidget,
 };

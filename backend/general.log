@@ -119,3 +119,6 @@ Traceback (most recent call last):
     raise RuntimeError(
 RuntimeError: You called this URL via POST, but the URL doesn't end in a slash and you have APPEND_SLASH set. Django can't redirect to the slash URL while maintaining POST data. Change your form to point to 127.0.0.1:8000/api/carts/%5Bobject%20Promise%5D/items/fd54abe1-f8a1-4c3e-befd-ecb7af6f0406/ (note the trailing slash), or set APPEND_SLASH=False in your Django settings.
 2024-05-06 20:04:14,520 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 14:11:50,551 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 14:14:28,125 (WARNING) - django.request - Not Found: /api/cart/items/
+2024-05-07 14:14:28,133 (WARNING) - django.request - Not Found: /api/cart/items/

@@ -1,33 +1,7 @@
 import { Footer, NavBar, OrderItem } from "../components/components";
 import { Link } from "react-router-dom";
-import { useEffect, useState } from "react";
-import api from "../api";
 
 const Order = () => {
-	const [items, setItems] = useState({});
-
-	const fetchOrderItems = async () => {
-		const cart_id = localStorage.getItem("cart_id"); // Fetch cart_id from local storage
-		if (!cart_id) {
-			// Handle case where cart_id is not found
-			console.error("No cart_id found");
-			return;
-		}
-		await api
-			.get(`api/carts/${cart_id}`)
-			.then((res) => res.data)
-			.then((data) => {
-				setItems(data.items);
-				console.log(data);
-			})
-			.catch((err) => alert(err));
-	};
-
-	useEffect(() => {
-		fetchOrderItems();
-		console.log(items);
-	}, []);
-
 	return (
 		<section className="bg-primary">
 			<NavBar />
@@ -37,8 +11,12 @@ const Order = () => {
 				{" "}
 				&larr; Continue Shopping
 			</Link>
+
 			<div className="h-[50rem] p-4 w-full flex flex-col items-center gap-3">
 				<h2 className="font-bold text-[25px]">Your Order</h2>
+				<div className=" flex flex-col items-start">
+					<OrderItem price={22} name="Hanging Lamp" quantity={2} />
+				</div>
 				<div className="flex justify-between w-[500px]">
 					<div>
 						<h2 className="font-bold text-[16px]">Items: 2</h2>
@@ -49,11 +27,6 @@ const Order = () => {
 						className="bg-orange-300 hover:scale-[102%] text-black rounded-lg p-2 m-2">
 						Checkout
 					</Link>
-				</div>
-				<div className=" flex flex-col items-start">
-					{/* {order.length === 0 && <h2>No items in your order</h2>}
-					<p>{order.transaction_id}</p> */}
-					<OrderItem />
 				</div>
 			</div>
 
