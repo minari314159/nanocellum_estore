@@ -122,3 +122,16 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2024-05-07 14:11:50,551 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
 2024-05-07 14:14:28,125 (WARNING) - django.request - Not Found: /api/cart/items/
 2024-05-07 14:14:28,133 (WARNING) - django.request - Not Found: /api/cart/items/
+2024-05-07 16:12:57,568 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 16:14:31,334 (WARNING) - django.request - Not Found: /favicon.ico
+2024-05-07 16:14:39,049 (WARNING) - django.request - Not Found: /ap1/
+2024-05-07 16:14:43,548 (WARNING) - django.request - Not Found: /ap1/
+2024-05-07 16:16:23,375 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-07 16:16:23,620 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 16:16:24,843 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-07 16:16:24,998 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 16:16:37,471 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-07 16:16:37,635 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 16:17:13,085 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-07 16:17:49,686 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 16:24:41,381 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
