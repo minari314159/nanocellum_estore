@@ -9,6 +9,7 @@ import {
 	Order,
 	Checkout,
 } from "./pages/pages";
+import { CartContextProvider } from "./components/CartContext";
 
 const Logout = () => {
 	localStorage.clear();
@@ -34,18 +35,20 @@ const App = () => {
 			{isLoading ? (
 				<Loader />
 			) : (
-				<BrowserRouter>
-					<Routes>
-						<Route path="/" element={<Home />} />
+				<CartContextProvider>
+					<BrowserRouter>
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route path="/order" element={<Order />} />
+							<Route path="/checkout" element={<Checkout />} />
 
-						<Route path="/order" element={<Order />} />
-						<Route path="/checkout" element={<Checkout />} />
-						<Route path="/login" element={<Login />} />
-						<Route path="/logout" element={<Logout />} />
-						<Route path="/register" element={<RegisterAndLogout />} />
-						<Route path="*" element={<NotFound />} />
-					</Routes>
-				</BrowserRouter>
+							<Route path="/login" element={<Login />} />
+							<Route path="/logout" element={<Logout />} />
+							<Route path="/register" element={<RegisterAndLogout />} />
+							<Route path="*" element={<NotFound />} />
+						</Routes>
+					</BrowserRouter>
+				</CartContextProvider>
 			)}
 		</>
 	);

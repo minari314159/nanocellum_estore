@@ -1,6 +1,7 @@
 import api from "../api";
 import { useEffect, useState } from "react";
 import FormatCurrency from "./FormatCurrency";
+import AddToCartButton from "./AddToCartButton";
 import { motion, useMotionValue } from "framer-motion";
 
 const ProductCard = () => {
@@ -88,11 +89,8 @@ const ProductCard = () => {
 										{product.description}
 									</p>
 									<div className="w-full flex justify-center">
-										<button
-											onClick={() => null}
-											className="bg-amber-800 w-[40%] rounded-2xl py-2 md:px-2 hover:bg-amber-700 text-white text-[0.9rem] md:text-[1rem]">
-											Add to Cart
-										</button>
+										
+										<AddToCartButton productId={product.id} />
 									</div>
 								</div>
 							</div>

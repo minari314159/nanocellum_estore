@@ -289,3 +289,18 @@ django.core.exceptions.ImproperlyConfigured: Field name `image` is not valid for
 2024-05-08 14:30:31,190 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
 2024-05-08 14:31:06,075 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
 2024-05-08 15:14:22,285 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 17:36:08,260 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-08 17:36:22,597 (WARNING) - django.request - Unauthorized: /api/carts/fb61ced7-9c56-4e75-93e6-325f6b244833/items/
+2024-05-08 17:36:36,233 (WARNING) - django.request - Method Not Allowed: /auth/jwt/refresh
+2024-05-08 17:42:43,336 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:43:05,194 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:46:50,159 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:47:24,548 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:47:58,081 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:48:51,615 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:49:30,893 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:50:14,075 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:55:38,913 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 17:56:01,348 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 18:00:24,430 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 18:00:47,537 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
