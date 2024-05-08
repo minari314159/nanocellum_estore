@@ -12,7 +12,6 @@ import { ParallaxContent } from "./ParallaxContent";
 import Overlay from "./Overlay";
 import StickyImage from "./StickyImage";
 import Transition from "./Transition";
-import ProductDetail from "./ProductDetail";
 import Products from "./Products";
 import OrderItem from "./OrderItem";
 import CartWidget from "./CartWidget";
@@ -32,7 +31,6 @@ export {
 	Overlay,
 	StickyImage,
 	Transition,
-	ProductDetail,
 	Products,
 	OrderItem,
 	CartWidget,

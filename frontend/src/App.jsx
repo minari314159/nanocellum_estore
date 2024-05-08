@@ -1,8 +1,14 @@
 import { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
-import { Home, Login, NotFound, Register, Loader, Order, Checkout } from "./pages/pages";
-
-import ProductDetail from "./components/ProductDetail";
+import {
+	Home,
+	Login,
+	NotFound,
+	Register,
+	Loader,
+	Order,
+	Checkout,
+} from "./pages/pages";
 
 const Logout = () => {
 	localStorage.clear();
@@ -30,9 +36,8 @@ const App = () => {
 			) : (
 				<BrowserRouter>
 					<Routes>
-						<Route path="/" element={<Home />}>
-							<Route path="/product/:id" element={<ProductDetail />} />
-						</Route>
+						<Route path="/" element={<Home />} />
+
 						<Route path="/order" element={<Order />} />
 						<Route path="/checkout" element={<Checkout />} />
 						<Route path="/login" element={<Login />} />
