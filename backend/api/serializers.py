@@ -45,6 +45,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 
 
 class CartItemProductSerializer(serializers.ModelSerializer):
+    images = ProductImageSerializer(many=True, read_only=True)
     class Meta:
         model = Product
         fields = ['id', 'name', 'price', 'images']

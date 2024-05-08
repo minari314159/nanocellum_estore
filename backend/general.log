@@ -304,3 +304,17 @@ django.core.exceptions.ImproperlyConfigured: Field name `image` is not valid for
 2024-05-08 17:56:01,348 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
 2024-05-08 18:00:24,430 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
 2024-05-08 18:00:47,537 (WARNING) - django.request - Bad Request: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 18:37:00,150 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 18:37:17,230 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 18:37:37,586 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 18:37:53,801 (WARNING) - django.request - Unauthorized: /api/products/
+2024-05-08 18:37:53,805 (WARNING) - django.request - Unauthorized: /api/products/
+2024-05-08 18:37:56,545 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 18:37:56,549 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 18:38:29,796 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 18:38:36,445 (WARNING) - django.request - Unauthorized: /api/
+2024-05-08 18:45:44,029 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:45:44,548 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:45:58,023 (WARNING) - django.request - Unauthorized: /api/carts/
+2024-05-08 18:46:08,186 (WARNING) - django.request - Method Not Allowed: /auth/jwt/refresh
+2024-05-08 18:46:56,223 (WARNING) - django.request - Method Not Allowed: /api/carts/

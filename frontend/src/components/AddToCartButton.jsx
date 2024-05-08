@@ -44,12 +44,12 @@ const AddToCartButton = ({ productId }) => {
 	return (
 		<>
 			{success && (
-				<div className="bg-primary rounded-lg p-2 absolute -bottom-[4rem]">
+				<div className="bg-primary rounded-lg p-2 absolute -bottom-[3rem]">
 					<p className="text-green-600 text-[17px]">Added to cart!</p>
 				</div>
 			)}
 			<button
-				className="bg-amber-800 w-[40%] rounded-2xl py-2 md:px-2 hover:bg-amber-700 text-white text-[0.9rem] md:text-[1rem]"
+				className="bg-orange-300 w-[40%] rounded-xl py-2 md:px-2 hover:bg-orange-400 transition-colors ease-in-out text-black text-[0.9rem] md:text-[1rem] shadow-md cursor-pointer"
 				onClick={addToCart}
 				disabled={loading}>
 				{loading ? "Adding to cart..." : "Add to Cart"}

@@ -11,7 +11,7 @@ const ComingSoon = () => {
 				</h3>
 				<NavLink to="/order">
 					<motion.p
-						className="  px-2 py-3 rounded-lg bg-orange-300 text-gray-700 text-[14px] md:text-[16px] z-10"
+						className="  px-2 py-3 rounded-lg bg-orange-300 text-gray-700 text-[14px] md:text-[16px] z-10 shadow-md cursor-pointer"
 						whileHover={{ scale: 1.05 }}
 						whileTap={{ scale: 0.95 }}>
 						Pre-Order Now

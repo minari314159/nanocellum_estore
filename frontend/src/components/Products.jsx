@@ -13,10 +13,10 @@ const Products = () => {
 		<section
 			id="design"
 			ref={ref}
-			className="flex  flex-col w-full justify-start gap-5  items-center  ">
+			className="flex  flex-col w-full justify-start gap-8  items-center  ">
 			<motion.div
 				style={{ opacity: blobY }}
-				className="flex flex-col justify-center items-center sm:px-16 relative">
+				className="flex flex-col justify-center items-center sm:px-16 relative mb-2">
 				<h1 className="font-bold text-[22px] mb-3">How it works</h1>
 				<p className="font-light text-black text-[14px] md:text-[16px] leading-[30.8px] max-w-[500px]  text-center  px-5 ">
 					Depending on the sugar source, the produced cellulose fibres can

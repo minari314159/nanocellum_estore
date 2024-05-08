@@ -46,7 +46,7 @@ const ProductCard = () => {
 	};
 	return (
 		<div className="w-full">
-			<motion.div className="relative overflow-x-scroll scroll-smooth  py-10 no-scrollbar">
+			<motion.div className="relative overflow-x-scroll scroll-smooth  py-10 no-scrollbar rounded-xl">
 				<motion.div
 					onScroll={onScroll}
 					style={{
@@ -70,7 +70,7 @@ const ProductCard = () => {
 							/>
 							<div
 								className={`flex flex-col items-start gap-2 p-1 bg-primary rounded-xl bg-opacity-60 w-full ${
-									toggle ? "h-[250px]" : "h-[100px]"
+									toggle ? "min-h-[250px]" : "min-h-[100px]"
 								} `}>
 								<h2 className="font-bold text-black text-[1rem] md:text-[1.2rem] ">
 									{product.color}
@@ -88,8 +88,7 @@ const ProductCard = () => {
 									<p className="p-3 text-[0.9rem] md:text-[1rem]">
 										{product.description}
 									</p>
-									<div className="w-full flex justify-center">
-										
+									<div className="w-full flex justify-center mt-2">
 										<AddToCartButton productId={product.id} />
 									</div>
 								</div>
