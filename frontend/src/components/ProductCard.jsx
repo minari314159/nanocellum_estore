@@ -34,31 +34,26 @@ const ProductCard = () => {
 		damping: 50,
 	};
 
-	const onDragEnd = () => {
+	const onScroll = () => {
 		const x = dragX.get();
 
 		if (x <= -DRAG_BUFFER && imgIndex < products.length - 1) {
-			setImgIndex((pv) => pv + 1);
+			setImgIndex((pv) => pv + 1.5);
 		} else if (x >= DRAG_BUFFER && imgIndex > 0) {
 			setImgIndex((pv) => pv - 1);
 		}
 	};
 	return (
 		<div className="w-full">
-			<motion.div className="relative overflow-x-scroll scroll-smooth  py-10">
+			<motion.div className="relative overflow-x-scroll scroll-smooth  py-10 no-scrollbar">
 				<motion.div
-					drag="x"
-					dragConstraints={{
-						left: 0,
-						right: 0,
-					}}
+					onScroll={onScroll}
 					style={{
 						x: dragX,
 					}}
 					animate={{ translateX: `-${imgIndex * 50}%` }}
 					transition={SPRING_OPTIONS}
-					onDragEnd={onDragEnd}
-					className="flex cursor-grab items-center active:cursor-grabbing w-[200px]">
+					className="flex cursor-grab items-center active:cursor-grabbing w-[200px] no-scrollbar">
 					{products.map((product, index) => (
 						<motion.div
 							key={index}
@@ -74,7 +69,7 @@ const ProductCard = () => {
 							/>
 							<div
 								className={`flex flex-col items-start gap-2 p-1 bg-primary rounded-xl bg-opacity-60 w-full ${
-									toggle ? "h-[200px]" : "h-[100px]"
+									toggle ? "h-[250px]" : "h-[100px]"
 								} `}>
 								<h2 className="font-bold text-black text-[1rem] md:text-[1.2rem] ">
 									{product.color}
@@ -85,9 +80,9 @@ const ProductCard = () => {
 									<FormatCurrency value={product.price_with_tax} />
 								</h3>
 
-								<button onClick={toggleDetails}>
+								<motion.button whileTap={toggleDetails}>
 									{toggle ? "Less" : "More"} Details {">"}{" "}
-								</button>
+								</motion.button>
 								<div className={`${toggle ? "flex" : "hidden"} flex-col`}>
 									<p className="p-3 text-[0.9rem] md:text-[1rem]">
 										{product.description}
