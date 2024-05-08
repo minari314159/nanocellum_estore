@@ -22,12 +22,13 @@ const Products = () => {
 					Depending on the sugar source, the produced cellulose fibres can
 					exhibit different colours as well as different material strength. This
 					dying process is fully sustainable, using naturally occuring sugar
-					from various fruits and vegetables.<br/>(Click more details to learn)
+					from various fruits and vegetables.
+					<br />
+					(Click more details to learn)
 				</p>
 			</motion.div>
 
 			<ProductCard />
-
 		</section>
 	);
 };

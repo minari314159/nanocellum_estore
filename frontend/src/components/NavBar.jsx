@@ -1,14 +1,14 @@
 import { useEffect, useState } from "react";
-import { close, logo, menu, login } from "../assets";
+import { close, logo, menu } from "../assets";
 import { navLinks } from "../index";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import api from "../api";
 
 const NavBar = () => {
 	const [toggle, setToggle] = useState(false);
 	const [active, setActive] = useState(false);
-	const [quantity, setQuantity] = useState(1);
+	const [quantity, setQuantity] = useState(0);
 
 	const getOrder = async () => {
 		try {
@@ -33,11 +33,20 @@ const NavBar = () => {
 
 	return (
 		<nav className="flex items-center m-0 py-8 px-8 top-0 z-20  justify-between sm:px-13 bg-transparent">
-			<NavLink to="/" className="rounded-lg hover:animate-pulse">
+			<NavLink
+				to="/"
+				onClick={() => {
+					window.scroll({
+						top: 0,
+						behavior: "smooth",
+					});
+					setActive(true);
+				}}
+				className="rounded-lg hover:animate-pulse cursor-pointer">
 				<img
 					src={logo}
 					alt="nanocellum logo"
-					className="bg-transparent w-auto h-[40px]"
+					className="bg-transparent w-auto h-[40px] pointer-events-none"
 				/>
 			</NavLink>
 
@@ -46,13 +55,13 @@ const NavBar = () => {
 					<CartWidget quantity={quantity} />
 				</NavLink>
 				<NavLink to="/login">
-					<img
-						src={login}
-						alt="Menu"
-						className="w-[28px] h-[28px] object-contain"
-					/>
+					{/* <img
+							src={login}
+							className="w-[28px] h-[28px] object-contain"
+						/> */}
+					Login
 				</NavLink>
-
+				
 				<img
 					src={toggle ? close : menu}
 					alt="Menu"
@@ -62,7 +71,7 @@ const NavBar = () => {
 				<div
 					className={`${
 						toggle ? "flex" : "hidden"
-					} p-6 bg-dimWhite absolute top-20 right-0 mx-4 my2 min-w-[140px] rounded-xl sidebar `}>
+					} p-6 bg-dimWhite absolute top-20 right-0 mx-4 my-2 min-w-[140px] rounded-xl sidebar `}>
 					<ul className="list-none flex flex-col justify-end items-center flex-1">
 						{navLinks.map((nav, index) => (
 							<li
@@ -72,19 +81,20 @@ const NavBar = () => {
 								} ${
 									active === nav.title ? "text-secondary" : "text-gray-500"
 								} hover:text-secondary`}>
-								<Link
-									to="/"
+								<button
 									onClick={() => {
 										setActive(nav.title);
-										window.location.replace(`/#${nav.id}`);
+										const element = document.getElementById(nav.id);
+
+										element.scrollIntoView({
+											behavior: "smooth",
+											block: "start",
+										});
 									}}>
 									{nav.title}
-								</Link>
+								</button>
 							</li>
 						))}
-						<NavLink to="/logout">
-							<p className="text-[15px]  mt-2 text-gray-500 p-1 ">Logout </p>
-						</NavLink>
 					</ul>
 				</div>
 			</div>

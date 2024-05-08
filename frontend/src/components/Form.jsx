@@ -13,6 +13,13 @@ const Form = ({ route, method }) => {
     const navigate = useNavigate();
 
     const name = method === "login" ? "Login" : "Register";
+    const toggleMethod = () => {
+        if (method === "login") {
+            navigate("/register");
+        } else {
+            navigate("/login");
+        }
+    }
 
     const handleSubmit = async (e) => {
         setLoading(true);
@@ -35,7 +42,7 @@ const Form = ({ route, method }) => {
     };
 
     return (
-			<div className="rounded-lg outline outline-gray-400 p-5">
+			<div className="rounded-lg  p-5 shadow-lg">
 				<form
 					onSubmit={handleSubmit}
 					className="max-w-sm flex flex-col justify-center items-between gap-5 p-3 mx-5">
@@ -47,16 +54,16 @@ const Form = ({ route, method }) => {
 							value={username}
 							onChange={(e) => setUsername(e.target.value)}
 							placeholder="Username"
-                    />
-                    {method === "register" && 
-                        <input
-                            className="bg-gray-50 border border-gray-300 text-gray-900 text-m rounded-lg  block w-full p-3 "
-                            type="email"
-                            value={email}
-                            onChange={(e) => setEmail(e.target.value)}
-                            placeholder="Email"
-                        />
-                    }
+						/>
+						{method === "register" && (
+							<input
+								className="bg-gray-50 border border-gray-300 text-gray-900 text-m rounded-lg  block w-full p-3 "
+								type="email"
+								value={email}
+								onChange={(e) => setEmail(e.target.value)}
+								placeholder="Email"
+							/>
+						)}
 						<input
 							className="bg-gray-50 border border-gray-300 text-gray-900 text-m rounded-lg  block w-full p-3 "
 							type="password"
@@ -70,6 +77,17 @@ const Form = ({ route, method }) => {
 							type="submit">
 							{name}
 						</button>
+						{method === "login" ? (
+							<div className="flex flex-col justify-center items-center">
+								<h2>Don&apos;t have an account</h2>
+								<button onClick={toggleMethod}>Register</button>
+							</div>
+						) : (
+							<div className="flex flex-col justify-center items-center">
+								<h2>Have an account</h2>
+								<button onClick={toggleMethod}>Login</button>
+							</div>
+						)}
 					</div>
 				</form>
 			</div>

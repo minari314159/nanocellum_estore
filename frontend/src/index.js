@@ -19,7 +19,7 @@ export const navLinks = [
 	},
 	{
 		id: "design",
-		title: "Designs",
+		title: "Choose Your Design",
 	},
 ];
 
