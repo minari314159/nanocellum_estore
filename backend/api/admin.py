@@ -3,7 +3,7 @@ from django.contrib import admin, messages
 from django.utils.html import format_html
 from django.db.models.aggregates import Count
 from django.db.models.query import QuerySet
-from .models import OrderItem, Product, Customer, Order, ProductImage
+from .models import Cart, CartItem, OrderItem, Product, Customer, Order, ProductImage
 
 
 @admin.register(Customer)
@@ -45,6 +45,7 @@ class InventoryFilter(admin.SimpleListFilter):
         if self.value() == '<10':
             return queryset.filter(inventory__lt=10)
 
+
 class ProductImageInline(admin.TabularInline):
     model = ProductImage
     readonly_fields = ['thumbnail']
@@ -83,5 +84,8 @@ class ProductAdmin(admin.ModelAdmin):
     class Media:
         css = {'all': ['api/styles.css']}
 
+
 admin.site.register(Order)
 admin.site.register(OrderItem)
+admin.site.register(Cart)
+admin.site.register(CartItem)

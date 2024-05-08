@@ -1,11 +1,15 @@
 import api from "../api";
 import { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import FormatCurrency from "./FormatCurrency";
 import { motion, useMotionValue } from "framer-motion";
-
 
 const ProductCard = () => {
 	const [products, setProducts] = useState([]);
+	const [toggle, setToggle] = useState(false);
+
+	const toggleHandler = () => {
+		setToggle((pv) => !pv);
+	};
 
 	const DRAG_BUFFER = 50;
 
@@ -58,25 +62,46 @@ const ProductCard = () => {
 					{products.map((product, index) => (
 						<motion.div
 							key={index}
-							style={{
-								backgroundImage: `url(${product.images[0].image})`,
-								backgroundSize: "cover",
-							}}
 							animate={{
 								scale: imgIndex === product.id ? 0.95 : 0.85,
 							}}
 							transition={SPRING_OPTIONS}
-							className="w-[48%] h-[15rem] shrink-0  flex flex-col justify-end items-center py-3 rounded-full text-[14px] gap-1 ">
-							
-							<div className="flex flex-col items-center p-1 bg-primary rounded-xl bg-opacity-60">
-								<p className="font-bold text-black">{product.color}</p>
+							className="w-[48%] h-[15rem] shrink-0  flex flex-col justify-end items-end  rounded-lg text-[14px] gap-1 relative">
+								<img
+									src={product.images[0].image}
+									alt={product.name}
+									className="absolute -z-10 img-fluid w-[400px] h-[400px]object-cover rounded-lg pointer-events-none"
+								/>
+							<div className="flex flex-col gap-2 p-1 bg-primary rounded-xl bg-opacity-60 w-full ">
+								<h2 className="font-bold text-black text-[1rem] md:text-[1.2rem] ">
+									{product.color}
+								</h2>
 
-								<Link
-									to={`/product/${product.id}`}
-									
-									className="cursor-pointer hover:underline underline-offset-3 text-black">
-									Details &gt;
-								</Link>
+								<h3 className="text-[0.8rem] md:text-[0.9rem] flex justify-between">
+									<b>Price:</b>{" "}
+									<FormatCurrency value={product.price_with_tax} />
+								</h3>
+								{toggle ? (
+									<div>
+										<button onClick={toggleHandler}>Less Details {">"} </button>
+										<p className="p-3 text-[0.9rem] md:text-[1rem]">
+											{product.description}
+										</p>
+										<div className="w-full flex justify-center">
+											<button
+												onClick={() => null}
+												className="bg-amber-800 w-[40%] rounded-2xl py-2 md:px-2 hover:bg-amber-700 text-white text-[0.9rem] md:text-[1rem]">
+												Add to Cart
+											</button>
+										</div>
+									</div>
+								) : (
+									<button
+										className="w-full flex jusstify-start"
+										onClick={toggleHandler}>
+										More Details {">"}{" "}
+									</button>
+								)}
 							</div>
 						</motion.div>
 					))}

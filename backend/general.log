@@ -135,3 +135,157 @@ RuntimeError: You called this URL via POST, but the URL doesn't end in a slash a
 2024-05-07 16:17:13,085 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
 2024-05-07 16:17:49,686 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
 2024-05-07 16:24:41,381 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-07 16:37:33,554 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 16:37:57,410 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-07 16:37:57,588 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-07 16:38:03,849 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-07 16:38:04,008 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 13:14:09,342 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 13:16:10,114 (WARNING) - django.request - Unauthorized: /api/customers/
+2024-05-08 13:16:33,434 (WARNING) - django.request - Unauthorized: /auth/users/
+2024-05-08 13:16:55,926 (WARNING) - django.request - Not Found: /auth/jwt/
+2024-05-08 13:17:14,767 (WARNING) - django.request - Method Not Allowed: /auth/jwt/create
+2024-05-08 13:17:24,664 (WARNING) - django.request - Unauthorized: /auth/jwt/create
+2024-05-08 13:17:25,969 (WARNING) - django.request - Unauthorized: /auth/jwt/create
+2024-05-08 13:18:37,904 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 13:18:51,832 (WARNING) - django.request - Method Not Allowed: /auth/jwt/create
+2024-05-08 13:20:11,451 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-08 13:26:59,923 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-08 13:27:14,953 (ERROR) - django.request - Internal Server Error: /api/carts/fb61ced7-9c56-4e75-93e6-325f6b244833/
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/mixins.py", line 56, in retrieve
+    return Response(serializer.data)
+                    ^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 571, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 713, in to_representation
+    return [
+           ^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 714, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 523, in to_representation
+    for field in fields:
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `image` is not valid for model `Product` in `api.serializers.CartItemProductSerializer`.
+2024-05-08 13:27:32,342 (WARNING) - django.request - Not Found: /api/carts/fb61ced7-9c56-4e75-93e6-325f6b244833/cartitems
+2024-05-08 13:27:44,208 (ERROR) - django.request - Internal Server Error: /api/carts/fb61ced7-9c56-4e75-93e6-325f6b244833/items/
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/mixins.py", line 43, in list
+    return self.get_paginated_response(serializer.data)
+                                       ^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 795, in data
+    ret = super().data
+          ^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 249, in data
+    self._data = self.to_representation(self.instance)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 713, in to_representation
+    return [
+           ^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 714, in <listcomp>
+    self.child.to_representation(item) for item in iterable
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 538, in to_representation
+    ret[field.field_name] = field.to_representation(attribute)
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 523, in to_representation
+    for field in fields:
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 384, in _readable_fields
+    for field in self.fields.values():
+                 ^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/functional.py", line 47, in __get__
+    res = instance.__dict__[self.name] = self.func(instance)
+                                         ^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 372, in fields
+    for key, value in self.get_fields().items():
+                      ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 1103, in get_fields
+    field_class, field_kwargs = self.build_field(
+                                ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 1249, in build_field
+    return self.build_unknown_field(field_name, model_class)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/serializers.py", line 1367, in build_unknown_field
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: Field name `image` is not valid for model `Product` in `api.serializers.CartItemProductSerializer`.
+2024-05-08 13:28:30,111 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 13:28:30,379 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 13:30:32,769 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 13:30:32,947 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 13:30:35,088 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 13:30:35,247 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 14:30:30,847 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/admin.py changed, reloading.
+2024-05-08 14:30:31,190 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 14:31:06,075 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 15:14:22,285 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader

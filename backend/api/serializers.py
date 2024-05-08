@@ -47,7 +47,7 @@ class ReviewSerializer(serializers.ModelSerializer):
 class CartItemProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
-        fields = ['id', 'name', 'price', 'image']
+        fields = ['id', 'name', 'price', 'images']
 
 
 class CartItemSerializer(serializers.ModelSerializer):
@@ -66,7 +66,7 @@ class CartItemSerializer(serializers.ModelSerializer):
 
 class AddToCartSerializer(serializers.Serializer):
     product_id = serializers.UUIDField()
-    quantity = serializers.IntegerField(min_value=1)
+    quantity = serializers.IntegerField(min_value=1, default=1)
 
     def validate_product_id(self, value):
         if not Product.objects.filter(pk=value).exists():
