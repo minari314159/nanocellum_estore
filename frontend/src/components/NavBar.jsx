@@ -1,17 +1,36 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { close, logo, menu, login } from "../assets";
 import { navLinks } from "../index";
 import { NavLink, Link } from "react-router-dom";
 import CartWidget from "./CartWidget";
+import api from "../api";
 
 const NavBar = () => {
 	const [toggle, setToggle] = useState(false);
 	const [active, setActive] = useState(false);
+	const [quantity, setQuantity] = useState(1);
 
+	const getOrder = async () => {
+		try {
+			// Step 1: Create a cart if it doesn't exist
+			let cartId = localStorage.getItem("cartId");
+			// Step 2: Add item to the cart
+			const response = await api.get(`/api/carts/${cartId}/`);
+
+			setQuantity(response.data.total_quantity);
+		} catch (error) {
+			// Handle error (e.g., show an error message)
+			alert("Error getting cart items");
+		}
+	};
 	const handleClick = () => {
 		setToggle((prev) => !prev);
 	};
-	const productsCount = 1
+
+	useEffect(() => {
+		getOrder();
+	}, []);
+
 	return (
 		<nav className="flex items-center m-0 py-8 px-8 top-0 z-20  justify-between sm:px-13 bg-transparent">
 			<NavLink to="/" className="rounded-lg hover:animate-pulse">
@@ -24,7 +43,7 @@ const NavBar = () => {
 
 			<div className=" flex flex-1 justify-end items-center gap-2">
 				<NavLink to="/order">
-					<CartWidget productsCount={productsCount} />
+					<CartWidget quantity={quantity} />
 				</NavLink>
 				<NavLink to="/login">
 					<img
