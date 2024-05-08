@@ -26,6 +26,17 @@ const Order = () => {
 		}
 	};
 
+	const sendCheckout = async () => {
+		try {
+			// Step 1: get cart id
+			let cartId = localStorage.getItem("cartId");
+			await api.post(`/api/orders/`, { cart_id: cartId });
+
+		} catch (error) {
+			// Handle error (e.g., show an error message)
+			alert("Error checking out", error.response.message);
+		}
+	};
 	useEffect(() => {
 		getOrder();
 	}, []);
@@ -65,6 +76,7 @@ const Order = () => {
 					</div>
 					<Link
 						to="/checkout"
+						onClick={sendCheckout}
 						className="bg-orange-300 shadow-md hover:scale-[102%] text-black rounded-lg p-2 m-2">
 						Checkout
 					</Link>
