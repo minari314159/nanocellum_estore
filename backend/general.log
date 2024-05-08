@@ -318,3 +318,49 @@ django.core.exceptions.ImproperlyConfigured: Field name `image` is not valid for
 2024-05-08 18:45:58,023 (WARNING) - django.request - Unauthorized: /api/carts/
 2024-05-08 18:46:08,186 (WARNING) - django.request - Method Not Allowed: /auth/jwt/refresh
 2024-05-08 18:46:56,223 (WARNING) - django.request - Method Not Allowed: /api/carts/
+2024-05-08 18:58:10,286 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:10,531 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:14,813 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:15,025 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:26,420 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:26,585 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:42,126 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:42,301 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:43,404 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:43,561 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:44,663 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:44,839 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:45,937 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:46,141 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:49,289 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:49,451 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:52,589 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:52,772 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:58:53,882 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:58:54,075 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:59:04,507 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:59:04,710 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:59:06,944 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:59:07,172 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:59:12,517 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:59:12,704 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:59:44,765 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:59:44,933 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:59:47,169 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:59:47,338 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 18:59:57,760 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 18:59:57,930 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 19:00:02,108 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 19:00:02,277 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 19:00:05,524 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 19:00:05,701 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 19:00:06,859 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py changed, reloading.
+2024-05-08 19:00:07,026 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-08 19:15:12,568 (WARNING) - django.request - Method Not Allowed: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/
+2024-05-08 19:15:54,141 (WARNING) - django.request - Not Found: /api/carts/fb61ced7-9c56-4e75-93e6-325f6b244833/1
+2024-05-08 19:23:08,484 (WARNING) - django.request - Not Found: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/items/[object Object]/
+2024-05-08 19:46:42,895 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 19:46:42,898 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 19:46:47,200 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 19:46:47,202 (WARNING) - django.request - Unauthorized: /api/carts/31e197b4-dd56-402a-bd35-8e4f984a7d92/
+2024-05-08 19:47:05,139 (WARNING) - django.request - Unauthorized: /auth/jwt/create/

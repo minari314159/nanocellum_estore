@@ -11,8 +11,8 @@ const Checkout = () => {
 				{" "}
 				&larr; Back to Order
 			</Link>
-			<div className="h-[50rem] p-4 w-full grid grid-cols-2  gap-3">
-				<div className="flex flex-col items-center p-3">
+			<div className="h-[50rem] p-4 w-full grid grid-cols-1 md:grid-cols-2 md:gap-3">
+				<div className="flex flex-col items-center justify-start p-3">
 					<h1 className="font-bold text-[25px]">Shipping Information</h1>
 					<hr />
 					<form className="flex flex-col gap-2 w-[450px] rounded-lg shadow p-5">
@@ -51,7 +51,7 @@ const Checkout = () => {
 						/>
 					</form>
 				</div>
-				<div className="flex flex-col items-center p-3">
+				<div className="flex flex-col justify-start items-center p-3">
 					<h1 className="font-bold text-[25px]">Order Summary</h1>
 					<hr />
 					<div className="flex flex-col items-start gap-2 w-[450px] rounded-lg shadow p-5">

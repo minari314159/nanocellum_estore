@@ -7,6 +7,7 @@ import FormatCurrency from "../components/FormatCurrency";
 const Order = () => {
 	const [orderitem, setOrderItem] = useState([]);
 	const [getTotal, setTotal] = useState(0);
+	const [quantity, setQuantity] = useState(1);
 
 
 	const getOrder = async () => {
@@ -16,7 +17,7 @@ const Order = () => {
 			// Step 2: Add item to the cart
 			const response = await api.get(`/api/carts/${cartId}/`);
 			setOrderItem(response.data.items);
-			console.log(response.data.items);
+			setQuantity(response.data.total_quantity);
 			setTotal(response.data.total_price);
 			
 		} catch (error) {
@@ -24,6 +25,7 @@ const Order = () => {
 			alert("Error getting cart items");
 		}
 	};
+
 	useEffect(() => {
 		getOrder();
 	}, []);
@@ -40,10 +42,11 @@ const Order = () => {
 
 			<div className="h-[50rem] p-4 w-full flex flex-col items-center gap-3">
 				<h2 className="font-bold text-[25px]">Your Order</h2>
-				<div className=" flex flex-col items-start">
+				<div className=" flex flex-col items-start gap-3">
 					{orderitem.map((item) => (
 						<OrderItem
 							key={item.id}
+							id={item.id}
 							price={item.total_price}
 							name="Hanging Lamp"
 							quantity={item.quantity}
@@ -51,12 +54,13 @@ const Order = () => {
 						/>
 					))}
 				</div>
-				<div className="flex justify-between w-[500px]">
+				<div className="flex justify-between w-[440px] md:w-[500px]">
 					<div>
-						
+						<h2 className="font-bold text-[18px]">
+							Quantity: {quantity}
+						</h2>
 						<h2 className="font-bold text-[18px]">
 							Total: <FormatCurrency value={getTotal} />
-							
 						</h2>
 					</div>
 					<Link
@@ -67,7 +71,7 @@ const Order = () => {
 				</div>
 			</div>
 
-			<Footer /> 
+			<Footer />
 		</section>
 	);
 };

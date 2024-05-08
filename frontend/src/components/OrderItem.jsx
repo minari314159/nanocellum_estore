@@ -1,41 +1,75 @@
 import FormatCurrency from "./FormatCurrency";
+import { useState } from "react";
+import api from "../api";
 
 // eslint-disable-next-line react/prop-types
-const OrderItem = ({price, quantity, name, image}) => {
-
+const OrderItem = ({ id, price, quantity, name, image }) => {
+	const [newQuantity, setNewQuantity] = useState(quantity);
+	const handleRemove = () => {
+		try {
+			// Step 1: get cart id
+			let cartId = localStorage.getItem("cartId");
+			// Step 2: remove item to the cart
+			api.delete(`/api/carts/${cartId}/items/${id}/`);
+		} catch (error) {
+			// Handle error (e.g., show an error message)
+			alert("Error deleting cart item", error.response.message);
+		}
+	};
+	const handleUpdate = () => {
+		try {
+			// Step 1: get cart id
+			let cartId = localStorage.getItem("cartId");
+			// Step 2: remove item to the cart
+			api.patch(`/api/carts/${cartId}/items/${id}/`, { quantity: newQuantity });
+		} catch (error) {
+			// Handle error (e.g., show an error message)
+			alert("Error deleting cart item", error.response.message);
+		}
+	};
 	return (
-		<>
-			<div className="flex border shadow-md rounded-lg w-[500px] gap-2 justify-between p-2">
-				<div className="flex justify-evenly gap-2">
-					<img
-						src={image ? image : "https://via.placeholder.com/150"}
-						alt="product"
-						className="w-24 h-24"
-					/>
-					<div className="flex flex-col items-start justify-center">
-						<h2 className="font-bold text-[18px]">{name}</h2>
-						<p className="text-[14px]">
-							Price: <FormatCurrency value={price} />
-						</p>
-						<p className="text-[14px]">Quantity: {quantity}</p>
-					</div>
-				</div>
-				<div className="flex  flex-col items-center justify-evenly gap-2">
-					<div className="flex gap-2 justify-center items-center">
-						<button className="bg-dimWhite w-[30px] text-black rounded-lg p-1 hover:scale-[102%] shadow-sm">
+		<div
+			key={id}
+			className="flex  shadow-md rounded-lg w-[440px] md:w-[500px]  justify-between p-2">
+			<div className="flex justify-evenly gap-3">
+				<img
+					src={image ? image : "https://via.placeholder.com/150"}
+					alt="product"
+					className="w-24 h-24"
+				/>
+				<div className="flex flex-col items-start justify-center gap-1">
+					<h2 className="font-bold text-[18px]">{name}</h2>
+					<p className="text-[14px]">
+						Price: <FormatCurrency value={price} />
+					</p>
+					<div className="flex gap-2 justify-center items-center ">
+						<button
+							onClick={() => setNewQuantity((quantity) => quantity - 1)}
+							className="bg-dimWhite w-[20px] h-[20px] text-black rounded-lg flex justify-center items-center  hover:bg-gray-100 shadow-sm">
 							-
 						</button>
-						<span>{quantity}</span>
-						<button className="bg-dimWhite w-[30px] text-black rounded-lg p-1 hover:scale-[102%] shadow-sm">
+						<span>{newQuantity}</span>
+						<button
+							onClick={() => setNewQuantity((quantity) => quantity + 1)}
+							className="bg-dimWhite w-[20px] h-[20px] text-black rounded-lg flex justify-center items-center hover:bg-gray-100 shadow-sm ">
 							+
 						</button>
 					</div>
-					<button className="bg-red-400 text-black rounded-lg p-2 hover:scale-[102%] w-full shadow-sm">
-						Remove
-					</button>
 				</div>
 			</div>
-		</>
+			<div className="flex  flex-col items-center justify-evenly gap-2">
+				<button
+					onClick={handleUpdate}
+					className="bg-primary text-black rounded-lg p-2 hover:scale-[103%] w-full shadow-sm">
+					Update
+				</button>
+				<button
+					onClick={handleRemove}
+					className="bg-red-400 text-black rounded-lg p-2 hover:scale-[103%] w-full shadow-sm">
+					Remove
+				</button>
+			</div>
+		</div>
 	);
 };
 
