@@ -1,4 +1,5 @@
 import { useState } from "react";
+import {motion } from "framer-motion";	
 import api from "../api";
 
 // eslint-disable-next-line react/prop-types
@@ -48,12 +49,14 @@ const AddToCartButton = ({ productId }) => {
 					<p className="text-green-600 text-[17px]">Added to cart!</p>
 				</div>
 			)}
-			<button
-				className="bg-orange-300 w-[40%] rounded-xl py-2 md:px-2 hover:bg-orange-400 transition-colors ease-in-out text-black text-[0.9rem] md:text-[1rem] shadow-md cursor-pointer"
+			<motion.button
+				className="bg-orange-300 w-[40%] rounded-xl py-2 md:px-2 text-black text-[0.9rem] md:text-[1rem] shadow-md cursor-pointer"
 				onClick={addToCart}
+				whileHover={{ scale: 1.05 }}
+				whileTap={{ scale: 0.95 }}
 				disabled={loading}>
 				{loading ? "Adding to cart..." : "Add to Cart"}
-			</button>
+			</motion.button>
 		</>
 	);
 };

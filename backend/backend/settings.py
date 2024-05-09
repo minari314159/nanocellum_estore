@@ -116,26 +116,27 @@ SECRET_KEY = os.environ['SECRET_KEY']
 DATABASE_URL = os.environ['DATABASE_URL']
 
 # if DEBUG == True:
-# DATABASES = {
-#     'default': {
-#         'ENGINE': 'django.db.backends.postgresql',
-#         'NAME': os.environ['DB_DEV_NAME'],
-#         'USER': os.environ['DB_DEV_USER'],
-#         'PASSWORD': os.environ['DB_DEV_PASSWORD'],
-#         'HOST': os.environ['DB_DEV_HOST'],
-#         'PORT': os.environ['DB_DEV_PORT'],
+#     DATABASES = {
+#         'default': {
+#             'ENGINE': 'django.db.backends.postgresql',
+#             'NAME': os.environ['DB_DEV_NAME'],
+#             'USER': os.environ['DB_DEV_USER'],
+#             'PASSWORD': os.environ['DB_DEV_PASSWORD'],
+#             'HOST': os.environ['DB_DEV_HOST'],
+#             'PORT': os.environ['DB_DEV_PORT'],
+#         }
 #     }
-# }
-DATABASE_URL = os.environ['DATABASE_URL']
+# else:
+    # DATABASE_URL = os.environ['DATABASE_URL']
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT'],
-    }}
+        'default': {
+            'ENGINE': 'django.db.backends.postgresql',
+            'NAME': os.environ['DB_NAME'],
+            'USER': os.environ['DB_USER'],
+            'PASSWORD': os.environ['DB_PASSWORD'],
+            'HOST': os.environ['DB_HOST'],
+            'PORT': os.environ['DB_PORT'],
+        }}
 
 
 CACHES = {

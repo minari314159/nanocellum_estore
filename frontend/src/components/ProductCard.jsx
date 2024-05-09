@@ -2,21 +2,15 @@ import api from "../api";
 import { useEffect, useState } from "react";
 import FormatCurrency from "./FormatCurrency";
 import AddToCartButton from "./AddToCartButton";
-import { motion, useMotionValue } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
 
 const ProductCard = () => {
 	const [products, setProducts] = useState([]);
-	const [toggle, setToggle] = useState(false);
+	const [toggleOpen, setToggle] = useState(false);
 
-	const toggleDetails = () => {
-		setToggle((pv) => !pv);
-	};
+	const close = () => setToggle(false);
+	const open = () => setToggle(true);
 
-	const DRAG_BUFFER = 50;
-
-	const [imgIndex, setImgIndex] = useState(0);
-	//passing this in changes based on the x translate value (updates it)
-	const dragX = useMotionValue(0);
 	useEffect(() => {
 		const fetchProducts = async () => {
 			const response = await api.get("/api/products/", {
@@ -28,76 +22,53 @@ const ProductCard = () => {
 		fetchProducts();
 	}, []);
 
-	const SPRING_OPTIONS = {
-		type: "spring",
-		mass: 4,
-		stiffness: 500,
-		damping: 50,
-	};
-
-	const onScroll = () => {
-		const x = dragX.get();
-
-		if (x <= -DRAG_BUFFER && imgIndex < products.length - 1) {
-			setImgIndex((pv) => pv + 1.5);
-		} else if (x >= DRAG_BUFFER && imgIndex > 0) {
-			setImgIndex((pv) => pv - 1);
-		}
-	};
 	return (
-		<div className="w-full">
-			<motion.div className="relative overflow-x-scroll scroll-smooth  py-10 no-scrollbar rounded-xl">
-				<motion.div
-					onScroll={onScroll}
+		<motion.div className="relative overflow-x-scroll scroll-smooth no-scrollbar overflow-y-none py-10 rounded-xl flex gap-5 items-center  w-[200px] md:w-[46rem]">
+			{products.map((product, index) => (
+				<div
+					key={`product-${index}`}
 					style={{
-						x: dragX,
+						backgroundImage: `url(${product.images[0].image})`,
+						backgroundSize: "cover",
+						backgroundPosition: "center",
 					}}
-					animate={{ translateX: `-${imgIndex * 50}%` }}
-					transition={SPRING_OPTIONS}
-					className="flex cursor-grab items-center active:cursor-grabbing w-[200px] no-scrollbar">
-					{products.map((product, index) => (
-						<motion.div
-							key={index}
-							animate={{
-								scale: imgIndex === product.id ? 0.95 : 0.85,
-							}}
-							transition={SPRING_OPTIONS}
-							className="w-[350px] h-[15rem] shrink-0  flex flex-col justify-end items-end  rounded-lg text-[14px] gap-1 relative">
-							<img
-								src={product.images[0].image}
-								alt={product.name}
-								className="absolute -z-10  aspect-square w-[340px]  rounded-lg pointer-events-none"
-							/>
-							<div
-								className={`flex flex-col items-start gap-2 p-1 bg-primary rounded-xl bg-opacity-60 w-full ${
-									toggle ? "min-h-[250px]" : "min-h-[100px]"
-								} `}>
-								<h2 className="font-bold text-black text-[1rem] md:text-[1.2rem] ">
-									{product.color}
-								</h2>
+					className="w-[20rem] h-[18rem] shrink-0  flex flex-col justify-end items-start  rounded-lg text-[14px] gap-1 relative">
+					<div
+						className={`flex flex-col justify-end items-end  p-1 rounded-xl  w-full  h-full`}>
+						<div className="bg-primary bg-opacity-60 w-full h-[6rem] flex flex-col items-start gap-1">
+							<h2 className="font-bold text-black text-[1rem] md:text-[1.2rem] ">
+								{product.color}
+							</h2>
+							<h3 className="text-[0.8rem] md:text-[0.9rem] flex justify-between w-full">
+								<b>Price:</b> <FormatCurrency value={product.price_with_tax} />
+							</h3>
 
-								<h3 className="text-[0.8rem] md:text-[0.9rem] flex justify-between">
-									<b>Price:</b>{" "}
-									<FormatCurrency value={product.price_with_tax} />
-								</h3>
+							<button onClick={() => (toggleOpen ? close() : open())}>
+								{toggleOpen ? "Less" : "More"} Details {">"}{" "}
+							</button>
+						</div>
 
-								<motion.button whileTap={toggleDetails}>
-									{toggle ? "Less" : "More"} Details {">"}{" "}
-								</motion.button>
-								<div className={`${toggle ? "flex" : "hidden"} flex-col`}>
+						<AnimatePresence>
+							{toggleOpen && (
+								<motion.div
+									initial={{ height:0 }}
+									animate={{ height: "12rem"}}
+									transition={{ duration: 0.5, type:"spring", stiffness: 200, damping: 15, ease: "easeInOut"}}
+									exit={{ height:0 }}
+									className="flex overflow-y-scroll flex-col  bg-primary bg-opacity-60">
 									<p className="p-3 text-[0.9rem] md:text-[1rem]">
 										{product.description}
 									</p>
-									<div className="w-full flex justify-center mt-2">
+									<div className="w-full flex justify-center ">
 										<AddToCartButton productId={product.id} />
 									</div>
-								</div>
-							</div>
-						</motion.div>
-					))}
-				</motion.div>
-			</motion.div>
-		</div>
+								</motion.div>
+							)}
+						</AnimatePresence>
+					</div>
+				</div>
+			))}
+		</motion.div>
 	);
 };
 

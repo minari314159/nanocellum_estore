@@ -587,3 +587,117 @@ TypeError: print() argument after ** must be a mapping, not Order
 2024-05-08 22:14:01,088 (WARNING) - django.request - Method Not Allowed: /api/carts/
 2024-05-08 22:14:14,671 (WARNING) - django.request - Not Found: /api/carts/null/
 2024-05-08 22:14:16,557 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-09 13:52:49,420 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-09 13:53:03,410 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-09 13:53:05,738 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-09 13:53:08,071 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-09 13:53:10,398 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-09 14:51:50,560 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-09 14:52:19,180 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-09 14:52:23,533 (WARNING) - django.request - Not Found: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/
+2024-05-09 14:52:23,551 (WARNING) - django.request - Not Found: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/
+2024-05-09 14:52:27,453 (WARNING) - django.request - Not Found: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/
+2024-05-09 14:52:27,476 (WARNING) - django.request - Not Found: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/
+2024-05-09 14:52:39,054 (WARNING) - django.request - Not Found: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/
+2024-05-09 14:52:39,084 (WARNING) - django.request - Not Found: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/
+2024-05-09 14:52:48,430 (WARNING) - django.request - Not Found: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/
+2024-05-09 14:52:48,448 (WARNING) - django.request - Not Found: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/
+2024-05-09 14:53:01,904 (ERROR) - django.request - Internal Server Error: /api/carts/e1213de2-1694-4b70-877b-9a3dd9caea5d/items/
+Traceback (most recent call last):
+  File "/Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py", line 90, in save
+    cart_item = CartItem.objects.get(
+                ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/query.py", line 649, in get
+    raise self.model.DoesNotExist(
+api.models.CartItem.DoesNotExist: CartItem matching query does not exist.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+psycopg2.errors.ForeignKeyViolation: insert or update on table "api_cartitem" violates foreign key constraint "api_cartitem_cart_id_26c2013b_fk_api_cart_id"
+DETAIL:  Key (cart_id)=(e1213de2-1694-4b70-877b-9a3dd9caea5d) is not present in table "api_cart".
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/views/decorators/csrf.py", line 65, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/viewsets.py", line 124, in view
+    return self.dispatch(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 509, in dispatch
+    response = self.handle_exception(exc)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 469, in handle_exception
+    self.raise_uncaught_exception(exc)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 480, in raise_uncaught_exception
+    raise exc
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/views.py", line 506, in dispatch
+    response = handler(request, *args, **kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/mixins.py", line 19, in create
+    self.perform_create(serializer)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/mixins.py", line 24, in perform_create
+    serializer.save()
+  File "/Users/sjo/Documents/Projects/Nanocellum/backend/api/serializers.py", line 99, in save
+    self.instance = CartItem.objects.create(
+                    ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/query.py", line 679, in create
+    obj.save(force_insert=True, using=self.db)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/base.py", line 822, in save
+    self.save_base(
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/base.py", line 909, in save_base
+    updated = self._save_table(
+              ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/base.py", line 1067, in _save_table
+    results = self._do_insert(
+              ^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/base.py", line 1108, in _do_insert
+    return manager._insert(
+           ^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/manager.py", line 87, in manager_method
+    return getattr(self.get_queryset(), name)(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/query.py", line 1847, in _insert
+    return query.get_compiler(using=using).execute_sql(returning_fields)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/models/sql/compiler.py", line 1823, in execute_sql
+    cursor.execute(sql, params)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/backends/utils.py", line 122, in execute
+    return super().execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/backends/utils.py", line 79, in execute
+    return self._execute_with_wrappers(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/backends/utils.py", line 92, in _execute_with_wrappers
+    return executor(sql, params, many, context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/backends/utils.py", line 100, in _execute
+    with self.db.wrap_database_errors:
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/utils.py", line 91, in __exit__
+    raise dj_exc_value.with_traceback(traceback) from exc_value
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/db/backends/utils.py", line 105, in _execute
+    return self.cursor.execute(sql, params)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+django.db.utils.IntegrityError: insert or update on table "api_cartitem" violates foreign key constraint "api_cartitem_cart_id_26c2013b_fk_api_cart_id"
+DETAIL:  Key (cart_id)=(e1213de2-1694-4b70-877b-9a3dd9caea5d) is not present in table "api_cart".
+
+2024-05-09 14:53:27,997 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-09 14:54:11,472 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
