@@ -23,6 +23,8 @@ import cart from "./cart.png";
 import chambers from "./TheGrowthChambers.jpg";
 import login from "./enter.png";
 import logout from "./exit.png";
+import leftarrow from "./left-arrow.png";
+import rightarrow from "./right-arrow.png";
 
 export {
 	logo,
@@ -50,4 +52,6 @@ export {
 	bloby,
 	comingsoon,
 	chambers,
+	leftarrow,
+	rightarrow,
 };

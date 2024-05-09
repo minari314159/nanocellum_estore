@@ -13,7 +13,7 @@ const Products = () => {
 		<section
 			id="design"
 			ref={ref}
-			className="flex  flex-col w-full justify-start gap-8  items-center  ">
+			className="flex  flex-col w-full justify-start gap-8  items-center h-[100vh] ">
 			<motion.div
 				style={{ opacity: blobY }}
 				className="flex flex-col justify-center items-center sm:px-16 relative mb-2">

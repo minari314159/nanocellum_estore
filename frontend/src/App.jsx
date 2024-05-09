@@ -9,7 +9,7 @@ import {
 	Order,
 	Checkout,
 } from "./pages/pages";
-import { CartContextProvider } from "./components/CartContext";
+import { CartContextProvider } from "./context/CartContext";
 
 const Logout = () => {
 	localStorage.clear();

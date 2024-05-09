@@ -1,21 +1,13 @@
 import FormatCurrency from "./FormatCurrency";
 import { useState } from "react";
+import { useCart } from "../hooks/useCart";
 import api from "../api";
 
 // eslint-disable-next-line react/prop-types
 const OrderItem = ({ id, price, quantity, name, image }) => {
 	const [newQuantity, setNewQuantity] = useState(quantity);
-	const handleRemove = () => {
-		try {
-			// Step 1: get cart id
-			let cartId = localStorage.getItem("cartId");
-			// Step 2: remove item to the cart
-			api.delete(`/api/carts/${cartId}/items/${id}/`);
-		} catch (error) {
-			// Handle error (e.g., show an error message)
-			alert("Error deleting cart item", error.response.message);
-		}
-	};
+	const { removeFromCart } = useCart();
+	
 	const handleUpdate = () => {
 		try {
 			// Step 1: get cart id
@@ -64,7 +56,7 @@ const OrderItem = ({ id, price, quantity, name, image }) => {
 					Update
 				</button>
 				<button
-					onClick={handleRemove}
+					onClick={removeFromCart}
 					className="bg-red-400 text-black rounded-lg p-2 hover:scale-[103%] w-full shadow-sm">
 					Remove
 				</button>

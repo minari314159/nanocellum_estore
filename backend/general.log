@@ -701,3 +701,5 @@ DETAIL:  Key (cart_id)=(e1213de2-1694-4b70-877b-9a3dd9caea5d) is not present in 
 
 2024-05-09 14:53:27,997 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
 2024-05-09 14:54:11,472 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-09 19:24:50,853 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-09 19:25:43,918 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
