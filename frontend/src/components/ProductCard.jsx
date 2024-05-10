@@ -40,7 +40,7 @@ const ProductCard = () => {
 		<section className="flex flex-col items-center">
 			<motion.div
 				ref={ref}
-				className="relative overflow-x-scroll scroll-smooth no-scrollbar py-10 rounded-xl flex gap-12 items-center  w-[200px] h-[400px] md:w-[46rem]">
+				className="relative overflow-x-scroll scroll-smooth no-scrollbar py-10 rounded-xl flex gap-12 items-center w-[31rem] sm:w-[40rem] h-[400px] md:w-[46rem]">
 				{products.map((product) => (
 					<motion.div
 						key={product.id}

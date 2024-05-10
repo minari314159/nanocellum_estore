@@ -703,3 +703,10 @@ DETAIL:  Key (cart_id)=(e1213de2-1694-4b70-877b-9a3dd9caea5d) is not present in 
 2024-05-09 14:54:11,472 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
 2024-05-09 19:24:50,853 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
 2024-05-09 19:25:43,918 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-10 12:56:56,562 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-10 13:02:38,794 (WARNING) - django.request - Unauthorized: /api/customers/
+2024-05-10 13:07:34,888 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-10 13:07:34,890 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-10 13:07:34,910 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-10 13:07:39,265 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-10 13:07:41,002 (WARNING) - django.request - Not Found: /api/carts/null/

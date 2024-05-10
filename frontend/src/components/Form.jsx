@@ -14,7 +14,7 @@ const Form = ({ route, method }) => {
 
     const name = method === "login" ? "Login" : "Register";
     const toggleMethod = () => {
-        if (method === "login") {
+        if (method === "Register") {
             navigate("/register");
         } else {
             navigate("/login");

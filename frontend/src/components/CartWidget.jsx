@@ -1,7 +1,9 @@
-import {cart} from '../assets'
+import { cart } from '../assets'
+import { useCart } from '../hooks/useCart'
 
 // eslint-disable-next-line react/prop-types
-const CartWidget = ({quantity}) => {
+const CartWidget = () => {
+	const {quantity} = useCart()
   return (
 		<button className="relative">
 			<div
