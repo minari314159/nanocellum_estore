@@ -710,3 +710,6 @@ DETAIL:  Key (cart_id)=(e1213de2-1694-4b70-877b-9a3dd9caea5d) is not present in 
 2024-05-10 13:07:34,910 (WARNING) - django.request - Not Found: /api/carts/null/
 2024-05-10 13:07:39,265 (WARNING) - django.request - Not Found: /api/carts/null/
 2024-05-10 13:07:41,002 (WARNING) - django.request - Not Found: /api/carts/null/
+2024-05-10 13:19:14,720 (WARNING) - django.request - Not Found: /static/core/logo.png/
+2024-05-10 13:19:14,725 (WARNING) - django.request - Not Found: /static/core/styles.css/
+2024-05-10 13:19:14,756 (WARNING) - django.request - Not Found: /favicon.ico
