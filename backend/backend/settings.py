@@ -78,10 +78,7 @@ INTERNAL_IPS = [
     '127.0.0.1',
     'localhost:8000'
 ]
-ALLOWED_HOSTS = ['nanocellum-prod.up.railway.app',
-                 '127.0.0.1',
-                 'localhost:8000'
-                 ]
+ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
@@ -110,7 +107,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'backend.wsgi.application'
 
-CSRF_TRUDTED_ORIGINS = ['https://nanocellum-prod.up.railway.app']
 
 SECRET_KEY = os.environ['SECRET_KEY']
 DATABASE_URL = os.environ['DATABASE_URL']
@@ -127,16 +123,16 @@ DATABASE_URL = os.environ['DATABASE_URL']
 #         }
 #     }
 # else:
-    # DATABASE_URL = os.environ['DATABASE_URL']
+# DATABASE_URL = os.environ['DATABASE_URL']
 DATABASES = {
-        'default': {
-            'ENGINE': 'django.db.backends.postgresql',
-            'NAME': os.environ['DB_NAME'],
-            'USER': os.environ['DB_USER'],
-            'PASSWORD': os.environ['DB_PASSWORD'],
-            'HOST': os.environ['DB_HOST'],
-            'PORT': os.environ['DB_PORT'],
-        }}
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': os.environ['DB_NAME'],
+        'USER': os.environ['DB_USER'],
+        'PASSWORD': os.environ['DB_PASSWORD'],
+        'HOST': os.environ['DB_HOST'],
+        'PORT': os.environ['DB_PORT'],
+    }}
 
 
 CACHES = {
