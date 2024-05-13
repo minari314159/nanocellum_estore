@@ -81,7 +81,7 @@ INTERNAL_IPS = [
     'https://nanocellumstore-production.up.railway.app/'
 ]
 ALLOWED_HOSTS = [
-    'https://nanocellumstore-production.up.railway.app',
+    'nanocellumstore-production.up.railway.app',
     '0.0.0.0',
     'localhost',
     '127.0.0.1'
