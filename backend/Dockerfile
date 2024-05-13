@@ -11,6 +11,7 @@ RUN pip3 install -r requirements.txt
 
 COPY . .
 ENV DATABASE_URL=postgresql://postgres:aWrMDELvrqbSUIalaPlUDcCmSrKnSDJw@postgres.railway.internal:5432/railway
+EXPOSE 8000
 ENTRYPOINT ["python3"] 
-CMD ["manage.py", "runserver", "0.0.0.0:$PORT"]
+CMD ["manage.py", "runserver", "0.0.0.0:8000"]
 
