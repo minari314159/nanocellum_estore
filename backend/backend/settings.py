@@ -118,19 +118,6 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 SECRET_KEY = os.environ['SECRET_KEY']
 DATABASE_URL = os.environ['DATABASE_URL']
 
-# if DEBUG == True:
-#     DATABASES = {
-#         'default': {
-#             'ENGINE': 'django.db.backends.postgresql',
-#             'NAME': os.environ['DB_DEV_NAME'],
-#             'USER': os.environ['DB_DEV_USER'],
-#             'PASSWORD': os.environ['DB_DEV_PASSWORD'],
-#             'HOST': os.environ['DB_DEV_HOST'],
-#             'PORT': os.environ['DB_DEV_PORT'],
-#         }
-#     }
-# else:
-# DATABASE_URL = os.environ['DATABASE_URL']
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
@@ -183,10 +170,9 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
-STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
-
-STATICFILES_DIRS = [BASE_DIR / '/static/', BASE_DIR / '/media/']
+STATIC_URL = 'static/'
+STATICFILES_DIRS = [BASE_DIR / 'static']
+STATIC_ROOT = BASE_DIR / 'staticfiles'
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'

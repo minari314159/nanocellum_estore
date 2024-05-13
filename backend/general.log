@@ -821,3 +821,628 @@ django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000
 2024-05-13 17:10:02,837 (WARNING) - django.request - Not Found: /api/order/undefined/
 2024-05-13 17:10:02,838 (WARNING) - django.request - Not Found: /api/order/undefined/
 2024-05-13 17:10:02,839 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:30:36,307 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:31:37,148 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 17:31:37,336 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:32:11,022 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:32:13,841 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 203, in url
+    return self._url(self.stored_name, name, force)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 182, in _url
+    hashed_name = hashed_name_func(*args)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 516, in stored_name
+    raise ValueError(
+ValueError: Missing staticfiles manifest entry for '/core/styles.css'
+2024-05-13 17:36:25,164 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:36:28,180 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 35, in __getitem__
+    return self._storages[alias]
+           ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/functional.py", line 251, in inner
+    self._setup()
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 540, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 55, in create_storage
+    return storage_cls(**options)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/whitenoise/storage.py", line 64, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 463, in __init__
+    self.hashed_files, self.manifest_hash = self.load_manifest()
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 473, in load_manifest
+    content = self.read_manifest()
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 467, in read_manifest
+    with self.manifest_storage.open(self.manifest_name) as manifest:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/filesystem.py", line 68, in _open
+    return File(open(self.path(name), mode))
+                     ^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 39, in path
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+2024-05-13 17:37:07,136 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 35, in __getitem__
+    return self._storages[alias]
+           ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/functional.py", line 251, in inner
+    self._setup()
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 540, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 55, in create_storage
+    return storage_cls(**options)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/whitenoise/storage.py", line 64, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 463, in __init__
+    self.hashed_files, self.manifest_hash = self.load_manifest()
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 473, in load_manifest
+    content = self.read_manifest()
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 467, in read_manifest
+    with self.manifest_storage.open(self.manifest_name) as manifest:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/filesystem.py", line 68, in _open
+    return File(open(self.path(name), mode))
+                     ^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 39, in path
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+2024-05-13 17:37:15,311 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: "'static/core/logo.png'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 565, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 12: ''static/core/logo.png''. Did you forget to register or load this tag?
+2024-05-13 17:37:15,616 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 502, in parse
+    compile_func = self.tags[command]
+                   ~~~~~~~~~^^^^^^^^^
+KeyError: "'static/core/logo.png'"
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 90, in rendered_content
+    template = self.resolve_template(self.template_name)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 72, in resolve_template
+    return select_template(template, using=self.using)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loader.py", line 42, in select_template
+    return engine.get_template(template_name)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 33, in get_template
+    return Template(self.engine.get_template(template_name), self)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/engine.py", line 177, in get_template
+    template, origin = self.find_template(template_name)
+                       ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/engine.py", line 159, in find_template
+    template = loader.get_template(name, skip=skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loaders/cached.py", line 57, in get_template
+    template = super().get_template(template_name, skip)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loaders/base.py", line 28, in get_template
+    return Template(
+           ^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 154, in __init__
+    self.nodelist = self.compile_nodelist()
+                    ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 196, in compile_nodelist
+    return parser.parse()
+           ^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 504, in parse
+    self.invalid_block_tag(token, command, parse_until)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 565, in invalid_block_tag
+    raise self.error(
+django.template.exceptions.TemplateSyntaxError: Invalid block tag on line 12: ''static/core/logo.png''. Did you forget to register or load this tag?
+2024-05-13 17:37:54,076 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 17:38:15,899 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:38:25,310 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 17:38:25,482 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:38:27,670 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 17:38:37,393 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:39:09,720 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 17:40:11,979 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:40:35,803 (ERROR) - django.request - Internal Server Error: /api/
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 35, in __getitem__
+    return self._storages[alias]
+           ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/response.py", line 74, in rendered_content
+    ret = renderer.render(self.data, accepted_media_type, context)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/rest_framework/renderers.py", line 727, in render
+    ret = template.render(context, request=renderer_context['request'])
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loader_tags.py", line 159, in render
+    return compiled_parent._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/loader_tags.py", line 65, in render
+    result = block.nodelist.render(context)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/functional.py", line 251, in inner
+    self._setup()
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 540, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 55, in create_storage
+    return storage_cls(**options)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/whitenoise/storage.py", line 64, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 463, in __init__
+    self.hashed_files, self.manifest_hash = self.load_manifest()
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 473, in load_manifest
+    content = self.read_manifest()
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 467, in read_manifest
+    with self.manifest_storage.open(self.manifest_name) as manifest:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/filesystem.py", line 68, in _open
+    return File(open(self.path(name), mode))
+                     ^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 39, in path
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+2024-05-13 17:41:15,309 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 17:41:15,482 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:41:17,655 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 17:41:17,829 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:41:21,029 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 17:46:47,648 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:46:51,562 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 203, in url
+    return self._url(self.stored_name, name, force)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 182, in _url
+    hashed_name = hashed_name_func(*args)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 516, in stored_name
+    raise ValueError(
+ValueError: Missing staticfiles manifest entry for '/core/styles.css'
+2024-05-13 17:49:09,750 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:49:12,647 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 203, in url
+    return self._url(self.stored_name, name, force)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 182, in _url
+    hashed_name = hashed_name_func(*args)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 516, in stored_name
+    raise ValueError(
+ValueError: Missing staticfiles manifest entry for '/core/styles.css'
+2024-05-13 17:51:18,628 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 17:51:18,808 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:51:22,212 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 203, in url
+    return self._url(self.stored_name, name, force)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 182, in _url
+    hashed_name = hashed_name_func(*args)
+                  ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 516, in stored_name
+    raise ValueError(
+ValueError: Missing staticfiles manifest entry for '/core/styles.css'
+2024-05-13 17:53:19,014 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
