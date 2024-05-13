@@ -1,5 +1,5 @@
 .env
 db.sqlite3
 .DS_Store
-/media/
 /static/
+backend/media
