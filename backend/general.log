@@ -728,3 +728,4 @@ DETAIL:  Key (cart_id)=(e1213de2-1694-4b70-877b-9a3dd9caea5d) is not present in 
 2024-05-13 14:35:48,846 (WARNING) - django.request - Not Found: /static/core/styles.css/
 2024-05-13 14:35:48,851 (WARNING) - django.request - Not Found: /static/core/logo.png/
 2024-05-13 14:35:55,772 (WARNING) - django.request - Not Found: /static/core/logo.png/
+2024-05-13 15:35:59,407 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
