@@ -1446,3 +1446,190 @@ Traceback (most recent call last):
     raise ValueError(
 ValueError: Missing staticfiles manifest entry for '/core/styles.css'
 2024-05-13 17:53:19,014 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:04:03,801 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:04:20,441 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:04:20,609 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:04:30,064 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:04:30,230 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:04:55,246 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:04:55,409 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:04:57,579 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:04:57,747 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:05:08,220 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:05:12,923 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:05:34,706 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:05:34,900 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:05:39,119 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:05:39,287 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:05:42,486 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:05:42,657 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:05:44,839 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:05:45,030 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:05:46,191 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:05:55,903 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:06:03,255 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:06:03,424 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:06:06,107 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:06,108 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:06,800 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:06,800 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:06,976 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:06,978 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:07,138 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:07,139 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:07,298 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:07,300 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:07,467 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:07,468 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:07,633 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:07,634 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:07,791 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:07,792 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:08,091 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:08,092 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:08,262 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:08,267 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:06:40,836 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:06:41,013 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:06:44,169 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:06:44,355 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:06:46,546 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:06:46,726 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:06:49,857 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:06:50,025 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:06:51,906 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:06:51,906 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:07:01,538 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:07:01,707 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:07:03,867 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:07:15,467 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:07:18,436 (ERROR) - django.request - Internal Server Error: /
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 35, in __getitem__
+    return self._storages[alias]
+           ~~~~~~~~~~~~~~^^^^^^^
+KeyError: 'staticfiles'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/base.py", line 220, in _get_response
+    response = response.render()
+               ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 114, in render
+    self.content = self.rendered_content
+                   ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/response.py", line 92, in rendered_content
+    return template.render(context, self._request)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/backends/django.py", line 61, in render
+    return self.template.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 171, in render
+    return self._render(context)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 163, in _render
+    return self.nodelist.render(context)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in render
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 1000, in <listcomp>
+    return SafeString("".join([node.render_annotated(context) for node in self]))
+                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/template/base.py", line 961, in render_annotated
+    return self.render(context)
+           ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 116, in render
+    url = self.url(context)
+          ^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 113, in url
+    return self.handle_simple(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/templatetags/static.py", line 129, in handle_simple
+    return staticfiles_storage.url(path)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/functional.py", line 251, in inner
+    self._setup()
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 540, in _setup
+    self._wrapped = storages[STATICFILES_STORAGE_ALIAS]
+                    ~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 43, in __getitem__
+    storage = self.create_storage(params)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/handler.py", line 55, in create_storage
+    return storage_cls(**options)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/whitenoise/storage.py", line 64, in __init__
+    super().__init__(*args, **kwargs)
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 463, in __init__
+    self.hashed_files, self.manifest_hash = self.load_manifest()
+                                            ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 473, in load_manifest
+    content = self.read_manifest()
+              ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 467, in read_manifest
+    with self.manifest_storage.open(self.manifest_name) as manifest:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/base.py", line 22, in open
+    return self._open(name, mode)
+           ^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/files/storage/filesystem.py", line 68, in _open
+    return File(open(self.path(name), mode))
+                     ^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/contrib/staticfiles/storage.py", line 39, in path
+    raise ImproperlyConfigured(
+django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app without having set the STATIC_ROOT setting to a filesystem path.
+2024-05-13 18:07:27,937 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:07:38,357 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:07:45,676 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:07:45,849 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:07:47,649 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:07:47,652 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:07:48,373 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:07:48,374 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:07:48,560 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:07:48,561 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:08:00,465 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:08:00,640 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:08:06,918 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:08:07,094 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:08:08,275 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:08:08,456 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:08:10,321 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:08:10,321 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:08:14,741 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 18:08:14,897 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:08:19,536 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:08:19,536 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:09:21,663 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:09:24,522 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:09:24,524 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:10:05,411 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:10:08,204 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:10:08,205 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:10:26,327 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:10:26,534 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:10:28,668 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:10:28,882 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:10:31,554 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:10:31,554 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:10:32,575 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:10:32,576 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:10:46,917 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:10:46,917 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:11:09,242 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:11:09,415 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:11:14,602 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:11:14,768 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:11:15,936 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:11:16,107 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 18:11:18,570 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:11:18,571 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:11:19,053 (WARNING) - django.request - Not Found: /static/core/logo.png
+2024-05-13 18:11:19,053 (WARNING) - django.request - Not Found: /static/core/styles.css
+2024-05-13 18:11:23,462 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
+2024-05-13 18:11:23,636 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
