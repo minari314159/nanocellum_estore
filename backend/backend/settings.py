@@ -78,8 +78,9 @@ MIDDLEWARE = [
 INTERNAL_IPS = [
     '127.0.0.1',
     'localhost:8000',
+    'https://nanocellumstore-production.up.railway.app/'
 ]
-ALLOWED_HOSTS = ["*"]
+ALLOWED_HOSTS = ["https://nanocellumstore-production.up.railway.app/"]
 
 CORS_ALLOWED_ORIGINS = [
     'https://localhost:5173',
