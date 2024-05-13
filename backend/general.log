@@ -729,3 +729,95 @@ DETAIL:  Key (cart_id)=(e1213de2-1694-4b70-877b-9a3dd9caea5d) is not present in 
 2024-05-13 14:35:48,851 (WARNING) - django.request - Not Found: /static/core/logo.png/
 2024-05-13 14:35:55,772 (WARNING) - django.request - Not Found: /static/core/logo.png/
 2024-05-13 15:35:59,407 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:53:24,803 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:53:28,487 (ERROR) - django.security.DisallowedHost - Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2024-05-13 16:53:28,503 (WARNING) - django.request - Bad Request: /
+2024-05-13 16:53:48,665 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 16:53:48,858 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:53:53,114 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 16:53:53,281 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:53:54,432 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 16:53:54,596 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:53:56,395 (ERROR) - django.security.DisallowedHost - Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+Traceback (most recent call last):
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/core/handlers/exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/utils/deprecation.py", line 133, in __call__
+    response = self.process_request(request)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/middleware/common.py", line 48, in process_request
+    host = request.get_host()
+           ^^^^^^^^^^^^^^^^^^
+  File "/Users/sjo/miniforge3/envs/BE/lib/python3.11/site-packages/django/http/request.py", line 151, in get_host
+    raise DisallowedHost(msg)
+django.core.exceptions.DisallowedHost: Invalid HTTP_HOST header: '127.0.0.1:8000'. You may need to add '127.0.0.1' to ALLOWED_HOSTS.
+2024-05-13 16:53:56,411 (WARNING) - django.request - Bad Request: /
+2024-05-13 16:54:06,090 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 16:54:06,273 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:55:41,671 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 16:55:41,841 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:55:42,994 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 16:55:43,193 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:55:48,462 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-05-13 16:55:48,631 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 16:58:03,390 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:04:04,577 (WARNING) - django.request - Not Found: /api/order/[object Object]/
+2024-05-13 17:04:46,809 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:04:46,810 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:04:46,812 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:04:46,813 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:04:48,053 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:04:48,054 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:04:48,055 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:04:48,056 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:05:06,902 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-05-13 17:05:16,012 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:05:16,014 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:05:16,016 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:05:16,017 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:05:17,268 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:05:17,270 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:05:17,272 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:05:17,275 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:05:46,155 (WARNING) - django.request - Not Found: /api/order/[object Object]/
+2024-05-13 17:06:57,015 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:06:57,016 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:06:57,017 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:06:57,019 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:06:58,229 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:06:58,229 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:07:00,950 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:07:00,951 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:07:02,907 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:07:02,908 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:07:06,420 (WARNING) - django.request - Not Found: /api/order/[object Object]/
+2024-05-13 17:07:12,385 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:07:12,387 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:07:14,219 (WARNING) - django.request - Not Found: /api/order/[object Object]/
+2024-05-13 17:09:15,267 (WARNING) - django.request - Not Found: /api/order/[object Object]/
+2024-05-13 17:09:57,828 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:09:57,829 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:09:57,831 (WARNING) - django.request - Not Found: /api/order/17/
+2024-05-13 17:09:57,832 (WARNING) - django.request - Not Found: /api/order/16/
+2024-05-13 17:09:59,920 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:09:59,921 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:09:59,922 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:09:59,924 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:10:02,836 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:10:02,837 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:10:02,838 (WARNING) - django.request - Not Found: /api/order/undefined/
+2024-05-13 17:10:02,839 (WARNING) - django.request - Not Found: /api/order/undefined/

@@ -22,7 +22,7 @@ load_dotenv()
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.environ['SECRET_KEY']
@@ -80,11 +80,16 @@ INTERNAL_IPS = [
     'localhost:8000',
     'https://nanocellumstore-production.up.railway.app/'
 ]
-ALLOWED_HOSTS = ["https://nanocellumstore-production.up.railway.app/"]
+ALLOWED_HOSTS = [
+    'https://nanocellumstore-production.up.railway.app',
+    '0.0.0.0',
+    'localhost',
+    '127.0.0.1'
+]
 
 CORS_ALLOWED_ORIGINS = [
-    'https://localhost:5173',
-    'https://127.0.0.1:5173',
+    'http://localhost:5173',
+    'http://127.0.0.1:5173',
     'https://nanocellum-store.vercel.app',
 ]
 CORS_ALLOWS_CREDENTIALS = True

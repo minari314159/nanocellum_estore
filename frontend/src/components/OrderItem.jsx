@@ -19,6 +19,7 @@ const OrderItem = ({ id, price, quantity, name, image }) => {
 			alert("Error deleting cart item", error.response.message);
 		}
 	};
+	
 	return (
 		<div
 			key={id}

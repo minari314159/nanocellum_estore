@@ -21,7 +21,7 @@ const Order = () => {
 
 	useEffect(() => {
 		getCartItems();
-	});
+	}, [ ]);
 
 	return (
 		<section className="bg-primary">
