@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 
 from pathlib import Path
 from datetime import timedelta
+from re import S
 from dotenv import load_dotenv
 import os
 
@@ -77,13 +78,12 @@ MIDDLEWARE = [
 INTERNAL_IPS = [
     '127.0.0.1',
     'localhost:8000',
-    "https://nanocellumstore-production.up.railway.app"
 ]
-ALLOWED_HOSTS = ["https://nanocellumstore-production.up.railway.app"]
+ALLOWED_HOSTS = ["*"]
 
 CORS_ALLOWED_ORIGINS = [
-    'http://localhost:5173',
-    'http://127.0.0.1:5173',
+    'https://localhost:5173',
+    'https://127.0.0.1:5173',
     'https://nanocellum-store.vercel.app',
 ]
 CORS_ALLOWS_CREDENTIALS = True
@@ -179,6 +179,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+
+STATICFILES_DIRS = [BASE_DIR / '/static/', BASE_DIR / '/media/']
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
