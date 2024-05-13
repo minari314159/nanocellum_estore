@@ -79,11 +79,7 @@ INTERNAL_IPS = [
     'localhost:8000',
     "https://nanocellumstore-production.up.railway.app"
 ]
-ALLOWED_HOSTS = [
-    '127.0.0.1',
-    'localhost:8000',
-    "https://nanocellumstore-production.up.railway.app"
-]
+ALLOWED_HOSTS = ["https://nanocellumstore-production.up.railway.app"]
 
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:5173',
@@ -182,12 +178,12 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.0/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT =  'static'
+STATIC_ROOT = os.path.join(BASE_DIR, 'static')
 STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 MEDIA_URL = '/media/'
 # where the media files are stored
-MEDIA_ROOT = 'media'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.0/ref/settings/#default-auto-field
 
