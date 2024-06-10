@@ -4,19 +4,16 @@ import { navLinks } from "../index";
 import { NavLink } from "react-router-dom";
 import CartWidget from "./CartWidget";
 
-
 const NavBar = () => {
 	const [toggle, setToggle] = useState(false);
 	const [active, setActive] = useState(false);
-	
+
 	const handleClick = () => {
 		setToggle((prev) => !prev);
 	};
 
-
-
 	return (
-		<nav className="flex items-center m-0 py-8 px-8 top-0 z-20  justify-between sm:px-13 bg-transparent">
+		<nav className="flex items-center w-[98%] md:w-[92%] w-max-[1200px] py-8 px-8 top-0 z-20  justify-between sm:px-13 bg-transparent">
 			<NavLink
 				to="/"
 				onClick={() => {
@@ -36,7 +33,7 @@ const NavBar = () => {
 
 			<div className=" flex flex-1 justify-end items-center gap-2">
 				<NavLink to="/order">
-					<CartWidget  />
+					<CartWidget />
 				</NavLink>
 				<NavLink to="/login">
 					{/* <img
@@ -45,7 +42,7 @@ const NavBar = () => {
 						/> */}
 					Login
 				</NavLink>
-				
+
 				<img
 					src={toggle ? close : menu}
 					alt="Menu"
