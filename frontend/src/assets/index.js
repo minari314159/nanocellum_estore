@@ -1,6 +1,5 @@
 import logo from "./logo.png";
-import send from "./Send.svg";
-import menu from "./menu.png";
+
 import close from "./close.png";
 import instagram from "./instagram.png";
 import linkedin from "./linkedin.png";
@@ -17,23 +16,17 @@ import molasses from "./molasses.png";
 import sucrose from "./sucrose.png";
 import herolamp from "./cellumlamp.png";
 import forlamp from "./foregroundlamp.png";
-import bloby from "./bloby.png";
+
 import comingsoon from "./comingsoon.png";
 import cart from "./cart.png";
-import chambers from "./TheGrowthChambers.jpg";
-import login from "./enter.png";
-import logout from "./exit.png";
-import leftarrow from "./left-arrow.png";
-import rightarrow from "./right-arrow.png";
-import nullprofile from "./placeholder.png"
+import chambers from "./TheGrowthChambers.png";
+
+import nullprofile from "./placeholder.png";
+import blob4 from "./blob4.svg";
 
 export {
 	logo,
-	send,
-	menu,
 	cart,
-	login,
-	logout,
 	close,
 	instagram,
 	linkedin,
@@ -50,10 +43,8 @@ export {
 	pcabbage,
 	herolamp,
 	forlamp,
-	bloby,
 	comingsoon,
 	chambers,
-	leftarrow,
-	rightarrow,
-	nullprofile
+	nullprofile,
+	blob4,
 };

@@ -3,16 +3,18 @@ import Detail from "./Detail";
 import Footer from "./Footer";
 import Hero from "./Hero";
 import Growth from "./Growth";
-import ComingSoon from "./ComingSoon";
+import Design from "./Design";
+import Products from "./Products";
+
 import Form from "./Form";
 import ProductCard from "./ProductCard";
 import Cart from "./Cart";
 import LoadingIndicator from "./LoadingIndicator";
-import { ParallaxContent } from "./ParallaxContent";
+
+import ParallaxContent from "./ParallaxContent";
 import Overlay from "./Overlay";
 import StickyImage from "./StickyImage";
-import Transition from "./Transition";
-import Products from "./Products";
+
 import OrderItem from "./OrderItem";
 import CartWidget from "./navbar/CartWidget";
 
@@ -22,7 +24,6 @@ export {
 	Footer,
 	Hero,
 	Growth,
-	ComingSoon,
 	Form,
 	ProductCard,
 	Cart,
@@ -30,8 +31,8 @@ export {
 	ParallaxContent,
 	Overlay,
 	StickyImage,
-	Transition,
 	Products,
 	OrderItem,
 	CartWidget,
+	Design,
 };

@@ -1,8 +1,24 @@
-// import { Suspense } from "react";
-// import ProductSkeleton from "./ProductSkeleton";
+import { Suspense } from "react";
+import { useState, useEffect } from "react";
+import api from "../api";
+import { Link } from "react-router-dom";
+import ProductSkeleton from "../components/product/ProductSkeleton";
 import Search from "../components/product/Search";
-// import Card  from "./Card";
+import Card from "../components/Card";
+
 const Products = () => {
+	const [products, setProducts] = useState([]);
+	useEffect(() => {
+		const fetchProducts = async () => {
+			const response = await api.get("/api/products/", {
+				headers: { "Content-Type": "multipart/form-data" },
+			});
+			setProducts(response.data.results);
+		};
+
+		fetchProducts();
+	}, []);
+
 	return (
 		<section className="flex w-full min-h-screen flex-col items-center p-4 ">
 			<div className="p-4 px-6 bg-accent rounded-e-full flex flex-col items-center justify-center shadow-lg">
@@ -10,7 +26,8 @@ const Products = () => {
 				<Search />
 			</div>
 			<div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-5">
-				{/* <Suspense fallback={<ProductSkeleton />}>
+				{products.length === 0 && <h3 className="font-bold text-xl mt-4">No Products at this time...</h3>}
+				<Suspense fallback={<ProductSkeleton />}>
 					{products.map((product) => (
 						<Card
 							key={product.id}
@@ -19,7 +36,7 @@ const Products = () => {
 								<h2 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2">
 									{product.name}
 								</h2>
-								<Image
+								<img
 									src={product.image || "https://placehold.co/400"}
 									alt={product.name}
 									height={300}
@@ -37,7 +54,7 @@ const Products = () => {
 							</Link>
 						</Card>
 					))}
-				</Suspense> */}
+				</Suspense>
 			</div>
 		</section>
 	);

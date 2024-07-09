@@ -117,8 +117,7 @@ const Hero = () => {
 				<img
 					src={blob}
 					alt="cellulose lamp"
-					
-					className=" relative -z-10 shadow-lg rounded-full object-cover object-center"
+					className=" relative -z-10 shadow-lg rounded-full object-cover object-center blur-lg"
 				/>
 			</div>
 		</section>

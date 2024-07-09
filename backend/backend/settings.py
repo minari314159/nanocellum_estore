@@ -78,11 +78,11 @@ MIDDLEWARE = [
 
 INTERNAL_IPS = [
     '127.0.0.1',
-    'localhost:8000',
-    'https://nanocellumstore-production.up.railway.app/'
+    'localhost:8000'
+
 ]
 ALLOWED_HOSTS = [
-    'nanocellumstore-production.up.railway.app',
+
     '0.0.0.0',
     'localhost',
     '127.0.0.1'
@@ -116,17 +116,14 @@ TEMPLATES = [
 WSGI_APPLICATION = 'backend.wsgi.application'
 
 
-SECRET_KEY = os.environ['SECRET_KEY']
-DATABASE_URL = os.environ['DATABASE_URL']
-
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': os.environ['DB_NAME'],
-        'USER': os.environ['DB_USER'],
-        'PASSWORD': os.environ['DB_PASSWORD'],
-        'HOST': os.environ['DB_HOST'],
-        'PORT': os.environ['DB_PORT'],
+        'DB_NAME': 'nanocellum',
+        ' DB_USER': 'miniri',
+        'DB_PASSWORD': 314159,
+        'DB_HOST': 'localhost',
+        'DB_PORT': 6454,
     }}
 
 

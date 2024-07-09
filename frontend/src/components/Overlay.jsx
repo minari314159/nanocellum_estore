@@ -22,14 +22,13 @@ const Overlay = ({ subheading, heading, textColor }) => {
 				y,
 				opacity,
 			}}
-			className={`absolute left-0 top-0 flex flex-col h-screen w-full items-
-		center justify-center ${textColor ? 'text-white' : 'text-black'}`}>
-			<p className="mb-2 text-center text-xl md:mb-4 md:text-3xl">
+			className={`absolute left-0 top-[-4rem] flex flex-col h-screen w-full items-center justify-center ${
+				textColor ? "text-white" : "text-black"
+			}`}>
+			<p className="mb-2 text-center text-xl md:mb-4 md:text-2xl">
 				{subheading}
 			</p>
-			<p
-				className="text-center text-4xl font-bold md:mb-4 md:text-
-				7xl">
+			<p className="text-center text-4xl font-bold md:mb-4 md:text-[2.5rem]">
 				{heading}
 			</p>
 		</motion.div>

@@ -3,7 +3,6 @@ import { useEffect, useRef, useState } from "react";
 import FormatCurrency from "./FormatCurrency";
 import AddToCartButton from "./AddToCartButton";
 import { AnimatePresence, motion } from "framer-motion";
-import { leftarrow, rightarrow } from "../assets";
 
 const ProductCard = () => {
 	const [products, setProducts] = useState([]);
@@ -99,7 +98,7 @@ const ProductCard = () => {
 					whileTap={{ scale: 0.95 }}
 					onClick={() => handleScroll("left")}
 					className="w-6 h-6 p-1 rounded-full bg-white bg-opacity-50 shadow-md">
-					<img src={leftarrow} />
+					L
 				</motion.button>
 				<p>Scroll Products</p>
 				<motion.button
@@ -107,7 +106,7 @@ const ProductCard = () => {
 					whileTap={{ scale: 0.95 }}
 					onClick={() => handleScroll("right")}
 					className="w-6 h-6 p-1 rounded-full bg-white bg-opacity-50 shadow-md">
-					<img src={rightarrow} />
+					R
 				</motion.button>
 			</div>
 		</section>

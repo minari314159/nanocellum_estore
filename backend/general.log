@@ -1633,3 +1633,14 @@ django.core.exceptions.ImproperlyConfigured: You're using the staticfiles app wi
 2024-05-13 18:11:19,053 (WARNING) - django.request - Not Found: /static/core/styles.css
 2024-05-13 18:11:23,462 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/urls.py changed, reloading.
 2024-05-13 18:11:23,636 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-07-09 21:20:42,367 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-07-09 21:23:24,356 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-07-09 21:23:24,579 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-07-09 21:23:33,479 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-07-09 21:23:43,715 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-07-09 21:23:43,840 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-07-09 21:24:48,806 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-07-09 21:24:49,030 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-07-09 21:25:16,435 (INFO) - django.utils.autoreload - /Users/sjo/Documents/Projects/Nanocellum/backend/backend/settings.py changed, reloading.
+2024-07-09 21:27:15,299 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader
+2024-07-09 21:28:01,087 (INFO) - django.utils.autoreload - Watching for file changes with StatReloader

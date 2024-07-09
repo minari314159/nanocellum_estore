@@ -15,7 +15,7 @@ const StickyImage = ({ imgUrl, width, height }) => {
 
 	return (
 		<motion.div
-			className="sticky z-0 overflow-hidden  flex flex-col items-center justify-center"
+			className="sticky z-0 overflow-hidden  flex flex-col items-center justify-center "
 			ref={targetRef}>
 			<motion.img
 				style={{
@@ -25,7 +25,8 @@ const StickyImage = ({ imgUrl, width, height }) => {
 					scale,
 				}}
 				src={imgUrl}
-				className="h-[600px] rounded-full bg-cover aspect-auto"
+				alt="Parallax Image"
+				className="object-cover object-center rounded-full drop-shadow-md "
 			/>
 			<motion.div
 				style={{
