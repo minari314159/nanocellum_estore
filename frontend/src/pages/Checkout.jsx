@@ -1,4 +1,3 @@
-import { NavBar, Footer } from "../components/components";
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
 import api from "../api";
@@ -26,8 +25,7 @@ const Checkout = () => {
 		getOrder();
 	}, []);
 	return (
-		<section className="bg-primary">
-			<NavBar />
+		<section className="bg-base-200">
 			<Link
 				to="/order"
 				className="hover:scale-[102%] text-black rounded-lg p-2 m-2 hover:underline">
@@ -108,7 +106,6 @@ const Checkout = () => {
 					</form>
 				</div>
 			</div>
-			<Footer />
 		</section>
 	);
 };

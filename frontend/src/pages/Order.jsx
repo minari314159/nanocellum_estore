@@ -1,4 +1,4 @@
-import { Footer, NavBar, OrderItem } from "../components/components";
+import { OrderItem } from "../components/components";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
 import api from "../api";
@@ -21,11 +21,10 @@ const Order = () => {
 
 	useEffect(() => {
 		getCartItems();
-	}, [ ]);
+	}, [getCartItems]);
 
 	return (
-		<section className="bg-primary">
-			<NavBar />
+		<section className="bg-base-200">
 			<Link
 				to="/#designs"
 				className="hover:scale-[102%]  text-black rounded-lg p-2 m-2 hover:underline cursor-pointer">
@@ -86,8 +85,6 @@ const Order = () => {
 					</Link>
 				</div>
 			</div>
-
-			<Footer />
 		</section>
 	);
 };

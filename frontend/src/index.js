@@ -10,16 +10,12 @@ import {
 
 export const navLinks = [
 	{
-		id: "product",
-		title: "Product",
-	},
-	{
 		id: "growth",
-		title: "How It's Grown",
+		title: "Process",
 	},
 	{
 		id: "design",
-		title: "Choose Your Design",
+		title: "Design",
 	},
 ];
 

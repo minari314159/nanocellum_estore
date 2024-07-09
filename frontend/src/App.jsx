@@ -8,8 +8,11 @@ import {
 	Loader,
 	Order,
 	Checkout,
+	Products,
+	Profile,
 } from "./pages/pages";
 import { CartContextProvider } from "./context/CartContext";
+import { Footer, NavBar } from "./components/components";
 
 const Logout = () => {
 	localStorage.clear();
@@ -35,20 +38,26 @@ const App = () => {
 			{isLoading ? (
 				<Loader />
 			) : (
-				<CartContextProvider>
-					<BrowserRouter>
-						<Routes>
-							<Route path="/" element={<Home />} />
-							<Route path="/order" element={<Order />} />
-							<Route path="/checkout" element={<Checkout />} />
+				<main className="bg-base-200">
+					<CartContextProvider>
+						<BrowserRouter>
+							<NavBar />
+							<Routes>
+								<Route path="/" element={<Home />} />
+								<Route path="/order" element={<Order />} />
+								<Route path="/checkout" element={<Checkout />} />
+								<Route path="/products" element={<Products />} />
+								<Route path="/profile" element={<Profile />} />
 
-							<Route path="/login" element={<Login />} />
-							<Route path="/logout" element={<Logout />} />
-							<Route path="/register" element={<RegisterAndLogout />} />
-							<Route path="*" element={<NotFound />} />
-						</Routes>
-					</BrowserRouter>
-				</CartContextProvider>
+								<Route path="/login" element={<Login />} />
+								<Route path="/logout" element={<Logout />} />
+								<Route path="/register" element={<RegisterAndLogout />} />
+								<Route path="*" element={<NotFound />} />
+							</Routes>
+							<Footer />
+						</BrowserRouter>
+					</CartContextProvider>
+				</main>
 			)}
 		</>
 	);

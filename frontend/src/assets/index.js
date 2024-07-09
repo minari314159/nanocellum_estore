@@ -15,7 +15,7 @@ import beet from "./beet.png";
 import kiwi from "./kiwi.png";
 import molasses from "./molasses.png";
 import sucrose from "./sucrose.png";
-import herolamp from "./cellumlamp.jpeg";
+import herolamp from "./cellumlamp.png";
 import forlamp from "./foregroundlamp.png";
 import bloby from "./bloby.png";
 import comingsoon from "./comingsoon.png";
@@ -25,6 +25,7 @@ import login from "./enter.png";
 import logout from "./exit.png";
 import leftarrow from "./left-arrow.png";
 import rightarrow from "./right-arrow.png";
+import nullprofile from "./placeholder.png"
 
 export {
 	logo,
@@ -54,4 +55,5 @@ export {
 	chambers,
 	leftarrow,
 	rightarrow,
+	nullprofile
 };

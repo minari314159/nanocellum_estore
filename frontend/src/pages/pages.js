@@ -5,5 +5,7 @@ import Register from "./Register";
 import Order from "./Order";
 import Loader from "./Loader";
 import Checkout from "./Checkout";
+import Products from "./Products";
+import Profile from "./Profile"
 
-export { Home, Login, NotFound, Register, Order, Loader, Checkout };
+export { Home, Login, NotFound, Register, Order, Loader, Checkout, Products, Profile };

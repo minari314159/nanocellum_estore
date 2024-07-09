@@ -1,4 +1,4 @@
-import NavBar from "./NavBar";
+import NavBar from "./navbar/NavBar";
 import Detail from "./Detail";
 import Footer from "./Footer";
 import Hero from "./Hero";
@@ -14,7 +14,7 @@ import StickyImage from "./StickyImage";
 import Transition from "./Transition";
 import Products from "./Products";
 import OrderItem from "./OrderItem";
-import CartWidget from "./CartWidget";
+import CartWidget from "./navbar/CartWidget";
 
 export {
 	NavBar,

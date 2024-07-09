@@ -1,30 +1,19 @@
 import {
-	NavBar,
 	Hero,
 	Detail,
 	Growth,
 	Transition,
 	Products,
-	Footer,
 	ComingSoon,
 	ParallaxContent,
 } from "../components/components";
-import { herolamp, chambers, microgrowth } from "../assets";
+import { chambers, microgrowth } from "../assets";
 
 const App = () => {
 	return (
-		<section className="bg-primary  w-full">
-			<NavBar />
-			<div className=" w-full flex flex-col gap-2 justify-center items-center ">
-				<ParallaxContent
-					imgUrl={herolamp}
-					subheading="The Next"
-					heading="Bio-Integrated Lighting"
-					textColor
-					height={700}
-					width={500}>
-					<Hero />
-				</ParallaxContent>
+		<main className="bg-base-200 m-auto min-w-[300px] w-full lg:max-w-7xl">
+			<div className="flex min-h-screen flex-col items-center w-full p-5  font-inter">
+				<Hero />
 				<ParallaxContent
 					imgUrl=" "
 					subheading=" "
@@ -56,9 +45,8 @@ const App = () => {
 				</ParallaxContent>
 
 				<ComingSoon />
-				<Footer />
 			</div>
-		</section>
+		</main>
 	);
 };
 
