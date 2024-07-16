@@ -3,7 +3,7 @@ import axios from "axios";
 import { ACCESS_TOKEN } from "./constants";
 
 const api = axios.create({
-	baseURL: "https://nanocellumstore-production.up.railway.app/",
+	baseURL: "https://localhost:3000/api/",
 });
 
 // axios is automatically handling tokens for jwt by adding the auth headers

@@ -55,7 +55,7 @@ const Dropmenu = ({ active, setActive }) => {
 	);
 };
 Dropmenu.propTypes = {
-	active: PropTypes.string.isRequired,
+	active: PropTypes.boolean,
 	setActive: PropTypes.func.isRequired,
 };
 
