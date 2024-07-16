@@ -9,6 +9,7 @@ import {
 	Order,
 	Checkout,
 	Products,
+	Product,
 	Profile,
 } from "./pages/pages";
 import { CartContextProvider } from "./context/CartContext";
@@ -47,8 +48,11 @@ const App = () => {
 								<Route path="/order" element={<Order />} />
 								<Route path="/checkout" element={<Checkout />} />
 								<Route path="/products" element={<Products />} />
-								<Route path="/profile" element={<Profile />} />
+								<Route path="/products/:id" element={<Product />} />
+								<Route path="/products/create" element={<Products />} />
+								<Route path="/products/edit" element={<Products />} />
 
+								<Route path="/profile" element={<Profile />} />
 								<Route path="/login" element={<Login />} />
 								<Route path="/logout" element={<Logout />} />
 								<Route path="/register" element={<RegisterAndLogout />} />

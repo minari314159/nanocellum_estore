@@ -4,10 +4,10 @@ import Footer from "./Footer";
 import Hero from "./Hero";
 import Growth from "./Growth";
 import Design from "./Design";
-import Products from "./Products";
+import Products from "./product/Products";
 
 import Form from "./Form";
-import ProductCard from "./ProductCard";
+
 import Cart from "./Cart";
 import LoadingIndicator from "./LoadingIndicator";
 
@@ -25,7 +25,7 @@ export {
 	Hero,
 	Growth,
 	Form,
-	ProductCard,
+
 	Cart,
 	LoadingIndicator,
 	ParallaxContent,

@@ -41,7 +41,7 @@ const Products = () => {
 						style="w-[11rem] sm:w-[14rem] md:w-[15rem] lg:w-[20rem]">
 						<div className="w-full">
 							<h2 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2">
-								{product.name}
+								{product.title}
 							</h2>
 							<img
 								src={product.image || "https://placehold.co/400"}
@@ -55,7 +55,7 @@ const Products = () => {
 							</div>
 						</div>
 						<Link
-							href={`/products/${product.id}`}
+							to={`/products/${product._id}`}
 							className="btn btn-block text-sm md:text-md lg:text-lg shadow-lg">
 							View Product
 						</Link>
