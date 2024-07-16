@@ -1,4 +1,4 @@
-import { Card } from "../components/components";
+import { Card, DeleteButton } from "../components/components";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
@@ -52,7 +52,7 @@ const ProductCard = () => {
 				<Link to={`/products/${id}/edit`} className="btn btn-ghost">
 					Edit
 				</Link>
-				<button className="btn btn-ghost text-error">Delete</button>
+				<DeleteButton id={id} />
 			</div>
 		</>
 	);

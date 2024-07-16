@@ -30,9 +30,11 @@ const createProduct = async (req, res) => {
 	const { title, designer, price, description, image } = req.body;
 	//validation
 	let emptyFields = [];
-	if (!title || !description || !price) {
+	if (!title || !description || !price || !designer) {
 		emptyFields.push("title");
+		emptyFields.push("designer");
 		emptyFields.push("description");
+
 		emptyFields.push("price");
 	}
 	if (emptyFields.length > 0) {
@@ -50,7 +52,7 @@ const createProduct = async (req, res) => {
 		});
 		res.status(200).json(product);
 	} catch (error) {
-		res.status(409).json({ message: error.message });
+		res.status(400).json({ message: error.message });
 	}
 };
 

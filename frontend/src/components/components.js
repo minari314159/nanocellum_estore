@@ -10,7 +10,7 @@ import Form from "./utils/Form";
 import Card from "./utils/Card";
 import Cart from "./Cart";
 import LoadingIndicator from "./utils/LoadingIndicator";
-
+import DeleteButton from "./utils/DeleteButton";
 import ParallaxContent from "./utils/ParallaxContent";
 import Overlay from "./utils/Overlay";
 import StickyImage from "./utils/StickyImage";
@@ -36,4 +36,5 @@ export {
 	Design,
 	FormatCurrency,
 	Card,
+	DeleteButton
 };
