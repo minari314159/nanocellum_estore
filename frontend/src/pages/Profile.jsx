@@ -1,5 +1,5 @@
 import { nullprofile } from "../assets";
-import Card from "../components/Card";
+import{ Card }from "../components/components";
 const Profile = () => {
 	return (
 		<section className="flex min-h-screen flex-col items-center w-full p-10 gap-3">

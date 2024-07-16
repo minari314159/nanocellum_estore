@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Search from "../components/product/Search";
-import Card from "../components/Card";
+import Card from "../components/utils/Card";
 
 const Products = () => {
 	const [products, setProducts] = useState([]);

@@ -1,6 +1,6 @@
 import { useRef } from "react";
 
-import { blob, forlamp, lamp } from "../assets";
+import { blob, forlamp, lamp } from "../../assets";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";

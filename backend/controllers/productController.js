@@ -54,4 +54,36 @@ const createProduct = async (req, res) => {
 	}
 };
 
-module.exports = { getAllProducts, getOneProduct, createProduct };
+const updateProduct = async (req, res) => {
+	const id = req.params.id;
+	if (!mongoose.Types.ObjectId.isValid(id)) {
+		return res.status(400).json({ message: "Invalid id" });
+	}
+	await Product.findOneAndUpdate({ _id: id }, { ...req.body })
+		.then((product) => {
+			res.status(200).json(product);
+		})
+		.catch((error) => {
+			res.status(400).json({ message: error.message });
+		});
+};
+
+const deleteProduct = async (req, res) => {
+	const id = req.params.id;
+	if (!mongoose.Types.ObjectId.isValid(id)) {
+		return res.status(400).json({ message: "Invalid id" });
+	}
+	const product = await Product.findOneAndDelete({ _id: id });
+	if (!product) {
+		return res.status(404).json({ message: "No such product" });
+	}
+	res.status(200).json({ message: "Product deleted successfully" });
+};
+
+module.exports = {
+	getAllProducts,
+	getOneProduct,
+	createProduct,
+	updateProduct,
+	deleteProduct,
+};

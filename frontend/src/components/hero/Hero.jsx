@@ -1,4 +1,4 @@
-import { blob, herolamp } from "../assets";
+import { blob, herolamp } from "../../assets";
 import { useRef } from "react";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";

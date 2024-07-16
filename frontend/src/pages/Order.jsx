@@ -1,22 +1,21 @@
 import { OrderItem } from "../components/components";
 import { Link } from "react-router-dom";
 import { useEffect } from "react";
-import api from "../api";
-import FormatCurrency from "../components/FormatCurrency";
+import FormatCurrency from "../components/utils/FormatCurrency";
 import { useCart } from "../hooks/useCart";
 
 const Order = () => {
 	const { getCartItems, loading, orderItems, quantity, totalPrice } = useCart();
 
 	const sendCheckout = async () => {
-		try {
-			// Step 1: get cart id
-			let cartId = localStorage.getItem("cartId");
-			await api.post(`/api/orders/`, { cart_id: cartId });
-		} catch (error) {
-			// Handle error (e.g., show an error message)
-			console.error("Error checking out", error.response.message);
-		}
+		// try {
+		// 	// Step 1: get cart id
+		// 	let cartId = localStorage.getItem("cartId");
+		// 	await api.post(`/api/orders/`, { cart_id: cartId });
+		// } catch (error) {
+		// 	// Handle error (e.g., show an error message)
+		// 	console.error("Error checking out", error.response.message);
+		// }
 	};
 
 	useEffect(() => {

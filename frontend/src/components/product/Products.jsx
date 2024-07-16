@@ -1,6 +1,6 @@
 import { useRef } from "react";
 import { useScroll, motion, useTransform } from "framer-motion";
-import ProductCard from "./ProductCard";
+
 const Products = () => {
 	const ref = useRef();
 	const { scrollYProgress } = useScroll({
@@ -27,8 +27,6 @@ const Products = () => {
 					(Click more details to learn)
 				</p>
 			</motion.div>
-
-			<ProductCard />
 		</section>
 	);
 };

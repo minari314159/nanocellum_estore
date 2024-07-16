@@ -1,5 +1,6 @@
 /* eslint-disable react/prop-types */
-import { Overlay, StickyImage } from "../components/components";
+import Overlay from "./Overlay";
+import StickyImage from "./StickyImage";
 
 const ParallaxContent = ({
 	imgUrl,

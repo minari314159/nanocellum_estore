@@ -1,7 +1,5 @@
 import { useState } from "react";
-import api from "../api.js";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../constants";
 import LoadingIndicator from "./LoadingIndicator";
 import Card from "./Card";
 
@@ -12,7 +10,7 @@ const Form = ({ route, method }) => {
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
 	const navigate = useNavigate();
-
+	console.log(route);
 	const name = method === "login" ? "Login" : "Register";
 	const toggleMethod = () => {
 		if (method === "Register") {
@@ -22,24 +20,8 @@ const Form = ({ route, method }) => {
 		}
 	};
 
-	const handleSubmit = async (e) => {
-		setLoading(true);
-		e.preventDefault();
-
-		try {
-			const res = await api.post(route, { username, email, password });
-			if (method === "login") {
-				localStorage.setItem(ACCESS_TOKEN, res.data.access);
-				localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-				navigate("/");
-			} else {
-				navigate("/login");
-			}
-		} catch (error) {
-			alert(error);
-		} finally {
-			setLoading(false);
-		}
+	const handleSubmit = async () => {
+		console.log("Form Submitted");
 	};
 
 	return (

@@ -1,11 +1,11 @@
-import Form from "../components/Form";
+import { Form } from "../components/components";
 
 const Login = () => {
 	return (
 		<section className="m-0 p-0 h-screen bg-base-200">
 			<div className="flex flex-col justify-center items-center w-full">
 				<div className="p-[6rem]" />
-				<Form route="auth/jwt/create/" method="login" />
+				<Form route="user/create" method="login" />
 			</div>
 		</section>
 	);

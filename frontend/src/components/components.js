@@ -1,19 +1,19 @@
 import NavBar from "./navbar/NavBar";
-import Detail from "./Detail";
+import Detail from "./hero/Detail";
 import Footer from "./Footer";
-import Hero from "./Hero";
-import Growth from "./Growth";
-import Design from "./Design";
+import Hero from "./hero/Hero";
+import Growth from "./hero/Growth";
+import Design from "./hero/Design";
 import Products from "./product/Products";
-
-import Form from "./Form";
-
+import FormatCurrency from "./utils/FormatCurrency";
+import Form from "./utils/Form";
+import Card from "./utils/Card";
 import Cart from "./Cart";
-import LoadingIndicator from "./LoadingIndicator";
+import LoadingIndicator from "./utils/LoadingIndicator";
 
-import ParallaxContent from "./ParallaxContent";
-import Overlay from "./Overlay";
-import StickyImage from "./StickyImage";
+import ParallaxContent from "./utils/ParallaxContent";
+import Overlay from "./utils/Overlay";
+import StickyImage from "./utils/StickyImage";
 
 import OrderItem from "./OrderItem";
 import CartWidget from "./navbar/CartWidget";
@@ -25,7 +25,6 @@ export {
 	Hero,
 	Growth,
 	Form,
-
 	Cart,
 	LoadingIndicator,
 	ParallaxContent,
@@ -35,4 +34,6 @@ export {
 	OrderItem,
 	CartWidget,
 	Design,
+	FormatCurrency,
+	Card,
 };

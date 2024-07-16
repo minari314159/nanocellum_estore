@@ -1,25 +1,26 @@
 import { Link } from "react-router-dom";
 import { useState, useEffect } from "react";
-import api from "../api";
-import FormatCurrency from "../components/FormatCurrency";
+
+import {FormatCurrency} from "../components/components";
 
 const Checkout = () => {
 	const [orderitem, setOrderItem] = useState([]);
 	const [getTotal, setTotal] = useState(0);
 
 	const getOrder = async () => {
-		try {
-			// Step 1: Create a cart if it doesn't exist
-			let cartId = localStorage.getItem("cartId");
-			// Step 2: Add item to the cart
-			const response = await api.get(`/api/carts/${cartId}/`);
-			setOrderItem(response.data.items);
+		console.log("Getting order items");
+		// try {
+		// 	// Step 1: Create a cart if it doesn't exist
+		// 	let cartId = localStorage.getItem("cartId");
+		// 	// Step 2: Add item to the cart
+		// 	const response = await api.get(`/api/carts/${cartId}/`);
+		// 	setOrderItem(response.data.items);
 
-			setTotal(response.data.total_price);
-		} catch (error) {
-			// Handle error (e.g., show an error message)
-			alert("Error getting cart items");
-		}
+		// 	setTotal(response.data.total_price);
+		// } catch (error) {
+		// 	// Handle error (e.g., show an error message)
+		// 	alert("Error getting cart items");
+		// }
 	};
 	useEffect(() => {
 		getOrder();

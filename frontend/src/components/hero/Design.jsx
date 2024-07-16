@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-import { sucrose, kiwi, pcabbage, beet, molasses } from "../assets";
+import { sucrose, kiwi, pcabbage, beet, molasses } from "../../assets";
 
 const Design = () => {
 	const images = [sucrose, kiwi, pcabbage, beet, molasses];

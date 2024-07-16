@@ -1,7 +1,7 @@
-import FormatCurrency from "./FormatCurrency";
+import FormatCurrency from "./utils/FormatCurrency";
 import { useState } from "react";
 import { useCart } from "../hooks/useCart";
-import api from "../api";
+
 
 // eslint-disable-next-line react/prop-types
 const OrderItem = ({ id, price, quantity, name, image }) => {
@@ -9,15 +9,16 @@ const OrderItem = ({ id, price, quantity, name, image }) => {
 	const { removeFromCart } = useCart();
 	
 	const handleUpdate = () => {
-		try {
-			// Step 1: get cart id
-			let cartId = localStorage.getItem("cartId");
-			// Step 2: remove item to the cart
-			api.patch(`/api/carts/${cartId}/items/${id}/`, { quantity: newQuantity });
-		} catch (error) {
-			// Handle error (e.g., show an error message)
-			alert("Error deleting cart item", error.response.message);
-		}
+		console.log("Update item in cart");
+		// try {
+		// 	// Step 1: get cart id
+		// 	let cartId = localStorage.getItem("cartId");
+		// 	// Step 2: remove item to the cart
+		// 	api.patch(`/api/carts/${cartId}/items/${id}/`, { quantity: newQuantity });
+		// } catch (error) {
+		// 	// Handle error (e.g., show an error message)
+		// 	alert("Error deleting cart item", error.response.message);
+		// }
 	};
 	
 	return (
