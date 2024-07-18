@@ -17,6 +17,7 @@ import {
 } from "./pages/pages";
 import { CartContextProvider } from "./context/CartContext";
 import { Footer, NavBar } from "./components/components";
+import useAuthContext from "./hooks/useAuthContext";
 
 const Logout = () => {
 	localStorage.clear();
@@ -29,7 +30,7 @@ const RegisterAndLogout = () => {
 };
 const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
-
+	const { user } = useAuthContext();
 	useEffect(() => {
 		setIsLoading(true);
 		setTimeout(() => {
@@ -42,7 +43,7 @@ const App = () => {
 			{isLoading ? (
 				<Loader />
 			) : (
-				<main className="bg-base-200">
+				<main className="bg-base-200 w-full">
 					<CartContextProvider>
 						<BrowserRouter>
 							<NavBar />
@@ -60,7 +61,10 @@ const App = () => {
 									/>{" "}
 								</Route>
 
-								<Route path="/profile" element={<Profile />} />
+								<Route
+									path="/profile"
+									element={user ? <Profile /> : <Navigate to="/login" />}
+								/>
 								<Route path="/login" element={<Login />} />
 								<Route path="/logout" element={<Logout />} />
 								<Route path="/register" element={<RegisterAndLogout />} />

@@ -16,7 +16,7 @@ const Form = ({ method }) => {
 
 	const methodName = method === "login" ? "Login" : "Register";
 	const toggleMethod = () => {
-		if (method === "Register") {
+		if (method === "login") {
 			navigate("/register");
 		} else {
 			navigate("/login");
@@ -62,7 +62,6 @@ const Form = ({ method }) => {
 							value={email}
 							onChange={(e) => setEmail(e.target.value)}
 							placeholder="Email"
-							required
 						/>
 					</label>
 
@@ -73,7 +72,6 @@ const Form = ({ method }) => {
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 							placeholder="Password"
-							required
 						/>
 					</label>
 
