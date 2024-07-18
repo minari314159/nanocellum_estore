@@ -2,9 +2,11 @@ import { Card, DeleteButton } from "../components/components";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import useAuthContext from "../hooks/useAuthContext";
 
 const ProductCard = () => {
 	const { id } = useParams();
+	const {user} = useAuthContext();
 	const [product, setProduct] = useState({});
 	useEffect(() => {
 		const fetchProduct = async () => {
@@ -48,12 +50,14 @@ const ProductCard = () => {
 					/>
 				</div>
 			</Card>
-			<div>
+			{user && user.role === "admin" && (
+				< div >
 				<Link to={`/products/${id}/edit`} className="btn btn-ghost">
 					Edit
 				</Link>
 				<DeleteButton id={id} />
-			</div>
+			</div >)
+}
 		</>
 	);
 };

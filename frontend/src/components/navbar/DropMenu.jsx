@@ -27,16 +27,18 @@ const Dropmenu = ({ active, setActive }) => {
 						}`}>
 						Products
 					</Link>
-					<Link
-						to="/products/create"
-						onClick={() => {
-							setActive(true);
-						}}
-						className={` text-[14px] font-semibold  btn btn-ghost rounded-xl ${
-							active ? "text-base-content" : "text-gray-600"
-						}`}>
-						Create
-					</Link>
+					{user && (
+						<Link
+							to="/products/create"
+							onClick={() => {
+								setActive(true);
+							}}
+							className={` text-[14px] font-semibold  btn btn-ghost rounded-xl ${
+								active ? "text-base-content" : "text-gray-600"
+							}`}>
+							Create
+						</Link>
+					)}
 					<ul>
 						{navLinks.map((nav) => (
 							<li

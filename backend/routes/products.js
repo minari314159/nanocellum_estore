@@ -1,5 +1,6 @@
 const express = require("express");
 const productController = require("../controllers/productController");
+const userAuth = require("../middleware/userAuth");
 
 const router = express.Router();
 
@@ -7,6 +8,8 @@ const router = express.Router();
 router.get("/", productController.getAllProducts);
 
 router.get("/:id", productController.getOneProduct);
+
+router.use(userAuth);
 
 router.post("/", productController.createProduct);
 

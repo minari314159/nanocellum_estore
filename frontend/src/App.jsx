@@ -49,15 +49,21 @@ const App = () => {
 							<NavBar />
 							<Routes>
 								<Route path="/" element={<Home />} />
-								<Route path="/order" element={<Order />} />
-								<Route path="/checkout" element={<Checkout />} />
+								<Route
+									path="/order"
+									element={user ? <Order /> : <Navigate to="/login" />}
+								/>
+								<Route
+									path="/checkout"
+									element={user ? <Checkout /> : <Navigate to="/login" />}
+								/>
 								<Route path="/products" element={<Products />} />
-								<Route path="/products/create" element={<CreateProduct />} />
+								<Route path="/products/create" element={user ? <CreateProduct /> : <Navigate to="/products"/>} />
 								<Route path="/products/:id" element={<Product />}>
 									<Route index element={<ProductCard />} />
 									<Route
 										path="/products/:id/edit"
-										element={<EditProduct />}
+										element={user ? <EditProduct /> : <Navigate to="/login" />}
 									/>{" "}
 								</Route>
 

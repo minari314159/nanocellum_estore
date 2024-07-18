@@ -1,21 +1,47 @@
 import { nullprofile } from "../assets";
-import  useAuthContext  from "../hooks/useAuthContext";
+import useAuthContext from "../hooks/useAuthContext";
+import { useEffect, useState } from "react";
 import { Card } from "../components/components";
 const Profile = () => {
 	const { user } = useAuthContext();
-	console.log(user);
+	const [profile, setProfile] = useState({});
+	useEffect(() => {
+		const fetchProduct = async () => {
+			await fetch(`http://localhost:3000/api/users/${user._id}`,
+				{
+					method: "GET",
+					headers: {
+						"Content-Type": "application/json",
+						Authorization: `Bearer ${localStorage.getItem("token")}`,
+					},
+				}
+			)
+				.then((res) => {
+					return res.json();
+				})
+				.then((data) => {
+					setProfile(data);
+				})
+				.catch((err) => {
+					console.log(err);
+				});
+		};
+
+		fetchProduct();
+	}, [user]);
 	return (
 		<section className="flex min-h-screen flex-col items-center w-full p-10 gap-3">
 			<img
-				src={nullprofile}
+				src={ profile.imageURL ? profile.imageURL : nullprofile}
 				alt="profile picture"
 				width="88"
 				height="88"
 				className="rounded-full border border-black my-3"
 			/>
 			<Card style="p-4 w-80">
-				<h1 className="text-4xl font-bold">SJO</h1>
+				<h1 className="text-4xl font-bold">{profile.name}</h1>
 				<p>{user.email}</p>
+				{profile.role === "admin" && <p>{profile.role}</p>}
 				<hr className="my-2 border-1 border-gray-500 w-full" />
 				<div className="w-full my-2">
 					<h3 className="text-lg font-bold py-2">Past Orders</h3>
