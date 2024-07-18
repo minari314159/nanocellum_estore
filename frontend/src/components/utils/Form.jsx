@@ -1,17 +1,20 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import LoadingIndicator from "./LoadingIndicator";
+import { useRegister } from "../../hooks/useRegister";
+import { useLogin } from "../../hooks/useLogin";
 import Card from "./Card";
 
 // eslint-disable-next-line react/prop-types
-const Form = ({ route, method }) => {
-	const [username, setUsername] = useState("");
+const Form = ({ method }) => {
+	// const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
-	const [loading, setLoading] = useState(false);
+	const { register, error, isLoading } = useRegister();
+	const { login } = useLogin();
 	const navigate = useNavigate();
-	console.log(route);
-	const name = method === "login" ? "Login" : "Register";
+
+	const methodName = method === "login" ? "Login" : "Register";
 	const toggleMethod = () => {
 		if (method === "Register") {
 			navigate("/register");
@@ -20,8 +23,16 @@ const Form = ({ route, method }) => {
 		}
 	};
 
-	const handleSubmit = async () => {
-		console.log("Form Submitted");
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		if (method === "register") {
+			await register({ email, password });
+			navigate("/");
+		}
+		if (method === "login") {
+			await login({ email, password });
+			navigate("/");
+		}
 	};
 
 	return (
@@ -29,52 +40,53 @@ const Form = ({ route, method }) => {
 			<form
 				onSubmit={handleSubmit}
 				className="max-w-sm flex flex-col justify-center items-between gap-5 p-3 mx-5">
-				<h1 className="font-bold text-[2rem]">{name}</h1>
+				<h1 className="font-bold text-[2rem]">{methodName}</h1>
 				<div className="flex flex-col justify-center items-between gap-3">
-					<label
-						htmlFor="username"
+					{/* <label
+						htmlFor="name"
 						className="input input-bordered input-md flex items-center gap-2">
 						<input
 							className="grow "
 							type="text"
-							value={username}
-							name="username"
+							value={name}
+							name="name"
 							onChange={(e) => setUsername(e.target.value)}
-							placeholder="Username"
+							placeholder="Name"
+						/>
+					</label> */}
+
+					<label className="input input-bordered input-md flex items-center gap-2">
+						<input
+							className="grow"
+							type="email"
+							value={email}
+							onChange={(e) => setEmail(e.target.value)}
+							placeholder="Email"
+							required
 						/>
 					</label>
-					{method === "register" && (
-						<label
-							htmlFor="email"
-							className="input input-bordered input-md flex items-center gap-2">
-							<input
-								className="grow"
-								type="email"
-								value={email}
-								name="email"
-								onChange={(e) => setEmail(e.target.value)}
-								placeholder="Email"
-							/>
-						</label>
-					)}
-					<label
-						htmlFor="password"
-						className="input input-bordered input-md flex items-center gap-2">
+
+					<label className="input input-bordered input-md flex items-center gap-2">
 						<input
 							className="grow "
 							type="password"
-							name="password"
 							value={password}
 							onChange={(e) => setPassword(e.target.value)}
 							placeholder="Password"
+							required
 						/>
 					</label>
-					{loading && <LoadingIndicator />}
+
 					<button
-						className="btn btn-accent rounded-xl shadow-[1px_1px_5px_2px_#f9fafb1A] "
+						className="btn btn-accent rounded-xl shadow-[1px_1px_5px_2px_#f9fafb1A] text-lg"
 						type="submit">
-						{name}
+						{isLoading ? (
+							<LoadingIndicator>{methodName}</LoadingIndicator>
+						) : (
+							<>{methodName}</>
+						)}
 					</button>
+					{error && <p>{error}</p>}
 					{method === "login" ? (
 						<div className="flex flex-col justify-center items-center">
 							<h2>Don&apos;t have an account</h2>

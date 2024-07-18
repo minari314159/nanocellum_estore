@@ -1,6 +1,9 @@
 import { nullprofile } from "../assets";
-import{ Card }from "../components/components";
+import  useAuthContext  from "../hooks/useAuthContext";
+import { Card } from "../components/components";
 const Profile = () => {
+	const { user } = useAuthContext();
+	console.log(user);
 	return (
 		<section className="flex min-h-screen flex-col items-center w-full p-10 gap-3">
 			<img
@@ -12,7 +15,7 @@ const Profile = () => {
 			/>
 			<Card style="p-4 w-80">
 				<h1 className="text-4xl font-bold">SJO</h1>
-				<p>email@email.com</p>
+				<p>{user.email}</p>
 				<hr className="my-2 border-1 border-gray-500 w-full" />
 				<div className="w-full my-2">
 					<h3 className="text-lg font-bold py-2">Past Orders</h3>

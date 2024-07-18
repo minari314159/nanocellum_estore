@@ -3,9 +3,11 @@ import { navLinks } from "../../index";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { SignInButton, SignOutButton } from "./AuthButtons";
+import useAuthContext from "../../hooks/useAuthContext";
 
 const Dropmenu = ({ active, setActive }) => {
-	const isSignedIn = false;
+	const { user } = useAuthContext();
+
 	return (
 		<div className="flex justify-end z-10">
 			<div className="dropdown  dropdown-end">
@@ -58,7 +60,7 @@ const Dropmenu = ({ active, setActive }) => {
 							</li>
 						))}
 					</ul>
-					{isSignedIn ? <SignOutButton /> : <SignInButton />}
+					{user ? <SignOutButton /> : <SignInButton />}
 				</div>
 			</div>
 		</div>
