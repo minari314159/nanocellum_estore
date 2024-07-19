@@ -4,7 +4,8 @@ const cors = require("cors");
 const morgan = require("morgan");
 const mongoose = require("mongoose");
 const productRoutes = require("./routes/products");
-const userRoutes = require("./routes/users");
+const authRoutes = require("./routes/auth");
+
 const orderRoutes = require("./routes/orders");
 const cartRoutes = require("./routes/cart");
 
@@ -41,7 +42,7 @@ app.get("/", (req, res) => {
 
 //import routes
 app.use("/api/products", productRoutes);
-app.use("/api/users", userRoutes);
+app.use("/api/auth", authRoutes);
 app.use("/api/orders", orderRoutes);
 app.use("/api/cart", cartRoutes);
 
