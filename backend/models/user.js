@@ -27,7 +27,7 @@ const userSchema = new mongoose.Schema({
 		enum: ["user", "admin"],
 		default: "user",
 	},
-});
+}, { timestamps: true });
 
 //statuc signup method
 userSchema.statics.signup = async function (email, password) {

@@ -1,3 +1,4 @@
+const user = require("../models/user");
 const User = require("../models/user");
 const jwt = require("jsonwebtoken");
 
@@ -41,10 +42,10 @@ const getUsers = async (req, res) => {
 };
 
 const getUser = async (req, res) => {
-	const { id } = req.params;
+	const user = req.user;
 	try {
-		const user = await User.findById(id);
-		res.status(200).json(user);
+		const profile = await User.findOne({ _id: user._id });
+		res.status(200).json(profile);
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}

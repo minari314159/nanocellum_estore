@@ -24,15 +24,7 @@ const productSchema = new mongoose.Schema(
 			default:
 				"https://static.vecteezy.com/system/resources/previews/015/723/855/original/vintage-retro-sunset-png.png",
 			required: true,
-		},
-		cart_quantity: {
-			type: Number,
-			default: 0,
-		},
-		cart_id: {
-			type: String,
-			default: "",
-		},
+		}
 	},
 	{ timestamps: true }
 );

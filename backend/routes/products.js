@@ -1,6 +1,6 @@
 const express = require("express");
 const productController = require("../controllers/productController");
-const userAuth = require("../middleware/userAuth");
+const roleAuth = require("../middleware/roleAuth");
 
 const router = express.Router();
 
@@ -9,7 +9,7 @@ router.get("/", productController.getAllProducts);
 
 router.get("/:id", productController.getOneProduct);
 
-router.use(userAuth);
+router.use(roleAuth);
 
 router.post("/", productController.createProduct);
 

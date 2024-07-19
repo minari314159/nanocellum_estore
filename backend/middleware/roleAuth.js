@@ -1,7 +1,7 @@
 const jwt = require("jsonwebtoken");
 const User = require("../models/user");
 
-const userAuth = async (req, res, next) => {
+const roleAuth = async (req, res, next) => {
 	//verify authentication
 	const { authorization } = req.headers;
 
@@ -15,12 +15,13 @@ const userAuth = async (req, res, next) => {
 		const { _id } = jwt.verify(token, process.env.JWT_SECRET);
 		//with the id find the user in the database
 		req.user = await User.findOne({ _id }).select("_id");
-
-		next();
+		if (req.user.role !== "admin") {
+			next();
+		}
 	} catch (error) {
 		console.log(error);
 		res.status(401).json({ error: "Unauthorized" });
 	}
 };
 
-module.exports = userAuth;
+module.exports = roleAuth;

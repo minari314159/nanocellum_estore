@@ -6,16 +6,14 @@ const Profile = () => {
 	const { user } = useAuthContext();
 	const [profile, setProfile] = useState({});
 	useEffect(() => {
-		const fetchProduct = async () => {
-			await fetch(`http://localhost:3000/api/users/${user._id}`,
-				{
-					method: "GET",
-					headers: {
-						"Content-Type": "application/json",
-						Authorization: `Bearer ${localStorage.getItem("token")}`,
-					},
-				}
-			)
+		const fetchProfile = async () => {
+			await fetch("/api/users/profile", {
+				method: "GET",
+				headers: {
+					"Content-Type": "application/json",
+					Authorization: `Bearer ${user.token}`,
+				},
+			})
 				.then((res) => {
 					return res.json();
 				})
@@ -27,12 +25,12 @@ const Profile = () => {
 				});
 		};
 
-		fetchProduct();
+		fetchProfile();
 	}, [user]);
 	return (
 		<section className="flex min-h-screen flex-col items-center w-full p-10 gap-3">
 			<img
-				src={ profile.imageURL ? profile.imageURL : nullprofile}
+				src={profile.imageURL ? profile.imageURL : nullprofile}
 				alt="profile picture"
 				width="88"
 				height="88"
