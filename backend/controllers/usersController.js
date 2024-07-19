@@ -3,34 +3,43 @@ const User = require("../models/user");
 const getUsers = async (req, res) => {
 	try {
 		const users = await User.find({});
-		res.status(200).json(users);
+		const { password, ...data } = await users._doc;
+		res.status(200).json({ ...data });
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
 };
-
+const getUser = async (req, res) => {
+	try {
+		const users = await User.findById(req.params.id);
+		const { password, ...data } = await users._doc;
+		res.status(200).json({ ...data });
+	} catch (err) {
+		res.status(400).json({ message: err.message });
+	}
+};
 const updateUser = async (req, res) => {
 	try {
-		const profile = await User.findByIdAndUpdate(
+		const users = await User.findByIdAndUpdate(
 			req.user._id,
 			{
 				$set: req.body,
 			},
 			{ new: true }
 		);
-		res.status(200).json(profile);
+		const { password, createdAt, updatedAt, __v, ...data } = await users._doc;
+		res.status(200).json({ ...data });
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
 };
 
 const deleteUser = async (req, res) => {
-	const user = req.user;
 	try {
-		await User.deleteOne({ _id: user._id });
+		await User.findByIdAndDelete(req.params.id);
 		res.status(200).json({ message: "User deleted" });
 	} catch (err) {
 		res.status(400).json({ message: err.message });
 	}
 };
-module.exports = { getUsers, updateUser, deleteUser };
+module.exports = { getUsers, getUser, updateUser, deleteUser };

@@ -44,7 +44,7 @@ const registerUser = async (req, res) => {
 		);
 
 		const token = createToken(user._id, user.role);
-		const { password, createdAt, updatedAt, ...profile } = user._doc;
+		const { password, createdAt, updatedAt,__v, ...profile } = user._doc;
 		res.status(201).json({ ...profile, token });
 	} catch (err) {
 		res.status(400).json({ message: err.message });
