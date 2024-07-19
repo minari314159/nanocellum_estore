@@ -1,6 +1,6 @@
 const express = require("express");
 const productController = require("../controllers/productController");
-const { roleAuth } = require("../middleware/userAuth");
+const { verifyRole } = require("../middleware/userAuth");
 
 const router = express.Router();
 
@@ -9,10 +9,10 @@ router.get("/", productController.getAllProducts);
 
 router.get("/:id", productController.getOneProduct);
 
-router.post("/",roleAuth, productController.createProduct);
+router.post("/", verifyRole, productController.createProduct);
 
-router.patch("/:id",roleAuth, productController.updateProduct);
+router.patch("/:id", verifyRole, productController.updateProduct);
 
-router.delete("/:id",roleAuth, productController.deleteProduct);
+router.delete("/:id", verifyRole, productController.deleteProduct);
 
 module.exports = router;
