@@ -1,14 +1,16 @@
 const router = require("express").Router();
-const { getUsers, getUser } = require("../controllers/usersController");
-const roleAuth = require("../middleware/roleAuth");
-const userAuth = require("../middleware/userAuth");
+const {
+	getUsers,
+	deleteUser,
+	updateUser,
+} = require("../controllers/usersController");
 
-router.use(userAuth);
+const {verifyToken, roleAuth} = require("../middleware/userAuth");
 
-router.get("/profile", getUser);
+router.put("/:id", verifyToken, updateUser);
 
-router.use(roleAuth);
+router.delete("/:id",verifyToken, deleteUser);
 
-router.get("/", getUsers);
+router.get("/", roleAuth, getUsers);
 
 module.exports = router;

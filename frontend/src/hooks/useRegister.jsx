@@ -10,10 +10,10 @@ export function useRegister() {
 		setIsLoading(true);
 		setError(null);
 
-		const response = await fetch("http://localhost:3000/api/users/register", {
+		const response = await fetch("http://localhost:3000/api/auth/register", {
 			method: "POST",
 			headers: { "Content-Type": "application/json" },
-			body: JSON.stringify( email, password ),
+			body: JSON.stringify(email, password),
 		});
 		const data = await response.json();
 		if (!response.ok) {
