@@ -3,8 +3,19 @@ const mongoose = require("mongoose");
 
 //get all products
 const getAllProducts = async (req, res) => {
+	const qNew = req.query.new;
+	const qPrice = req.query.price;
+
 	try {
-		const products = await Product.find({}).sort({ createdAt: -1 });
+		let products;
+		if (qNew) {
+			products = await Product.find({}).sort({ createdAt: -1 }).limit(5);
+		} else if (qPrice) {
+			products = await Product.find({}).sort({ price: -1 });
+		} else {
+			products = await Product.find({});
+		}
+
 		res.status(200).json(products);
 	} catch (error) {
 		res.status(400).json({ message: error.message });
@@ -61,7 +72,7 @@ const updateProduct = async (req, res) => {
 	if (!mongoose.Types.ObjectId.isValid(id)) {
 		return res.status(400).json({ message: "Invalid id" });
 	}
-	await Product.findOneAndUpdate({ _id: id }, { ...req.body })
+	await Product.findOneAndUpdate({ _id: id }, { ...req.body }, { new: true })
 		.then((product) => {
 			res.status(200).json(product);
 		})
@@ -75,7 +86,7 @@ const deleteProduct = async (req, res) => {
 	if (!mongoose.Types.ObjectId.isValid(id)) {
 		return res.status(400).json({ message: "Invalid id" });
 	}
-	const product = await Product.findOneAndDelete({ _id: id });
+	const product = await Product.findByIdAndDelete({ _id: id });
 	if (!product) {
 		return res.status(404).json({ message: "No such product" });
 	}
