@@ -1,9 +1,23 @@
 const express = require("express");
+const {
+	allOrders,
+	userOrder,
+	createOrder,
+	updateOrder,
+	deleteOrder,
+} = require("../controllers/orderController");
+const { verifyUser, verifyRole } = require("../middleware/userAuth");
+
 const router = express.Router();
 
-//product routes
-router.get("/", (req, res) => {
-	res.send("Orders Route");
-});
+router.get("/", verifyRole, allOrders);
+
+router.get("/:id", verifyUser, userOrder);
+
+router.post("/", verifyUser, createOrder);
+
+router.put("/:id", verifyRole, updateOrder);
+
+router.delete("/:id", verifyRole, deleteOrder);
 
 module.exports = router;
