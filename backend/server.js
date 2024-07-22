@@ -44,7 +44,7 @@ app.get("/", (req, res) => {
 app.use("/api/products", productRoutes);
 app.use("/api/auth", authRoutes);
 app.use("/api/orders", orderRoutes);
-app.use("/api/cart", cartRoutes);
+app.use("/api/carts", cartRoutes);
 
 // Start the server
 const port = process.env.PORT || 3000;

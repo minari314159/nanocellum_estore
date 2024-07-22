@@ -70,7 +70,7 @@ const Dropmenu = ({ active, setActive }) => {
 };
 Dropmenu.propTypes = {
 	active: PropTypes.boolean,
-	setActive: PropTypes.func.isRequired,
+	setActive: PropTypes.func,
 };
 
 export default Dropmenu;

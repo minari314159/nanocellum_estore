@@ -14,7 +14,7 @@ router.get("/", verifyRole, allOrders);
 
 router.get("/:id", verifyUser, userOrder);
 
-router.post("/", verifyUser, createOrder);
+router.post("/", createOrder);
 
 router.put("/:id", verifyRole, updateOrder);
 

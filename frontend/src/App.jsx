@@ -14,6 +14,7 @@ import {
 	EditProduct,
 	CreateProduct,
 	Profile,
+	Success,
 } from "./pages/pages";
 import { CartContextProvider } from "./context/CartContext";
 import { Footer, NavBar } from "./components/components";
@@ -58,7 +59,12 @@ const App = () => {
 									element={user ? <Checkout /> : <Navigate to="/login" />}
 								/>
 								<Route path="/products" element={<Products />} />
-								<Route path="/products/create" element={user ? <CreateProduct /> : <Navigate to="/products"/>} />
+								<Route
+									path="/products/create"
+									element={
+										user ? <CreateProduct /> : <Navigate to="/products" />
+									}
+								/>
 								<Route path="/products/:id" element={<Product />}>
 									<Route index element={<ProductCard />} />
 									<Route
@@ -74,6 +80,9 @@ const App = () => {
 								<Route path="/login" element={<Login />} />
 								<Route path="/logout" element={<Logout />} />
 								<Route path="/register" element={<RegisterAndLogout />} />
+
+								<Route path="/success" element={<Success />} />
+
 								<Route path="*" element={<NotFound />} />
 							</Routes>
 							<Footer />
