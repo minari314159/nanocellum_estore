@@ -40,6 +40,7 @@ const ProductCard = () => {
 						</p>
 						<hr className="w-full my-2 text-base-300" />
 						<p className="w-full my-2 ">{product.description}</p>
+						<button className="btn btn-accent w-full">Add to Cart</button>
 					</div>
 					<img
 						src={product.image}
