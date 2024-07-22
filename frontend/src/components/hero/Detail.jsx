@@ -1,4 +1,4 @@
-import { useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 
 import { cellumlamp } from "../../assets";
 import { useGSAP } from "@gsap/react";
@@ -8,17 +8,31 @@ gsap.registerPlugin(ScrollTrigger);
 
 const Details = () => {
 	const container = useRef(null);
+	const [screen, setScreen] = useState(window.innerWidth);
+	useEffect(() => {
+		const handleResize = () => {
+			setScreen(window.innerWidth);
+			console.log(screen);
+		};
+		window.addEventListener("resize", handleResize);
+		return () => {
+			window.removeEventListener("resize", handleResize);
+		};
+	}, [screen]);
+
 	useGSAP(
 		() => {
 			gsap.fromTo(
 				"#lampimg",
 				{
 					x: -window.innerWidth,
+					y: screen <= 768 ? -window.innerHeight / 4 : 0,
 					duration: 1,
 					ease: "smooth",
 				},
 				{
-					x: window.innerWidth / 3,
+					x: screen <= 768 ? window.innerWidth / 4 : window.innerWidth / 3,
+					y: screen <= 768 ? -window.innerHeight / 4 : 0,
 					scrollTrigger: {
 						trigger: "#lampimg",
 						start: "top center",
@@ -31,13 +45,13 @@ const Details = () => {
 				"#para",
 				{
 					x: window.innerWidth,
-
+					y: screen <= 768 ? window.innerHeight / 4 : 0,
 					duration: 1,
 					ease: "smooth",
 				},
 				{
-					x: -window.innerWidth / 3,
-
+					x: screen <= 768 ? -window.innerWidth / 4 : -window.innerWidth / 2,
+					y: screen <= 768 ? window.innerHeight / 4 : 0,
 					scrollTrigger: {
 						trigger: "#lampimg",
 						start: "top center",
@@ -53,7 +67,7 @@ const Details = () => {
 		<section
 			id="product"
 			ref={container}
-			className="flex flex-row w-full justify-center items-start  sm:gap-3 h-[100vh] relative">
+			className="flex felx-col md:flex-row w-full justify-center items-start  sm:gap-3 h-[100vh] relative">
 			<img
 				id="lampimg"
 				src={cellumlamp}
@@ -63,7 +77,7 @@ const Details = () => {
 			<div className=" flex flex-col items-end w-[300px] ">
 				<p
 					id="para"
-					className="font-light text-[16px] lg:text-[18px] leading-[30px] text-right max-w-[450px] lg:mt-10 z-[2] ">
+					className="font-light text-[16px] lg:text-[18px] leading-[30px] text-center md:text-right min-w-[300px] max-w-[450px] lg:mt-10 z-[2] ">
 					A production line which uses living organisms to grow geometrical
 					objects. A data-driven approach to explore our perception of new
 					biotechnological materials. <br /> 300x faster than growing and

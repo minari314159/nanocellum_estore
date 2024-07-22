@@ -9,7 +9,7 @@ const NavBar = () => {
 	const [active, setActive] = useState(false);
 
 	return (
-		<nav className="navbar navbar-center z-10  w-[640px] md:w-full max-w-7xl sticky top-0 flex ">
+		<nav className="navbar navbar-center z-10 w-[100%] max-w-7xl sticky top-0 flex ">
 			<NavLink
 				to="/"
 				onClick={() => {

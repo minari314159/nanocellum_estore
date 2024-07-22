@@ -44,7 +44,7 @@ const App = () => {
 			{isLoading ? (
 				<Loader />
 			) : (
-				<main className="bg-base-200 w-full">
+				<main className="bg-base-200 w-full relative">
 					<CartContextProvider>
 						<BrowserRouter>
 							<NavBar />

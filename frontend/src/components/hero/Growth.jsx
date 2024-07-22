@@ -91,13 +91,13 @@ const Growth = () => {
 					src={lamp}
 					id="forlamp"
 					alt="cellulos lamp"
-					className=" w-[350px] md:w-[400px] aspect-square  absolute bottom-[31rem] z-[0] "
+					className=" w-[350px] md:w-[400px] aspect-square  absolute bottom-[27rem] z-[0] "
 				/>
 				<img
 					src={forlamp}
 					id="forlamp"
 					alt="Liquid growth chamber for cellulose. Image by Stefan Schwabe Xylinum Cone"
-					className="w-[350px] md:w-[400px] aspect-square   z-[9] absolute bottom-[31rem] "
+					className="w-[350px] md:w-[400px] aspect-square   z-[9] absolute bottom-[27rem] "
 				/>
 			</div>
 		</section>
