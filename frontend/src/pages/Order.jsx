@@ -23,9 +23,9 @@ const Order = () => {
 	}, [getCartItems]);
 
 	return (
-		<section className="bg-base-200">
+		<section className="bg-base-200 min-h-[87vh]">
 			<Link
-				to="/#designs"
+				to={-1}
 				className="hover:scale-[102%]  text-black rounded-lg p-2 m-2 hover:underline cursor-pointer">
 				{" "}
 				&larr; Back

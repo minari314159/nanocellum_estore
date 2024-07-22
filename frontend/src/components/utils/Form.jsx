@@ -7,7 +7,7 @@ import Card from "./Card";
 
 // eslint-disable-next-line react/prop-types
 const Form = ({ method }) => {
-	// const [username, setUsername] = useState("");
+	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const { register, error, isLoading } = useRegister();
@@ -26,7 +26,7 @@ const Form = ({ method }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (method === "register") {
-			await register({ email, password });
+			await register({ username, email, password });
 			navigate("/");
 		}
 		if (method === "login") {
@@ -42,18 +42,18 @@ const Form = ({ method }) => {
 				className="max-w-sm flex flex-col justify-center items-between gap-5 p-3 mx-5">
 				<h1 className="font-bold text-[2rem]">{methodName}</h1>
 				<div className="flex flex-col justify-center items-between gap-3">
-					{/* <label
+					{method === "register" ? <label
 						htmlFor="name"
 						className="input input-bordered input-md flex items-center gap-2">
 						<input
 							className="grow "
 							type="text"
-							value={name}
-							name="name"
+							value={username}
+							
 							onChange={(e) => setUsername(e.target.value)}
 							placeholder="Name"
 						/>
-					</label> */}
+					</label> : null}
 
 					<label className="input input-bordered input-md flex items-center gap-2">
 						<input
