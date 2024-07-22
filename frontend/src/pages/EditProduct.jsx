@@ -38,7 +38,7 @@ const EditProduct = () => {
 		setLoading(true);
 		const product = { title, price, designer, description };
 		const response = await fetch(`http://localhost:3000/api/products/${id}`, {
-			method: "PATCH",
+			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
 			},

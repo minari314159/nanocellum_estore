@@ -27,7 +27,7 @@ const Dropmenu = ({ active, setActive }) => {
 						}`}>
 						Products
 					</Link>
-					{user && (
+					{user && user.role === "admin" && (
 						<Link
 							to="/products/create"
 							onClick={() => {

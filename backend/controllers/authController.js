@@ -14,6 +14,7 @@ const loginUser = async (req, res) => {
 		const user = await User.login(email, password);
 		const token = createToken(user._id, user.role);
 		const profile = {
+			_id: user._id,
 			username: user.username,
 			email: user.email,
 			imageURL: user.imageURL,
