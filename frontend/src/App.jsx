@@ -10,25 +10,14 @@ import {
 	Checkout,
 	Products,
 	Product,
-	ProductCard,
-	EditProduct,
-	CreateProduct,
 	Profile,
-	Success,
 } from "./pages/pages";
+import { CreateProduct, EditProduct, ProductCard } from "./components/components";
 import { CartContextProvider } from "./context/CartContext";
 import { Footer, NavBar } from "./components/components";
 import useAuthContext from "./hooks/useAuthContext";
 
-const Logout = () => {
-	localStorage.clear();
-	return <Navigate to="/" />;
-};
-//clears local storage to remove any old access token
-const RegisterAndLogout = () => {
-	localStorage.clear();
-	return <Register />;
-};
+
 const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
 	const { user } = useAuthContext();
@@ -77,11 +66,9 @@ const App = () => {
 									path="/profile"
 									element={user ? <Profile /> : <Navigate to="/login" />}
 								/>
+								<Route path="/register" element={<Register />} />
 								<Route path="/login" element={<Login />} />
-								<Route path="/logout" element={<Logout />} />
-								<Route path="/register" element={<RegisterAndLogout />} />
-
-								<Route path="/success" element={<Success />} />
+								
 
 								<Route path="*" element={<NotFound />} />
 							</Routes>

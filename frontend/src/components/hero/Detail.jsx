@@ -12,7 +12,6 @@ const Details = () => {
 	useEffect(() => {
 		const handleResize = () => {
 			setScreen(window.innerWidth);
-			console.log(screen);
 		};
 		window.addEventListener("resize", handleResize);
 		return () => {

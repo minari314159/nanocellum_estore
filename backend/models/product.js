@@ -19,12 +19,15 @@ const productSchema = new mongoose.Schema(
 			type: String,
 			required: true,
 		},
+		color: {
+			type: String,
+		},
 		image: {
 			type: String,
 			default:
 				"https://static.vecteezy.com/system/resources/previews/015/723/855/original/vintage-retro-sunset-png.png",
 			required: true,
-		}
+		},
 	},
 	{ timestamps: true }
 );

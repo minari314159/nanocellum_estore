@@ -5,7 +5,7 @@ const Card = ({ children, style }) => {
 
 	return (
 		<div
-			className={`card card-compact bg-gray-700 rounded-md  backdrop-filter backdrop-blur-md bg-opacity-20 shadow-[inset_0_-3px_10px_#f9fafb33]  ${style}`}>
+			className={`card card-compact bg-gray-700 rounded-md  backdrop-filter backdrop-blur-md bg-opacity-20  shadow-xl ${style}`}>
 			<div className="card-body flex flex-col justify-between items-center ">
 				{children}
 			</div>

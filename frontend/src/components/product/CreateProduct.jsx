@@ -1,8 +1,8 @@
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
-import { Card } from "../components/components";
+import { Card } from "../components";
 const CreateProduct = () => {
-	const navigate = useNavigate();
+	
 	const [title, setTitle] = useState("");
 	const [designer, setDesigner] = useState("");
 	const [price, setPrice] = useState();
@@ -114,10 +114,10 @@ const CreateProduct = () => {
 					</div>
 				</form>
 			</Card>
-
-			<button onClick={() => navigate(-1)} className="btn btn-accent my-2">
-				Back
-			</button>
+			<Link to="/products" className="btn btn-accent btn-ghost ">
+				{" "}
+				&larr; Back
+			</Link>
 		</section>
 	);
 };

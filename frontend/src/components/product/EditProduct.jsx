@@ -1,4 +1,4 @@
-import { Card } from "../components/components";
+import { Card } from "../components";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 

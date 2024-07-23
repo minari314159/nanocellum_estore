@@ -4,7 +4,11 @@ import Footer from "./Footer";
 import Hero from "./hero/Hero";
 import Growth from "./hero/Growth";
 import Design from "./hero/Design";
-import Products from "./product/Products";
+
+import ProductCard from "./product/ProductCard";
+import CreateProduct from "./product/CreateProduct";
+import EditProduct from "./product/EditProduct";
+
 import FormatCurrency from "./utils/FormatCurrency";
 import Form from "./utils/Form";
 import Card from "./utils/Card";
@@ -30,11 +34,13 @@ export {
 	ParallaxContent,
 	Overlay,
 	StickyImage,
-	Products,
+	ProductCard,
+	EditProduct,
+	CreateProduct,
 	OrderItem,
 	CartWidget,
 	Design,
 	FormatCurrency,
 	Card,
-	DeleteButton
+	DeleteButton,
 };

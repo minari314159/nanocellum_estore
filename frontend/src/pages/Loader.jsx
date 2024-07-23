@@ -1,5 +1,5 @@
 import { motion, AnimatePresence } from "framer-motion";
-import { logo } from "../assets";
+
 import { useRef } from "react";
 
 const Loader = () => {
@@ -31,7 +31,7 @@ const Loader = () => {
 					animate={{ y: 20, opacity: 0 }}
 					transition={{ duration: 0.5, delay: 3.5 }}>
 					<img
-						src={logo}
+						src="/logo.png"
 						alt="nanocellum logo"
 						className="w-auto h-[100px] loading"
 					/>
