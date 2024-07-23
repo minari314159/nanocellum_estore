@@ -1,10 +1,9 @@
-import PropTypes from "prop-types";
 import { navLinks } from "../../index";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { SignInButton, SignOutButton } from "./AuthButtons";
 import useAuthContext from "../../hooks/useAuthContext";
-
+// eslint-disable-next-line react/prop-types
 const Dropmenu = ({ active, setActive }) => {
 	const { user } = useAuthContext();
 
@@ -65,10 +64,6 @@ const Dropmenu = ({ active, setActive }) => {
 			</div>
 		</div>
 	);
-};
-Dropmenu.propTypes = {
-	active: PropTypes.boolean,
-	setActive: PropTypes.func,
 };
 
 export default Dropmenu;

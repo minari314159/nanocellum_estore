@@ -12,11 +12,14 @@ import {
 	Product,
 	Profile,
 } from "./pages/pages";
-import { CreateProduct, EditProduct, ProductCard } from "./components/components";
+import {
+	CreateProduct,
+	EditProduct,
+	ProductCard,
+} from "./components/components";
 import { CartContextProvider } from "./context/CartContext";
 import { Footer, NavBar } from "./components/components";
 import useAuthContext from "./hooks/useAuthContext";
-
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -68,7 +71,6 @@ const App = () => {
 								/>
 								<Route path="/register" element={<Register />} />
 								<Route path="/login" element={<Login />} />
-								
 
 								<Route path="*" element={<NotFound />} />
 							</Routes>

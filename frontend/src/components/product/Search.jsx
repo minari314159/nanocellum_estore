@@ -1,11 +1,22 @@
-import { MdSearch } from "react-icons/md";
+import { FiDollarSign } from "react-icons/fi";
 
-const Search = () => {
+// eslint-disable-next-line react/prop-types
+const Search = ({ setFilter, filter }) => {
+	const priceFilter = () => {
+		if (filter === "?price=false" || filter === " ") {
+			setFilter("?price=true");
+		}
+		if (filter === "?price=true") {
+			setFilter(" ");
+		}
+	};
 	return (
-		<div className="inline-flex justify-center items-center gap-1">
-			<button className="text-lg lg:text-xl ">Sort</button>
-			<MdSearch className="w-5 h-5" />
-		</div>
+		<button
+			onClick={priceFilter}
+			className="inline-flex justify-center items-center gap-1 btn btn-ghost rounded-2xl font-inter font-normal p-1">
+			<span className="text-lg lg:text-xl ">Sort</span>
+			<FiDollarSign className="w-5 h-5" />
+		</button>
 	);
 };
 
