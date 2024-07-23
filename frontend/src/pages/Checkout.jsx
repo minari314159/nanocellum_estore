@@ -1,32 +1,14 @@
-import { Link } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
-import {FormatCurrency} from "../components/components";
+import FormatCurrency from "../components/utils/FormatCurrency";
+import { useSelector } from "react-redux";
 
 const Checkout = () => {
-	const [orderitem, setOrderItem] = useState([]);
-	const [getTotal, setTotal] = useState(0);
+	const cart = useSelector((state) => state.cart);
+	const navigate = useNavigate();
 
-	const getOrder = async () => {
-		console.log("Getting order items");
-		// try {
-		// 	// Step 1: Create a cart if it doesn't exist
-		// 	let cartId = localStorage.getItem("cartId");
-		// 	// Step 2: Add item to the cart
-		// 	const response = await api.get(`/api/carts/${cartId}/`);
-		// 	setOrderItem(response.data.items);
-
-		// 	setTotal(response.data.total_price);
-		// } catch (error) {
-		// 	// Handle error (e.g., show an error message)
-		// 	alert("Error getting cart items");
-		// }
-	};
-	useEffect(() => {
-		getOrder();
-	}, []);
 	return (
-		<section className="bg-base-200">
+		<section className="bg-base-200 min-h-screen">
 			<Link
 				to="/order"
 				className="hover:scale-[102%] text-black rounded-lg p-2 m-2 hover:underline">
@@ -38,23 +20,19 @@ const Checkout = () => {
 					<h1 className="font-bold text-[25px]">Order Summary</h1>
 					<hr />
 					<div className="flex flex-col items-center gap-2 w-[450px] rounded-lg shadow p-5">
-						{orderitem.map((item) => (
+						{cart.products.map((item) => (
 							<div
-								key={item.id}
+								key={item._id}
 								className="flex justify-evenly items-center gap-2 w-full">
-								<h2 className="font-bold text-[14px]">Product Name</h2>
+								<h2 className="font-bold text-[14px]">{item.title}</h2>
 								<p className="text-[12px]">
 									Price: <FormatCurrency value={item.quantity} />
 								</p>
 								<p className="text-[12px]">Quantity: {item.quantity}</p>
 								<img
-									src={
-										item.product.images[0].image
-											? item.product.images[0].image
-											: "https://via.placeholder.com/150"
-									}
-									alt="product"
-									className="w-[50px] h-[50px]"
+									src={item.image}
+									alt={item.title}
+									className="w-[50px] h-[50px] rounded-xl"
 								/>
 							</div>
 						))}
@@ -62,7 +40,7 @@ const Checkout = () => {
 						<div className="flex justify-between w-full gap-2">
 							<p className="font-bold text-[14px]">Total</p>
 							<p className="text-[14px]">
-								<FormatCurrency value={getTotal} />
+								<FormatCurrency value={cart.total} />
 							</p>
 						</div>
 					</div>
@@ -99,11 +77,12 @@ const Checkout = () => {
 							placeholder="Postal Code"
 							className="rounded-xl px-2 py-1"
 						/>
-						<input
-							type="submit"
+						<button
+							onClick={() => navigate("/success")}
 							value="Continue"
-							className="bg-orange-300 p-2 rounded-lg"
-						/>
+							className="btn btn-accent rounded-xl">
+							Continue
+						</button>
 					</form>
 				</div>
 			</div>

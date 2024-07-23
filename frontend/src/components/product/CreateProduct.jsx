@@ -2,7 +2,6 @@ import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { Card } from "../components";
 const CreateProduct = () => {
-	
 	const [title, setTitle] = useState("");
 	const [designer, setDesigner] = useState("");
 	const [price, setPrice] = useState();
@@ -114,7 +113,7 @@ const CreateProduct = () => {
 					</div>
 				</form>
 			</Card>
-			<Link to="/products" className="btn btn-accent btn-ghost ">
+			<Link to="/products" className="btn  btn-ghost ">
 				{" "}
 				&larr; Back
 			</Link>

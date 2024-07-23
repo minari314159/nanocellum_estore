@@ -21,6 +21,8 @@ const productSchema = new mongoose.Schema(
 		},
 		color: {
 			type: String,
+			enum: ["s", "k", "p", "b", "m"],
+			default: "s",
 		},
 		image: {
 			type: String,

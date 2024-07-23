@@ -12,14 +12,13 @@ import EditProduct from "./product/EditProduct";
 import FormatCurrency from "./utils/FormatCurrency";
 import Form from "./utils/Form";
 import Card from "./utils/Card";
-import Cart from "./Cart";
+
 import LoadingIndicator from "./utils/LoadingIndicator";
 import DeleteButton from "./utils/DeleteButton";
 import ParallaxContent from "./utils/ParallaxContent";
 import Overlay from "./utils/Overlay";
 import StickyImage from "./utils/StickyImage";
-
-import OrderItem from "./OrderItem";
+import itemCard from "./order/itemCard";
 import CartWidget from "./navbar/CartWidget";
 
 export {
@@ -29,7 +28,6 @@ export {
 	Hero,
 	Growth,
 	Form,
-	Cart,
 	LoadingIndicator,
 	ParallaxContent,
 	Overlay,
@@ -37,7 +35,7 @@ export {
 	ProductCard,
 	EditProduct,
 	CreateProduct,
-	OrderItem,
+	itemCard,
 	CartWidget,
 	Design,
 	FormatCurrency,

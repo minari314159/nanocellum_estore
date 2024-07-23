@@ -11,6 +11,7 @@ import {
 	Products,
 	Product,
 	Profile,
+	Success
 } from "./pages/pages";
 import {
 	CreateProduct,
@@ -71,6 +72,7 @@ const App = () => {
 								/>
 								<Route path="/register" element={<Register />} />
 								<Route path="/login" element={<Login />} />
+								<Route path="/success" element={<Success />} />
 
 								<Route path="*" element={<NotFound />} />
 							</Routes>

@@ -1,22 +1,21 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import axios from "axios";
+import { publicRequest } from "../requestMethods";
 import Search from "../components/product/Search";
 import { IoEyeOutline } from "react-icons/io5";
+import { FiShoppingCart } from "react-icons/fi";
 import Card from "../components/utils/Card";
 
 const Products = () => {
 	const [products, setProducts] = useState([]);
 	const [filter, setFilter] = useState(" ");
+	const [hover, setHover] = useState(-1);
 	const overlay = useRef();
 
 	useEffect(() => {
 		const fetchProducts = async () => {
 			try {
-				const res = await axios.get(
-					`http://localhost:3000/api/products${filter}`
-				);
-
+				const res = await publicRequest.get(`products${filter}`);
 				setProducts(res.data);
 			} catch (err) {
 				return err.response;
@@ -47,7 +46,12 @@ const Products = () => {
 							<h2 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-bold mb-2">
 								{product.title}
 							</h2>
-							<div className="relative">
+							<div
+								className="relative"
+								onMouseEnter={() => {
+									setHover(index);
+								}}
+								onMouseLeave={() => setHover(-1)}>
 								<img
 									src={product.image || "https://placehold.co/400"}
 									alt={product.name}
@@ -57,11 +61,20 @@ const Products = () => {
 								/>
 								<div
 									ref={overlay}
-									className=" w-full h-full bg-opacity-40 bg-neutral-300 absolute bottom-0 left-0  z-10 hover:flex justify-center items-center rounded-lg hidden">
+									className={`w-full h-full bg-opacity-40 bg-neutral-300 absolute bottom-0 left-0  z-10 justify-center items-center gap-2 rounded-lg ${
+										hover === index
+											? "flex transition-all duration-[5s] ease-in-out"
+											: "hidden"
+									} transition-all duration-100 ease-in-out`}>
 									<Link
 										to={`/products/${product._id}`}
-										className="btn btn-ghost btn-circle  ">
+										className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
 										<IoEyeOutline className="w-5 h-5" />
+									</Link>
+									<Link
+										to={`/products/${product._id}`}
+										className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
+										<FiShoppingCart className="w-5 h-5" />
 									</Link>
 								</div>
 								<div className="w-full absolute bottom-[0.5rem] left-[1rem] text-xs sm:text-sm md:text-md lg:text-lg">

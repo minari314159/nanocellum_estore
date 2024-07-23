@@ -8,7 +8,8 @@ import Checkout from "./Checkout";
 import Products from "./Products";
 import Product from "./Product";
 import Profile from "./Profile"
+import Success from "./Success";
 
 
 
-export { Home, Login, NotFound, Register, Order, Loader, Checkout, Products,Product, Profile };
+export { Home, Login, NotFound, Register, Order, Loader, Checkout, Products,Product, Profile, Success };
