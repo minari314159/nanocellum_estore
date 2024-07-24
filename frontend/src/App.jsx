@@ -19,11 +19,11 @@ import {
 } from "./components/components";
 
 import { Footer, NavBar } from "./components/components";
-import useAuthContext from "./hooks/useAuthContext";
+import { useSelector } from "react-redux";
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
-	const { user } = useAuthContext();
+	const user = useSelector(state => state.user.currentUser)
 	useEffect(() => {
 		setIsLoading(true);
 		setTimeout(() => {

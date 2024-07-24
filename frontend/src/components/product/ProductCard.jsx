@@ -2,14 +2,14 @@ import { Card, DeleteButton } from "../components";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
-import useAuthContext from "../../hooks/useAuthContext";
+import { useSelector } from "react-redux";
 import { publicRequest } from "../../requestMethods";
 import { addProduct } from "../../redux/cartRedux";
 import { useDispatch } from "react-redux";
 
 const ProductCard = () => {
 	const { id } = useParams();
-	const { user } = useAuthContext();
+	const user = useSelector((state) => state.user.currentUser);
 	const [product, setProduct] = useState({});
 	const [quantity, setQuantity] = useState(1);
 	const [color, setColor] = useState(" ");

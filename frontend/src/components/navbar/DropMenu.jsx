@@ -2,10 +2,10 @@ import { navLinks } from "../../index";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { SignInButton, SignOutButton } from "./AuthButtons";
-import useAuthContext from "../../hooks/useAuthContext";
+import { useSelector } from "react-redux";
 // eslint-disable-next-line react/prop-types
 const Dropmenu = ({ active, setActive }) => {
-	const { user } = useAuthContext();
+	const user = useSelector((state) => state.user.currentUser);
 
 	return (
 		<div className="flex justify-end z-10">

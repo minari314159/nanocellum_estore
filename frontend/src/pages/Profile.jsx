@@ -1,17 +1,16 @@
 import { nullprofile } from "../assets";
-import useAuthContext from "../hooks/useAuthContext";
+
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 import { useState } from "react";
 
 import { Card } from "../components/components";
 const Profile = () => {
-	const { user } = useAuthContext();
+	const user = useSelector((state) => state.user.currentUser);
 	const [toggle, setToggle] = useState(false);
 	const [username, setUsername] = useState("");
-
 	const refresh = useNavigate();
 
-	const { dispatch } = useAuthContext();
 
 	const handleSubmit = async (e) => {
 		e.preventDefault();
@@ -26,7 +25,7 @@ const Profile = () => {
 		})
 			.then((res) => res.json())
 			.then((data) => {
-				dispatch({ type: "UPDATE", payload: data });
+				console.log(data)
 				refresh("/");
 			})
 			.catch((err) => console.log(err));

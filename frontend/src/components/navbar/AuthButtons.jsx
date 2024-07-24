@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
-import { useLogout } from "../../hooks/useLogout";
+import { logout } from "../../redux/apiCalls";
+import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export function SignInButton() {
 	return (
@@ -10,12 +11,12 @@ export function SignInButton() {
 }
 
 export function SignOutButton() {
-	const { logout } = useLogout();
+	const dispatch = useDispatch();
 	const redirect = useNavigate();
 	return (
 		<button
 			onClick={() => {
-				logout();
+				logout(dispatch);
 				redirect("/");
 			}}
 			className="btn btn-accent rounded-xl">
