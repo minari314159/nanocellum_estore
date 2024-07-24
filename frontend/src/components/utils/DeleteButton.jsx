@@ -1,26 +1,19 @@
 import { useNavigate } from "react-router-dom";
 import PropTypes from "prop-types";
+import { useDispatch } from "react-redux";
+import { deleteProduct } from "../../redux/apiCalls";
 
 const DeleteButton = ({ id }) => {
 	const redirect = useNavigate();
+	
+	const dispatch = useDispatch();
 
-	const handleClick = async () => {
-		await fetch(`http://localhost:3000/api/products/${id}`, {
-			method: "DELETE",
-		})
-			.then((res) => {
-				return res.json();
-			})
-            .then((data) => {
-                console.log(data);
-            })
-			.catch((error) => {
-				throw new Error(error);
-			});
+	const handleDelete = async () => {
+		deleteProduct(id, dispatch)
 		redirect(-1);
 	};
 	return (
-		<button className="btn btn-ghost text-error" onClick={handleClick}>
+		<button className="btn btn-ghost text-error" onClick={() => handleDelete()}>
 			Delete
 		</button>
 	);

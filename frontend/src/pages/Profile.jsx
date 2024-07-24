@@ -11,7 +11,7 @@ const Profile = () => {
 	const [username, setUsername] = useState("");
 	const refresh = useNavigate();
 
-
+	console.log(user)
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 

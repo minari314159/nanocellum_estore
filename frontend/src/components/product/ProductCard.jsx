@@ -1,32 +1,21 @@
 import { Card, DeleteButton } from "../components";
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router-dom";
-import { useSelector } from "react-redux";
-import { publicRequest } from "../../requestMethods";
+
 import { addProduct } from "../../redux/cartRedux";
-import { useDispatch, } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const ProductCard = () => {
 	const { id } = useParams();
 	const user = useSelector((state) => state.user.currentUser);
-	const [product, setProduct] = useState({});
+	const product = useSelector((state) =>
+		state.product.products.find((product) => product._id === id)
+	);
 	const [quantity, setQuantity] = useState(1);
 	const [color, setColor] = useState(" ");
 	const dispatch = useDispatch();
 
-	useEffect(() => {
-		const fetchProduct = async () => {
-			try {
-				const res = await publicRequest.get(`products/${id}`);
-				setProduct(res.data);
-			} catch (err) {
-				return err.response;
-			}
-		};
-
-		fetchProduct();
-	}, [id]);
 	const handleQuantity = (type) => {
 		if (type === "dec") {
 			quantity > 1 && setQuantity(quantity - 1);
@@ -38,7 +27,7 @@ const ProductCard = () => {
 		dispatch(addProduct({ ...product, quantity, color }));
 	};
 
-	return ( 
+	return (
 		<>
 			<div className="p-4 px-6 bg-accent rounded-e-full flex flex-col items-center justify-center shadow-lg">
 				<h1 className="text-2xl lg:text-4xl font-bold">{product.title}</h1>
