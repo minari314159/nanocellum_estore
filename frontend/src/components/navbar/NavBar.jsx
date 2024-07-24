@@ -1,15 +1,19 @@
 import { useState } from "react";
 import { logo } from "../../assets";
 import Avatar from "./Avatar";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 import CartWidget from "./CartWidget";
 import Dropmenu from "./DropMenu";
 
 const NavBar = () => {
 	const [active, setActive] = useState(false);
+	const location = useLocation();
 
 	return (
-		<nav className="navbar navbar-center z-10  max-w-7xl sticky top-0 flex ">
+		<nav
+			className={` ${
+				location.pathname === "/" ? "sticky" : "fixed"
+			} navbar navbar-center z-10  max-w-7xl  top-0 `}>
 			<NavLink
 				to="/"
 				onClick={() => {

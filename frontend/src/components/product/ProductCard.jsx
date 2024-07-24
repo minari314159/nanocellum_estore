@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 import { useSelector } from "react-redux";
 import { publicRequest } from "../../requestMethods";
 import { addProduct } from "../../redux/cartRedux";
-import { useDispatch } from "react-redux";
+import { useDispatch, } from "react-redux";
 
 const ProductCard = () => {
 	const { id } = useParams();

@@ -23,7 +23,7 @@ import { useSelector } from "react-redux";
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
-	const user = useSelector(state => state.user.currentUser)
+	const user = useSelector((state) => state.user.currentUser);
 	useEffect(() => {
 		setIsLoading(true);
 		setTimeout(() => {

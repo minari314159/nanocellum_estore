@@ -3,10 +3,10 @@ import { FiDollarSign } from "react-icons/fi";
 // eslint-disable-next-line react/prop-types
 const Search = ({ setFilter, filter }) => {
 	const priceFilter = () => {
-		if (filter === "?price=false" || filter === " ") {
-			setFilter("?price=true");
+		if (filter === "price=false" || filter === " ") {
+			setFilter("price=true");
 		}
-		if (filter === "?price=true") {
+		if (filter === "price=true") {
 			setFilter(" ");
 		}
 	};

@@ -1,29 +1,23 @@
 import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-import { publicRequest } from "../requestMethods";
 import Search from "../components/product/Search";
 import { IoEyeOutline } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
 import Card from "../components/utils/Card";
+import { useDispatch, useSelector } from "react-redux";
+import { getProducts } from "../redux/apiCalls";
 
 const Products = () => {
-	const [products, setProducts] = useState([]);
+	const products = useSelector((state) => state.product.products);
+	const dispatch = useDispatch();
+
 	const [filter, setFilter] = useState(" ");
 	const [hover, setHover] = useState(-1);
 	const overlay = useRef();
 
 	useEffect(() => {
-		const fetchProducts = async () => {
-			try {
-				const res = await publicRequest.get(`products${filter}`);
-				setProducts(res.data);
-			} catch (err) {
-				return err.response;
-			}
-		};
-
-		fetchProducts();
-	}, [filter]);
+		getProducts(dispatch, filter);
+	}, [dispatch, filter]);
 
 	return (
 		<section className="flex w-full min-h-screen flex-col items-center p-4 ">
@@ -32,7 +26,7 @@ const Products = () => {
 				<Search setFilter={setFilter} filter={filter} />
 			</div>
 			<div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-5">
-				{products.length === 0 && (
+				{products.length === (0 || undefined) && (
 					<h3 className="font-bold text-xl mt-4">
 						No Products at this time...
 					</h3>
@@ -71,9 +65,7 @@ const Products = () => {
 										className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
 										<IoEyeOutline className="w-5 h-5" />
 									</Link>
-									<button
-										
-										className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
+									<button className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
 										<FiShoppingCart className="w-5 h-5" />
 									</button>
 								</div>

@@ -7,7 +7,6 @@ import { useSelector } from "react-redux";
 const CartWidget = () => {
 	const cart = useSelector((state) => state.cart);
 
-	console.log(cart);
 	return (
 		<div className="flex justify-evenly">
 			<div className="dropdown dropdown-end ">
