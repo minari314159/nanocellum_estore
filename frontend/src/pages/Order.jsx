@@ -1,10 +1,23 @@
-import { Link } from "react-router-dom";
-
+import { useState } from "react";
 import FormatCurrency from "../components/utils/FormatCurrency";
 import { useSelector } from "react-redux";
+import Checkout from "../components/order/Checkout";
 
 const Order = () => {
 	const cart = useSelector((state) => state.cart);
+	const [quantity, setQuantity] = useState(1);
+	const [toggle, setToggle] = useState(false);
+	
+
+	const handleQuantity = (type) => {
+		if (type === "dec") {
+			quantity > 1 && setQuantity(quantity - 1);
+		} else {
+			setQuantity(quantity + 1);
+		}
+	};
+
+	
 
 	return (
 		<section className="bg-base-200 min-h-screen">
@@ -16,7 +29,7 @@ const Order = () => {
 						<div
 							key={product._id}
 							className="card card-compact bg-gray-700 rounded-md  backdrop-filter backdrop-blur-md bg-opacity-20  shadow-xl w-full">
-							<div className="p-2 flex justify-start gap-2  ">
+							<div className="p-2 flex justify-between gap-2  ">
 								<img
 									src={product.image}
 									alt={product.name}
@@ -24,14 +37,32 @@ const Order = () => {
 									width={100}
 									className="rounded-lg  aspect-square shadow-lg "
 								/>
-								<div>
-									<h2 className="font-bold text-md text-wrap">
-										{product.title}
+								<div className="flex flex-col items-start justify-center flex-2">
+									<h2 className="font-bold text-xs ">
+										Product: {product.title}
 									</h2>
+									<p className="text-xs">Colour: {product.color || "N/A"}</p>
 									<p className="text-xs">
 										Price: <FormatCurrency value={product.price} />
 									</p>
-									<p className="text-xs">Quantity: {product.quantity}</p>
+								</div>
+								<div className="flex flex-col items-center">
+									<div className="inline-flex items-center   ">
+										<span
+											className="btn btn-sm btn-ghost btn-circle"
+											onClick={() => handleQuantity("dec")}>
+											-
+										</span>
+										<p className="text-xs font-bold">{product.quantity}</p>
+										<span
+											className="btn btn-sm btn-ghost btn-circle"
+											onClick={() => handleQuantity("inc")}>
+											+
+										</span>
+									</div>
+									<button className="btn btn-sm btn-error text-xs">
+										Remove Item
+									</button>
 								</div>
 							</div>
 						</div>
@@ -50,20 +81,21 @@ const Order = () => {
 							</h2>
 						</div>
 						<div className="flex flex-col gap-1">
-							<Link
-								to="/checkout"
+							<button
+								onClick={() => setToggle(true)}
 								className="btn btn-sm btn-accent btn-outline rounded-xl">
 								Checkout
-							</Link>
-							<Link
-								to="/checkout"
-								className="btn btn-sm btn-outline btn-error rounded-xl">
+							</button>
+							<button className="btn btn-sm btn-outline btn-error rounded-xl">
 								Cancel
-							</Link>
+							</button>
 						</div>
 					</div>
 				</div>
 			</div>
+			{toggle === true && (
+				<Checkout setToggle={setToggle} cart={cart} />
+			)}
 		</section>
 	);
 };

@@ -7,18 +7,17 @@ import {
 	Register,
 	Loader,
 	Order,
-	Checkout,
 	Products,
 	Product,
 	Profile,
-	Success
+	Success,
 } from "./pages/pages";
 import {
 	CreateProduct,
 	EditProduct,
 	ProductCard,
 } from "./components/components";
-import { CartContextProvider } from "./context/CartContext";
+
 import { Footer, NavBar } from "./components/components";
 import useAuthContext from "./hooks/useAuthContext";
 
@@ -37,48 +36,53 @@ const App = () => {
 			{isLoading ? (
 				<Loader />
 			) : (
-				<main className="bg-base-200 w-full relative">
-					<CartContextProvider>
-						<BrowserRouter>
-							<NavBar />
-							<Routes>
-								<Route path="/" element={<Home />} />
+				<main className="bg-base-200 relative">
+					<BrowserRouter>
+						<NavBar />
+						<Routes>
+							<Route path="/" element={<Home />} />
+							<Route
+								path="/order"
+								element={user ? <Order /> : <Navigate to="/login" />}
+							/>
+
+							<Route path="/products" element={<Products />} />
+							<Route
+								path="/products/create"
+								element={
+									user && user.role === "admin" ? (
+										<CreateProduct />
+									) : (
+										<Navigate to="/products" />
+									)
+								}
+							/>
+							<Route path="/products/:id" element={<Product />}>
+								<Route index element={<ProductCard />} />
 								<Route
-									path="/order"
-									element={user ? <Order /> : <Navigate to="/login" />}
-								/>
-								<Route
-									path="/checkout"
-									element={user ? <Checkout /> : <Navigate to="/login" />}
-								/>
-								<Route path="/products" element={<Products />} />
-								<Route
-									path="/products/create"
+									path="/products/:id/edit"
 									element={
-										user ? <CreateProduct /> : <Navigate to="/products" />
+										user && user.role === "admin" ? (
+											<EditProduct />
+										) : (
+											<Navigate to="/products" />
+										)
 									}
-								/>
-								<Route path="/products/:id" element={<Product />}>
-									<Route index element={<ProductCard />} />
-									<Route
-										path="/products/:id/edit"
-										element={user ? <EditProduct /> : <Navigate to="/login" />}
-									/>{" "}
-								</Route>
+								/>{" "}
+							</Route>
 
-								<Route
-									path="/profile"
-									element={user ? <Profile /> : <Navigate to="/login" />}
-								/>
-								<Route path="/register" element={<Register />} />
-								<Route path="/login" element={<Login />} />
-								<Route path="/success" element={<Success />} />
+							<Route
+								path="/profile"
+								element={user ? <Profile /> : <Navigate to="/login" />}
+							/>
+							<Route path="/register" element={<Register />} />
+							<Route path="/login" element={<Login />} />
+							<Route path="/success" element={<Success />} />
 
-								<Route path="*" element={<NotFound />} />
-							</Routes>
-							<Footer />
-						</BrowserRouter>
-					</CartContextProvider>
+							<Route path="*" element={<NotFound />} />
+						</Routes>
+						<Footer />
+					</BrowserRouter>
 				</main>
 			)}
 		</>
