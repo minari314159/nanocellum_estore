@@ -38,7 +38,7 @@ const ProductCard = () => {
 		dispatch(addProduct({ ...product, quantity, color }));
 	};
 
-	return (
+	return ( 
 		<>
 			<div className="p-4 px-6 bg-accent rounded-e-full flex flex-col items-center justify-center shadow-lg">
 				<h1 className="text-2xl lg:text-4xl font-bold">{product.title}</h1>

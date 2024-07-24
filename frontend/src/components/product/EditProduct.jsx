@@ -1,7 +1,7 @@
 import { Card } from "../components";
 import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
-
+import { userRequest, publicRequest } from "../../requestMethods";
 
 const EditProduct = () => {
 	const { id } = useParams();
@@ -13,45 +13,37 @@ const EditProduct = () => {
 	const [loading, setLoading] = useState(false);
 	const [error, setError] = useState(null);
 	const [emptyFields, setEmptyFields] = useState([]);
-    const redirect = useNavigate();
-    
+	const redirect = useNavigate();
+
 	useEffect(() => {
 		const fetchProduct = async () => {
-			await fetch(`http://localhost:3000/api/products/${id}`)
-				.then((res) => {
-					return res.json();
-				})
-				.then((data) => {
-					setProduct(data);
-				})
-				.catch((err) => {
-					console.log(err);
-				});
+			try {
+				const res = await publicRequest.get(`products/${id}`);
+				setProduct(res.data);
+			} catch (err) {
+				return err.response;
+			}
 		};
 
 		fetchProduct();
 	}, [id]);
+
 	const handleSubmit = async (e) => {
 		//prevents page from refreshing
 		e.preventDefault();
 
 		setLoading(true);
 		const product = { title, price, designer, description };
-		const response = await fetch(`http://localhost:3000/api/products/${id}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-			},
-			//converts object to JSON string
-			body: JSON.stringify(product),
+		const response = await userRequest.put(`products/${id}`, {
+			...product,
 		});
-		const data = await response.json();
+		const data = await response.data;
 		if (!response.ok) {
 			setError(data.error);
 			setEmptyFields(data.emptyFields);
 		}
-        if (response.ok) {
-            setProduct(data);
+		if (response.ok) {
+			setProduct(data);
 			setError(null);
 			setEmptyFields([]);
 		}
@@ -73,7 +65,9 @@ const EditProduct = () => {
 						<label className="w-full flex justify-between items-center">
 							<b>Title:</b>
 							<input
-								className={`my-2 ml-2 grow bg-transparent border border-base-300 rounded-md p-1 ${emptyFields.includes("title") && "border-error"}`}
+								className={`my-2 ml-2 grow bg-transparent border border-base-300 rounded-md p-1 ${
+									emptyFields.includes("title") && "border-error"
+								}`}
 								type="text"
 								required
 								onChange={(e) => setTitle(e.target.value)}
@@ -83,7 +77,9 @@ const EditProduct = () => {
 						<label className="w-full flex justify-between items-center">
 							<b>Price:</b>
 							<input
-								className={`my-2  grow ml-2  bg-transparent border border-base-300 rounded-md p-1 ${emptyFields.includes("price") && "border-error"}`}
+								className={`my-2  grow ml-2  bg-transparent border border-base-300 rounded-md p-1 ${
+									emptyFields.includes("price") && "border-error"
+								}`}
 								type="number"
 								required
 								onChange={(e) => setPrice(e.target.value)}
@@ -97,12 +93,16 @@ const EditProduct = () => {
 								required
 								onChange={(e) => setDesigner(e.target.value)}
 								defaultValue={product.designer}
-								className={`my-2  ml-1  grow bg-transparent border border-base-300 rounded-md p-1 ${emptyFields.includes("designer") && "border-error"}`}
+								className={`my-2  ml-1  grow bg-transparent border border-base-300 rounded-md p-1 ${
+									emptyFields.includes("designer") && "border-error"
+								}`}
 							/>
 						</label>
 						<hr className="w-full my-2 text-base-300" />
 						<textarea
-							className={`w-full my-2  grow bg-transparent border border-base-300 rounded-lg p-1 ${emptyFields.includes("description") && "border-error"}`}
+							className={`w-full my-2  grow bg-transparent border border-base-300 rounded-lg p-1 ${
+								emptyFields.includes("description") && "border-error"
+							}`}
 							type="text"
 							required
 							onChange={(e) => setDescription(e.target.value)}
@@ -110,10 +110,13 @@ const EditProduct = () => {
 							cols={15}
 							rows={10}
 						/>
-                        <button type="submit" disabled={loading} className="btn  btn-base-200 ">
-                            {loading ? "Submitting Changes" : "Submit Changes"}
-                        </button>
-                        {error && <p className="text-error">{error}</p>}
+						<button
+							type="submit"
+							disabled={loading}
+							className="btn  btn-base-200 ">
+							{loading ? "Submitting Changes" : "Submit Changes"}
+						</button>
+						{error && <p className="text-error">{error}</p>}
 					</form>
 					<img
 						src={product.image}

@@ -2,12 +2,16 @@ import { useState } from "react";
 import FormatCurrency from "../components/utils/FormatCurrency";
 import { useSelector } from "react-redux";
 import Checkout from "../components/order/Checkout";
+import { useDispatch } from "react-redux";
+import { clearProducts } from "../redux/cartRedux";
+import { useNavigate } from "react-router-dom";
 
 const Order = () => {
 	const cart = useSelector((state) => state.cart);
 	const [quantity, setQuantity] = useState(1);
 	const [toggle, setToggle] = useState(false);
-	
+	const dispatch = useDispatch();
+	const navigate = useNavigate();
 
 	const handleQuantity = (type) => {
 		if (type === "dec") {
@@ -16,8 +20,10 @@ const Order = () => {
 			setQuantity(quantity + 1);
 		}
 	};
-
-	
+	const handleClick = () => {
+		dispatch(clearProducts());
+		navigate("/");
+	};
 
 	return (
 		<section className="bg-base-200 min-h-screen">
@@ -86,16 +92,16 @@ const Order = () => {
 								className="btn btn-sm btn-accent btn-outline rounded-xl">
 								Checkout
 							</button>
-							<button className="btn btn-sm btn-outline btn-error rounded-xl">
-								Cancel
+							<button
+								onClick={handleClick}
+								className="btn btn-sm btn-outline btn-error rounded-xl">
+								Clear & Cancel
 							</button>
 						</div>
 					</div>
 				</div>
 			</div>
-			{toggle === true && (
-				<Checkout setToggle={setToggle} cart={cart} />
-			)}
+			{toggle === true && <Checkout setToggle={setToggle} cart={cart} />}
 		</section>
 	);
 };

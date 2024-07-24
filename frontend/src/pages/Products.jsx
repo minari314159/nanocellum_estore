@@ -71,11 +71,11 @@ const Products = () => {
 										className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
 										<IoEyeOutline className="w-5 h-5" />
 									</Link>
-									<Link
-										to={`/products/${product._id}`}
+									<button
+										
 										className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
 										<FiShoppingCart className="w-5 h-5" />
-									</Link>
+									</button>
 								</div>
 								<div className="w-full absolute bottom-[0.5rem] left-[1rem] text-xs sm:text-sm md:text-md lg:text-lg">
 									<p className="text-white">Price: ${product.price}.00</p>
