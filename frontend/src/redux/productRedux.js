@@ -1,4 +1,4 @@
-import { createSlice } from "@reduxjs/toolkit"
+import { createSlice } from "@reduxjs/toolkit";
 
 export const productSlice = createSlice({
 	name: "product",
@@ -8,24 +8,21 @@ export const productSlice = createSlice({
 		error: false,
 	},
 	reducers: {
-		//GET ALL
-		getProductStart: (state) => {
+		start: (state) => {
 			state.isFetching = true;
 			state.error = false;
 		},
+		failure: (state) => {
+			state.isFetching = false;
+			state.error = true;
+		},
+		//GET ALL
 		getProductSuccess: (state, action) => {
 			state.isFetching = false;
 			state.products = action.payload;
 		},
-		getProductFailure: (state) => {
-			state.isFetching = false;
-			state.error = true;
-		},
 		//DELETE
-		deleteProductStart: (state) => {
-			state.isFetching = true;
-			state.error = false;
-		},
+
 		deleteProductSuccess: (state, action) => {
 			state.isFetching = false;
 			state.products.splice(
@@ -33,54 +30,32 @@ export const productSlice = createSlice({
 				1
 			);
 		},
-		deleteProductFailure: (state) => {
-			state.isFetching = false;
-			state.error = true;
-		},
+
 		//PUT
-		updateProductStart: (state) => {
-			state.isFetching = true;
-			state.error = false;
-		},
+
 		updateProductSuccess: (state, action) => {
 			state.isFetching = false;
 			state.products[
 				state.products.findIndex((item) => item._id === action.payload.id)
 			] = action.payload.product;
 		},
-		updateProductFailure: (state) => {
-			state.isFetching = false;
-			state.error = true;
-		},
+
 		//POST
-		addProductStart: (state) => {
-			state.isFetching = true;
-			state.error = false;
-		},
+
 		addProductSuccess: (state, action) => {
 			state.isFetching = false;
 			state.products.push(action.payload);
-		},
-		addProductFailure: (state) => {
-			state.isFetching = false;
-			state.error = true;
 		},
 	},
 });
 
 export const {
-	getProductStart,
+	start,
+	failure,
 	getProductSuccess,
-	getProductFailure,
-	deleteProductStart,
 	deleteProductSuccess,
-	deleteProductFailure,
-	updateProductStart,
 	updateProductSuccess,
-	updateProductFailure,
-	addProductStart,
 	addProductSuccess,
-	addProductFailure,
 } = productSlice.actions;
 
 export default productSlice.reducer;

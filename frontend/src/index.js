@@ -1,12 +1,4 @@
-import {
-	instagram,
-	linkedin,
-	sucrose,
-	beet,
-	pcabbage,
-	kiwi,
-	molasses,
-} from "./assets";
+import { sucrose, beet, pcabbage, kiwi, molasses } from "./assets";
 
 export const navLinks = [
 	{
@@ -39,19 +31,6 @@ export const footerLinks = [
 		id: 4,
 		name: "Explore",
 		link: "https://www.hoobank.com/explore/",
-	},
-];
-
-export const socialMedia = [
-	{
-		id: "social-media-1",
-		icon: instagram,
-		link: "https://www.instagram.com/p/CiA-uiTMJcY/?utm_source=ig_web_copy_link&igshid=MzRlODBiNWFlZA==",
-	},
-	{
-		id: "social-media-2",
-		icon: linkedin,
-		link: "https://www.linkedin.com/public-profile/settings?trk=d_flagship3_profile_self_view_public_profile",
 	},
 ];
 

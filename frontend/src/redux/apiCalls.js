@@ -9,17 +9,11 @@ import {
 	registerFailure,
 } from "./userRedux";
 import {
-	getProductFailure,
-	getProductStart,
+	failure,
+	start,
 	getProductSuccess,
-	deleteProductFailure,
-	deleteProductStart,
 	deleteProductSuccess,
-	updateProductFailure,
-	updateProductStart,
 	updateProductSuccess,
-	addProductFailure,
-	addProductStart,
 	addProductSuccess,
 } from "./productRedux";
 
@@ -55,40 +49,40 @@ export const logout = async (dispatch) => {
 
 //PRODUCT API CALLS
 export const getProducts = async (dispatch, filter) => {
-	dispatch(getProductStart());
+	dispatch(start());
 	try {
 		const res = await publicRequest.get(`products?${filter}`);
 		dispatch(getProductSuccess(res.data));
 	} catch (err) {
-		dispatch(getProductFailure());
+		dispatch(failure());
 	}
 };
 
 export const deleteProduct = async (id, dispatch) => {
-	dispatch(deleteProductStart());
+	dispatch(start());
 	try {
 		await userRequest.delete(`products/${id}`);
 		dispatch(deleteProductSuccess(id));
 	} catch (err) {
-		dispatch(deleteProductFailure());
+		dispatch(failure());
 	}
 };
 
 export const updateProduct = async (id, product, dispatch) => {
-	dispatch(updateProductStart());
+	dispatch(start());
 	try {
 		await userRequest.put(`products/${id}`);
 		dispatch(updateProductSuccess({ id, product }));
 	} catch (err) {
-		dispatch(updateProductFailure());
+		dispatch(failure());
 	}
 };
 export const createProduct = async (product, dispatch) => {
-	dispatch(addProductStart());
+	dispatch(start());
 	try {
 		const res = await userRequest.post(`products`, product);
 		dispatch(addProductSuccess(res.data));
 	} catch (err) {
-		dispatch(addProductFailure());
+		dispatch(failure());
 	}
 };

@@ -1,11 +1,14 @@
 import { Card } from "../components";
 import { useParams, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
-import { userRequest, publicRequest } from "../../requestMethods";
-
+import {  useState } from "react";
+import { userRequest} from "../../requestMethods";
+import { useSelector } from "react-redux";
 const EditProduct = () => {
 	const { id } = useParams();
-	const [product, setProduct] = useState({});
+	const product = useSelector((state) =>
+		state.product.products.find((product) => product._id === id)
+	);
+
 	const [title, setTitle] = useState();
 	const [price, setPrice] = useState();
 	const [designer, setDesigner] = useState();
@@ -15,18 +18,7 @@ const EditProduct = () => {
 	const [emptyFields, setEmptyFields] = useState([]);
 	const redirect = useNavigate();
 
-	useEffect(() => {
-		const fetchProduct = async () => {
-			try {
-				const res = await publicRequest.get(`products/${id}`);
-				setProduct(res.data);
-			} catch (err) {
-				return err.response;
-			}
-		};
 
-		fetchProduct();
-	}, [id]);
 
 	const handleSubmit = async (e) => {
 		//prevents page from refreshing
