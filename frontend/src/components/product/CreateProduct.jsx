@@ -1,40 +1,39 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { Card } from "../components";
-import { getStorage, ref, uploadBytesResumable, getDownloadURL } from "firebase/storage"
-import app from "../../firebase"
+import {
+	getStorage,
+	ref,
+	uploadBytesResumable,
+	getDownloadURL,
+} from "firebase/storage";
+import app from "../../firebase";
 import { createProduct } from "../../redux/apiCalls";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 
 const CreateProduct = () => {
 	const [inputs, setInputs] = useState({});
 	const [img, setImg] = useState();
+	const { isFetching, error } = useSelector((state) => state.product.products);
 	const dispatch = useDispatch();
 	const redirect = useNavigate();
 	const handleChange = (e) => {
-		setInputs(prev => {
-			return{...prev, [e.target.name]:e.target.value}
-		})
+		setInputs((prev) => {
+			return { ...prev, [e.target.name]: e.target.value };
+		});
 	};
 
-	
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		//upload image & inputs
 		const fileName = new Date().getTime() + img.name;
 		const storage = getStorage(app);
-		const storageRef = ref(storage, fileName)
+		const storageRef = ref(storage, fileName);
 		const uploadTask = uploadBytesResumable(storageRef, img);
 
-		// Register three observers:
-		// 1. 'state_changed' observer, called any time the state changes
-		// 2. Error observer, called on failure
-		// 3. Completion observer, called on successful completion
 		uploadTask.on(
 			"state_changed",
 			(snapshot) => {
-				// Observe state change events such as progress, pause, and resume
-				// Get task progress, including the number of bytes uploaded and the total number of bytes to be uploaded
 				const progress =
 					(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
 				console.log("Upload is " + progress + "% done");
@@ -49,18 +48,18 @@ const CreateProduct = () => {
 				}
 			},
 			(error) => {
-				console.log(error)
+				throw new Error(error.message)
 			},
 			() => {
-				// Handle successful uploads on complete
-				// For instance, get the download URL: https://firebasestorage.googleapis.com/...
 				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
 					const product = { ...inputs, image: downloadURL };
-					createProduct(product, dispatch)
+					createProduct(product, dispatch);
 				});
 			}
 		);
-		redirect("/products");
+		if (!isFetching && !error) {
+			redirect("/products");
+		}
 	};
 	return (
 		<section className="flex w-full min-h-screen flex-col items-center justify-center gap-2 p-4 ">
@@ -120,6 +119,7 @@ const CreateProduct = () => {
 							rows={10}
 						/>
 						<button
+							disabled={isFetching}
 							className="btn btn-base-300 rounded-lg shadow-[1px_1px_5px_2px_#f9fafb1A] "
 							onClick={handleSubmit}>
 							Create

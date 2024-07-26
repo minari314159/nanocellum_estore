@@ -42,9 +42,9 @@ const ProductCard = () => {
 							<b>Designer:</b> {product.designer}
 						</p>
 						<p className="flex items-center gap-3">
-							<b>Colours:</b>{" "}
+							<b>Colour:</b>{" "}
 							{product.color === "s" && (
-								<div
+								<span
 									onClick={() => setColor("s")}
 									className={`w-4 h-4 bg-base-300 border border-neutral-600 ${
 										color && "border-neutral-300"

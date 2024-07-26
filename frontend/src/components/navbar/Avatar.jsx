@@ -13,7 +13,7 @@ const Avatar = () => {
 					alt="default picture"
 					width="28"
 					height="28"
-					className={`rounded-full  aspect-square w-[90%] h-[90%] content-center object-cover border-black border shadow-lg ${
+					className={`rounded-full  aspect-square w-[90%] h-[90%] content-center object-cover border-black border  ${
 						isFetching ? "animate-pulse" : " "
 					}`}
 				/>

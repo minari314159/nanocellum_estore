@@ -1,5 +1,6 @@
 import { NavLink } from "react-router-dom";
 import { logout } from "../../redux/apiCalls";
+import { clearProducts } from "../../redux/cartRedux";
 import { useDispatch } from "react-redux";
 import { useNavigate } from "react-router-dom";
 export function SignInButton() {
@@ -16,6 +17,7 @@ export function SignOutButton() {
 	return (
 		<button
 			onClick={() => {
+				dispatch(clearProducts());
 				logout(dispatch);
 				redirect("/");
 			}}

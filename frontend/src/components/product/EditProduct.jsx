@@ -1,46 +1,31 @@
 import { Card } from "../components";
 import { useParams, useNavigate } from "react-router-dom";
-import {  useState } from "react";
-import { userRequest} from "../../requestMethods";
-import { useSelector } from "react-redux";
+import { useState } from "react";
+import { updateProduct } from "../../redux/apiCalls";
+import { useSelector, useDispatch } from "react-redux";
 const EditProduct = () => {
 	const { id } = useParams();
 	const product = useSelector((state) =>
 		state.product.products.find((product) => product._id === id)
 	);
-
-	const [title, setTitle] = useState();
-	const [price, setPrice] = useState();
-	const [designer, setDesigner] = useState();
-	const [description, setDescription] = useState();
-	const [loading, setLoading] = useState(false);
-	const [error, setError] = useState(null);
-	const [emptyFields, setEmptyFields] = useState([]);
+	const [inputs, setInputs] = useState({});
+	const dispatch = useDispatch();
 	const redirect = useNavigate();
 
-
-
-	const handleSubmit = async (e) => {
-		//prevents page from refreshing
-		e.preventDefault();
-
-		setLoading(true);
-		const product = { title, price, designer, description };
-		const response = await userRequest.put(`products/${id}`, {
-			...product,
+	const handleChange = (e) => {
+		setInputs((prev) => {
+			return { ...prev, [e.target.name]: e.target.value };
 		});
-		const data = await response.data;
-		if (!response.ok) {
-			setError(data.error);
-			setEmptyFields(data.emptyFields);
+		console.log(inputs)
+	};
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		try {
+			updateProduct(id, inputs , dispatch);
+			redirect(-1);
+		} catch (err) {
+			console.log(err);
 		}
-		if (response.ok) {
-			setProduct(data);
-			setError(null);
-			setEmptyFields([]);
-		}
-		setLoading(false);
-		redirect(-1);
 	};
 	return (
 		<>
@@ -51,30 +36,26 @@ const EditProduct = () => {
 			</div>{" "}
 			<Card style="min-w-[300px] max-w-[600px] my-5">
 				<div className="w-full flex gap-2">
-					<form
-						onSubmit={handleSubmit}
-						className="flex flex-col justify-start items-center text-xs sm:text-sm md:text-md lg:text-lg text-left p-2">
+					<form className="flex flex-col justify-start items-center text-xs sm:text-sm md:text-md lg:text-lg text-left p-2">
 						<label className="w-full flex justify-between items-center">
 							<b>Title:</b>
 							<input
-								className={`my-2 ml-2 grow bg-transparent border border-base-300 rounded-md p-1 ${
-									emptyFields.includes("title") && "border-error"
-								}`}
+								className={`my-2 ml-2 grow bg-transparent border border-base-300 rounded-md p-1 `}
 								type="text"
+								name="title"
 								required
-								onChange={(e) => setTitle(e.target.value)}
+								onChange={handleChange}
 								defaultValue={product.title}
 							/>
 						</label>
 						<label className="w-full flex justify-between items-center">
 							<b>Price:</b>
 							<input
-								className={`my-2  grow ml-2  bg-transparent border border-base-300 rounded-md p-1 ${
-									emptyFields.includes("price") && "border-error"
-								}`}
+								className={`my-2  grow ml-2  bg-transparent border border-base-300 rounded-md p-1 `}
 								type="number"
+								name="price"
 								required
-								onChange={(e) => setPrice(e.target.value)}
+								onChange={handleChange}
 								defaultValue={product.price}
 							/>
 						</label>
@@ -82,33 +63,28 @@ const EditProduct = () => {
 							<b>Designer:</b>{" "}
 							<input
 								type="text"
+								name="designer"
 								required
-								onChange={(e) => setDesigner(e.target.value)}
+								onChange={handleChange}
 								defaultValue={product.designer}
-								className={`my-2  ml-1  grow bg-transparent border border-base-300 rounded-md p-1 ${
-									emptyFields.includes("designer") && "border-error"
-								}`}
+								className={`my-2  ml-1  grow bg-transparent border border-base-300 rounded-md p-1 `}
 							/>
 						</label>
 						<hr className="w-full my-2 text-base-300" />
 						<textarea
-							className={`w-full my-2  grow bg-transparent border border-base-300 rounded-lg p-1 ${
-								emptyFields.includes("description") && "border-error"
-							}`}
+							className={`w-full my-2  grow bg-transparent border border-base-300 rounded-lg p-1 `}
 							type="text"
+							name="description"
 							required
-							onChange={(e) => setDescription(e.target.value)}
+							onChange={handleChange}
 							defaultValue={product.description}
 							cols={15}
 							rows={10}
 						/>
-						<button
-							type="submit"
-							disabled={loading}
-							className="btn  btn-base-200 ">
-							{loading ? "Submitting Changes" : "Submit Changes"}
+						<button onClick={handleSubmit} className="btn  btn-base-200 ">
+							Submit Changes
 						</button>
-						{error && <p className="text-error">{error}</p>}
+						{/* {error && <p className="text-error">{error}</p>} */}
 					</form>
 					<img
 						src={product.image}
