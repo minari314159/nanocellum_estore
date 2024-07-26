@@ -21,6 +21,13 @@ export const productSlice = createSlice({
 			state.isFetching = false;
 			state.products = action.payload;
 		},
+		//GET ALL
+		getAProductSuccess: (state, action) => {
+			state.isFetching = false;
+			state.products[
+				state.products.findIndex((item) => item._id === action.payload.id)
+			] = action.payload.product;
+		},
 		//DELETE
 
 		deleteProductSuccess: (state, action) => {
@@ -53,6 +60,7 @@ export const {
 	start,
 	failure,
 	getProductSuccess,
+	getAProductSuccess,
 	deleteProductSuccess,
 	updateProductSuccess,
 	addProductSuccess,

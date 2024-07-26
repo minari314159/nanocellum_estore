@@ -26,7 +26,7 @@ const Products = () => {
 				<Search setFilter={setFilter} filter={filter} />
 			</div>
 			<div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-5">
-				{products.length === undefined && (
+				{products.length === (undefined || 0) && (
 					<h3 className="font-bold text-xl mt-4">
 						No Products at this time...
 					</h3>

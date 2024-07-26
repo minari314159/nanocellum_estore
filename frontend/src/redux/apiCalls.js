@@ -12,6 +12,7 @@ import {
 	failure,
 	start,
 	getProductSuccess,
+	getAProductSuccess,
 	deleteProductSuccess,
 	updateProductSuccess,
 	addProductSuccess,
@@ -53,6 +54,15 @@ export const getProducts = async (dispatch, filter) => {
 	try {
 		const res = await publicRequest.get(`products?${filter}`);
 		dispatch(getProductSuccess(res.data));
+	} catch (err) {
+		dispatch(failure());
+	}
+};
+export const getProduct = async (dispatch, id) => {
+	dispatch(start());
+	try {
+		const res = await publicRequest.get(`products/${id}`);
+		dispatch(getAProductSuccess(res.data));
 	} catch (err) {
 		dispatch(failure());
 	}

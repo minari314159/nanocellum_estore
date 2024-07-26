@@ -1,0 +1,28 @@
+services:
+  mongodb:
+    image: mongo
+    environment:
+      MONGO_URI: mongodb+srv://sjolsen95:DjINDKvwAQVlCi0Q@nanocellum.kzsn9wc.mongodb.net/nanocellum?retryWrites=true&w=majority&appName=Nanocellum
+  backend:
+    build: ./backend
+    ports:
+      - 3000:3000
+    volumes:
+      - logs:/backend/logs
+      - ./backend:/backend
+      - /backend/node_modules
+    depends_on:
+      - mongodb
+  frontend:
+    build: ./frontend
+    ports:
+      - 5173:5173
+    volumes:
+      - ./frontend/src:/frontend/src
+    stdin_open: true
+    tty: true
+    depends_on:
+      - backend
+volumes:
+  data:
+  logs:  
