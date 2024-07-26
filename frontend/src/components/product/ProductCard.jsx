@@ -1,8 +1,8 @@
 import { Card, DeleteButton } from "../components";
 import { useParams } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-
+import { getProducts } from "../../redux/apiCalls";
 import { addProduct } from "../../redux/cartRedux";
 import { useDispatch, useSelector } from "react-redux";
 
@@ -15,7 +15,9 @@ const ProductCard = () => {
 	const [quantity, setQuantity] = useState(1);
 	const [color, setColor] = useState(" ");
 	const dispatch = useDispatch();
-
+	useEffect(() => {
+		getProducts(dispatch);
+	}, [dispatch]);
 	const handleQuantity = (type) => {
 		if (type === "dec") {
 			quantity > 1 && setQuantity(quantity - 1);
