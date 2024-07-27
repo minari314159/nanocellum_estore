@@ -14,7 +14,8 @@ const app = express();
 
 //cors options
 const corsOptions = {
-	origin: "http://localhost:5173",
+	origin: ["http://localhost:5173", "https://nanocellum-store.vercel.app"],
+	methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
 	credentials: true,
 	optionSuccessStatus: 200,
 };
@@ -24,19 +25,7 @@ app.use(morgan("dev"));
 app.use(cors(corsOptions));
 
 //cors headers
-app.use(function (req, res, next) {
-	res.header(
-		"Access-Control-Allow-Origin",
-		"https://nanocellum-store.vercel.app"
-	);
-	res.header("Access-Control-Allow-Headers", true);
-	res.header("Access-Control-Allow-Credentials", true);
-	res.header(
-		"Access-Control-Allow-Methods",
-		"GET, POST, OPTIONS, PUT, PATCH, DELETE"
-	);
-	next();
-});
+app.use(cors(corsOptions));
 
 //routes
 app.get("/", (req, res) => {
