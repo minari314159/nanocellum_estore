@@ -24,9 +24,6 @@ app.use(express.json());
 app.use(morgan("dev"));
 app.use(cors(corsOptions));
 
-//cors headers
-app.use(cors(corsOptions));
-
 //routes
 app.get("/", (req, res) => {
 	res.send("API Root");
