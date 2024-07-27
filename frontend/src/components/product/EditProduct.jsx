@@ -16,13 +16,12 @@ const EditProduct = () => {
 		setInputs((prev) => {
 			return { ...prev, [e.target.name]: e.target.value };
 		});
-		console.log(inputs)
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			updateProduct(id, inputs , dispatch);
-			redirect(-1);
+			updateProduct(id, inputs, dispatch);
+			redirect("/products");
 		} catch (err) {
 			console.log(err);
 		}

@@ -12,6 +12,13 @@ const ProductCard = () => {
 	const product = useSelector((state) =>
 		state.product.products.find((product) => product._id === id)
 	);
+	const colourList = [
+		{ colorId: "s", tcolor: "bg-base-300" },
+		{ colorId: "k", tcolor: "bg-yellow-700" },
+		{ colorId: "p", tcolor: "bg-amber-800" },
+		{ colorId: "b", tcolor: "bg-orange-900" },
+		{ colorId: "m", tcolor: "bg-red-950" },
+	];
 	const [quantity, setQuantity] = useState(1);
 	const [color, setColor] = useState(" ");
 	const dispatch = useDispatch();
@@ -45,14 +52,13 @@ const ProductCard = () => {
 						</p>
 						<p className="flex items-center gap-3">
 							<b>Colour:</b>{" "}
-							{product.color === "s" && (
+							{colourList.map((c, index) => (
 								<span
-									onClick={() => setColor("s")}
-									className={`w-4 h-4 bg-base-300 border border-neutral-600 ${
-										color && "border-neutral-300"
-									} rounded-full `}
+									key={index}
+									onClick={() => setColor(c.colorId)}
+									className={`w-4 h-4  border border-neutral-600 ${c.tcolor} rounded-full cursor-pointer hover:scale-105 hover:border-neutral-400`}
 								/>
-							)}
+							))}
 						</p>
 						<hr className="w-full my-2 border-neutral-700" />
 						<p className="w-full my-2 ">{product.description}</p>
