@@ -15,7 +15,7 @@ const Dropmenu = ({ active, setActive }) => {
 				</button>
 				<div
 					tabIndex={0}
-					className="menu dropdown-content flex flex-col items-center z-[1]  bg-base-200  backdrop-blur-md  bg-opacity-50 shadow-lg rounded-box w-[8rem] mt-3 ">
+					className="menu dropdown-content flex flex-col items-center z-50  bg-base-200  backdrop-blur-md  bg-opacity-30 shadow-lg  w-[8rem] mt-3 mr-[-1rem]">
 					{user && user.role === "admin" && (
 						<Link
 							to="/products/create"
