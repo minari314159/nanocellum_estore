@@ -11,6 +11,9 @@ import {
 	Product,
 	Profile,
 	Success,
+	Algowatt,
+	Design,
+	Fabrication,
 } from "./pages/pages";
 import {
 	CreateProduct,
@@ -70,7 +73,9 @@ const App = () => {
 									}
 								/>{" "}
 							</Route>
-
+							<Route path="/design" element={<Design />} />
+							<Route path="/growth" element={<Fabrication />} />
+							<Route path="/innovation" element={<Algowatt />} />
 							<Route
 								path="/profile"
 								element={user ? <Profile /> : <Navigate to="/login" />}

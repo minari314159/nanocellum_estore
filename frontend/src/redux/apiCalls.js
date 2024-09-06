@@ -1,4 +1,5 @@
 import { publicRequest, userRequest } from "../requestMethods";
+import { products } from "..";
 import {
 	loginStart,
 	loginFailure,
@@ -52,8 +53,12 @@ export const logout = async (dispatch) => {
 export const getProducts = async (dispatch, filter) => {
 	dispatch(start());
 	try {
-		const res = await publicRequest.get(`products?${filter}`);
-		dispatch(getProductSuccess(res.data));
+		// if (filter) {
+		// 	const res = await publicRequest.get(`products?${filter}`);
+		// 	dispatch(getProductSuccess(res.data));
+		// } else {
+		const res = products;
+		dispatch(getProductSuccess(res));
 	} catch (err) {
 		dispatch(failure());
 	}
@@ -82,7 +87,7 @@ export const updateProduct = async (id, product, dispatch) => {
 	dispatch(start());
 	try {
 		const res = await userRequest.put(`products/${id}`, product);
-		console.log(res.data)
+		console.log(res.data);
 		dispatch(updateProductSuccess(res.data));
 	} catch (err) {
 		dispatch(failure());

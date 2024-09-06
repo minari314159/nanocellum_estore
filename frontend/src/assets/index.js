@@ -17,6 +17,12 @@ import chambers from "./TheGrowthChambers.png";
 import nullprofile from "./placeholder.png";
 import blob4 from "./blob4.svg";
 
+import swirl from "./Swirl.png";
+import lotus from "./Lotus.png";
+import crackle from "./Crackle.png";
+import cellum from "./Cellum.png";
+import basic from "./Basic.png";
+
 export {
 	logo,
 	cellumlamp,
@@ -35,4 +41,9 @@ export {
 	chambers,
 	nullprofile,
 	blob4,
+	swirl,
+	lotus,
+	crackle,
+	cellum,
+	basic,
 };

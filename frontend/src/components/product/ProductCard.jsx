@@ -86,7 +86,7 @@ const ProductCard = () => {
 						alt={product.name}
 						height={300}
 						width={300}
-						className="rounded-full w-md h-md aspect-square shadow-lg"
+						className="rounded-full w-md h-md aspect-square object-contain shadow-lg bg-black"
 					/>
 				</div>
 			</Card>

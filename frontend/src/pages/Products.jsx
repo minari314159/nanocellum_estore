@@ -51,7 +51,7 @@ const Products = () => {
 									alt={product.name}
 									height={300}
 									width={300}
-									className="rounded-lg w-full aspect-square shadow-lg "
+									className="rounded-lg w-full aspect-square object-cover shadow-lg "
 								/>
 								<div
 									ref={overlay}

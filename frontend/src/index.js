@@ -1,36 +1,65 @@
-import { sucrose, beet, pcabbage, kiwi, molasses } from "./assets";
+import {
+	swirl,
+	lotus,
+	crackle,
+	cellum,
+	basic,
+	sucrose,
+	kiwi,
+	pcabbage,
+	beet,
+	molasses,
+} from "./assets";
 
 export const navLinks = [
 	{
-		id: "growth",
-		title: "Process",
+		id: "products",
+		title: "Lamps",
 	},
 	{
 		id: "design",
 		title: "Design",
 	},
+	{
+		id: "growth",
+		title: "Fabrication",
+	},
+	{
+		id: "innovation",
+		title: "Innovation",
+	},
 ];
 
-export const footerLinks = [
+export const products = [
 	{
-		id: 1,
-		name: "Content",
-		link: "https://www.hoobank.com/content/",
+		_id: "p1",
+		image: basic,
+		title: "Rose",
+		price: 55,
 	},
 	{
-		id: 2,
-		name: "R & D",
-		link: "https://www.hoobank.com/how-it-works/",
+		_id: "p2",
+		image: lotus,
+		title: "Lotus",
+		price: 75,
 	},
 	{
-		id: 3,
-		name: "Portfolio",
-		link: "https://www.hoobank.com/create/",
+		_id: "p3",
+		image: swirl,
+		title: "Swirl",
+		price: 150,
 	},
 	{
-		id: 4,
-		name: "Explore",
-		link: "https://www.hoobank.com/explore/",
+		_id: "p4",
+		image: crackle,
+		title: "Crackle",
+		price: 64,
+	},
+	{
+		_id: "p5",
+		image: cellum,
+		title: "Wisp",
+		price: 110,
 	},
 ];
 

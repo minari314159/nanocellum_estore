@@ -4,6 +4,7 @@ import { blob, forlamp, lamp } from "../../assets";
 import { useGSAP } from "@gsap/react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/dist/ScrollTrigger";
+import { Link } from "react-router-dom";
 gsap.registerPlugin(ScrollTrigger);
 
 const Growth = () => {
@@ -69,13 +70,13 @@ const Growth = () => {
 					alt="blob"
 					className="w-[130px] h-[130px] absolute  z-0 blur-md"
 				/>
-				<button
+				<Link
 					className="flex-col w-[100%] h-[100%] absolute bottom-[-0.5rem] left-[-0.2rem] z-[4]"
-					onClick={() => open("https://www.youtube.com/watch?v=bbUDEV-thYc")}>
+					to="/growth">
 					<p className=" font-medium text-[18px] text-center  text-amber-950 ">
-						Watch It <br /> Grow!
+						How It&apos;s <br /> Grown!
 					</p>
-				</button>
+				</Link>
 			</div>
 			<div className="flex flex-col items-center  ">
 				<p

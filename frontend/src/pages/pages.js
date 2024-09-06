@@ -10,6 +10,10 @@ import Product from "./Product";
 import Profile from "./Profile";
 import Success from "./Success";
 
+import Algowatt from "./Algowatt";
+import Design from "./Design";
+import Fabrication from "./Fabrication";
+
 export {
 	Home,
 	Login,
@@ -21,4 +25,7 @@ export {
 	Product,
 	Profile,
 	Success,
+	Algowatt,
+	Design,
+	Fabrication,
 };

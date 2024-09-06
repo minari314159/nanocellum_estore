@@ -16,16 +16,6 @@ const Dropmenu = ({ active, setActive }) => {
 				<div
 					tabIndex={0}
 					className="menu dropdown-content flex flex-col items-center z-[1]  shadow-xl bg-base-200 rounded-box w-[8rem] mt-3 ">
-					<Link
-						to="/products"
-						onClick={() => {
-							setActive(true);
-						}}
-						className={` text-[14px] font-semibold  btn btn-ghost rounded-xl ${
-							active ? "text-base-content" : "text-gray-600"
-						}`}>
-						Products
-					</Link>
 					{user && user.role === "admin" && (
 						<Link
 							to="/products/create"
@@ -41,15 +31,9 @@ const Dropmenu = ({ active, setActive }) => {
 
 					{navLinks.map((nav) => (
 						<Link
-							to="/"
+							to={`${nav.id}`}
 							onClick={() => {
-								setActive(nav.title);
-								const element = document.getElementById(nav.id);
-
-								element.scrollIntoView({
-									behavior: "smooth",
-									block: "start",
-								});
+								setActive(true);
 							}}
 							key={nav.id}
 							className={` text-[14px] font-semibold  btn btn-ghost rounded-xl ${
