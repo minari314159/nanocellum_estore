@@ -1,11 +1,10 @@
 import {
 	Hero,
 	Detail,
-	Growth,
 	Design,
 	ParallaxContent,
 } from "../components/components";
-import { chambers, blob4, comingsoon } from "../assets";
+import { blob4, comingsoon } from "../assets";
 
 const App = () => {
 	return (
@@ -18,14 +17,6 @@ const App = () => {
 				height={580}
 				width={800}>
 				<Detail />
-			</ParallaxContent>
-			<ParallaxContent
-				imgUrl={chambers}
-				subheading="How it's made."
-				heading="The Growth Chamber."
-				height={580}
-				width={800}>
-				<Growth />
 			</ParallaxContent>
 
 			<ParallaxContent
