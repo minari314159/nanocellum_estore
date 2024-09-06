@@ -16,6 +16,8 @@ import comingsoon from "./comingsoon.png";
 import chambers from "./TheGrowthChambers.png";
 import nullprofile from "./placeholder.png";
 import blob4 from "./blob4.svg";
+import growth from "./growth.png";
+import algowatt from "./Algowatt.jpg";
 
 import swirl from "./Swirl.png";
 import lotus from "./Lotus.png";
@@ -46,4 +48,6 @@ export {
 	crackle,
 	cellum,
 	basic,
+	growth,
+	algowatt,
 };

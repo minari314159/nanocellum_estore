@@ -15,7 +15,7 @@ const Dropmenu = ({ active, setActive }) => {
 				</button>
 				<div
 					tabIndex={0}
-					className="menu dropdown-content flex flex-col items-center z-[1]  shadow-xl bg-base-200 rounded-box w-[8rem] mt-3 ">
+					className="menu dropdown-content flex flex-col items-center z-[1]  bg-base-200  backdrop-blur-md  bg-opacity-50 shadow-lg rounded-box w-[8rem] mt-3 ">
 					{user && user.role === "admin" && (
 						<Link
 							to="/products/create"
@@ -37,7 +37,7 @@ const Dropmenu = ({ active, setActive }) => {
 							}}
 							key={nav.id}
 							className={` text-[14px] font-semibold  btn btn-ghost rounded-xl ${
-								active === nav.title ? "text-base-content" : "text-gray-600"
+								active === nav.title ? "text-base-content" : "text-gray-800"
 							}`}>
 							{nav.title}
 						</Link>

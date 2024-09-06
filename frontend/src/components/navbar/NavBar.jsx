@@ -13,7 +13,7 @@ const NavBar = () => {
 		<nav
 			className={` ${
 				location.pathname === "/" ? "sticky" : "fixed"
-			} navbar navbar-center z-10  max-w-7xl  top-0 `}>
+			} navbar navbar-center z-10  max-w-7xl  top-0  bg-base-200 backdrop-blur-sm  bg-opacity-20 shadow-lg`}>
 			<NavLink
 				to="/"
 				onClick={() => {

@@ -20,9 +20,9 @@ const Products = () => {
 	}, [dispatch, filter]);
 
 	return (
-		<section className="flex w-full min-h-screen flex-col items-center p-4 ">
+		<section className="flex w-full min-h-screen flex-col items-center p-4 pt-[5rem] ">
 			<div className="py-2 px-10 bg-accent rounded-e-full flex flex-col items-center justify-center shadow-lg">
-				<h1 className="text-2xl lg:text-4xl font-bold mt-2">Products</h1>
+				<h1 className="text-2xl lg:text-4xl font-bold mt-2">Lamps</h1>
 				<Search setFilter={setFilter} filter={filter} />
 			</div>
 			<div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-5">

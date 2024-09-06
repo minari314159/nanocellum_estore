@@ -2,7 +2,7 @@ import NavBar from "./navbar/NavBar";
 import Detail from "./hero/Detail";
 import Footer from "./Footer";
 import Hero from "./hero/Hero";
-import Growth from "./hero/Growth";
+
 import Design from "./hero/Design";
 
 import ProductCard from "./product/ProductCard";
@@ -26,7 +26,6 @@ export {
 	Detail,
 	Footer,
 	Hero,
-	Growth,
 	Form,
 	LoadingIndicator,
 	ParallaxContent,

@@ -12,7 +12,6 @@ import {
 	Profile,
 	Success,
 	Algowatt,
-	Design,
 	Fabrication,
 } from "./pages/pages";
 import {
@@ -73,7 +72,7 @@ const App = () => {
 									}
 								/>{" "}
 							</Route>
-							<Route path="/design" element={<Design />} />
+
 							<Route path="/growth" element={<Fabrication />} />
 							<Route path="/innovation" element={<Algowatt />} />
 							<Route

@@ -17,10 +17,6 @@ export const navLinks = [
 		title: "Lamps",
 	},
 	{
-		id: "design",
-		title: "Design",
-	},
-	{
 		id: "growth",
 		title: "Fabrication",
 	},
