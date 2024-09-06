@@ -18,6 +18,7 @@ import nullprofile from "./placeholder.png";
 import blob4 from "./blob4.svg";
 import growth from "./growth.png";
 import algowatt from "./Algowatt.jpg";
+import fabrication from "./fabrication.png";
 
 import swirl from "./Swirl.png";
 import lotus from "./Lotus.png";
@@ -50,4 +51,5 @@ export {
 	basic,
 	growth,
 	algowatt,
+	fabrication,
 };

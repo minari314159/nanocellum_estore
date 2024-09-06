@@ -9,6 +9,7 @@ import {
 	pcabbage,
 	beet,
 	molasses,
+	fabrication,
 } from "./assets";
 
 export const navLinks = [
@@ -84,5 +85,37 @@ export const slides = [
 		id: "p5",
 		image: molasses,
 		colour: "Boysenberry",
+	},
+];
+
+export const fabSteps = [
+	{
+		step: "01",
+		description:
+			"Chemically pretuned carbon waste source is chosen depending on desired colour",
+		image: fabrication,
+	},
+	{
+		step: "02",
+		description:
+			"Sheets are grown over a period of 1-2 weeks, depending on desired thickness.  During this time the Acetorbacter “workers”  knit the nanocellulose sheets together. Depending on the waste carbon source, the colour, strength and even fiber alignment is determined ",
+		image: fabrication,
+	},
+	{
+		step: "03",
+		description:
+			"The fibrous structural skeleton is created and the harvested nanocellulose sheets are stretched and dried over the frame",
+		image: fabrication,
+	},
+	{
+		step: "04",
+		description:
+			"The entire lamp is set with a naturally occuring non-toxic resin composite, specially designed. ",
+		image: fabrication,
+	},
+	{
+		step: "05",
+		description: "Electricals are implemented & the lamp is ready for use.",
+		image: fabrication,
 	},
 ];
