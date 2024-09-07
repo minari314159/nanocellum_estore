@@ -32,7 +32,7 @@ const Fabrication = () => {
 			<div className="flex flex-col items-center justify-end overflow-hidden  w-screen h-[80vh] p-2 pr-0 my-5 gap-2">
 				{
 					<div
-						key={fabSteps[imageIndex].step}
+						key={fabSteps[imageIndex]}
 						className=" w-full h-[70vh] flex justify-between items-center  pl-5 ">
 						<div className="h-full flex flex-col justify-between">
 							<p className="p-5 text-sm sm:text-md md:text-lg rounded-lg shadow-sm bg-opacity-20 bg-blur-md min-w-[250px] md:min-w-[300px] max-w-[500px]">

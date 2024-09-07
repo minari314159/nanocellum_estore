@@ -1,62 +1,80 @@
-import { sucrose, kiwi, pcabbage, beet, molasses } from "../../assets";
-import {
-	FaRegArrowAltCircleRight,
-	FaRegArrowAltCircleLeft,
-} from "react-icons/fa";
-const Slider = () => {
-	const images = [
-		{
-			src: sucrose,
-            alt: "Sucrose",
-            description: "Sucrose is a disaccharide composed of glucose and fructose. It is produced naturally in plants"
-		},
-		{
-			src: kiwi,
-            alt: "Kiwi",
-            description: "Kiwi is a fruit that is rich in vitamins and minerals. Its sugar content is mainly fructose"
-		},
-		{
-			src: pcabbage,
-            alt: "Purple Cabbage",
-            description: "Purple cabbage is a vegetable rich in antioxidants. Its sugar content is mainly glucose"
-		},
-		{
-			src: beet,
-            alt: "Beet",
-            description: "Beet is a root vegetable rich in vitamins and minerals. Its sugar content is mainly sucrose"
-		},
-		{
-			src: molasses,
-            alt: "Molasses",
-            description: "Molasses is a byproduct of sugar production.  Its sugar content is mainly glucose"
-		},
-	];
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { IoIosArrowBack, IoIosArrowForward } from "react-icons/io";
+import { Link } from "react-router-dom";
+const Slider = ({ slide }) => {
+	const [index, setIndex] = useState(0);
+	const changeImage = (direction) => {
+		if (direction === "left") {
+			if (index === 0) {
+				setIndex(slide.length - 1);
+			} else {
+				setIndex(index - 1);
+			}
+		} else {
+			if (index === slide.length - 1) {
+				setIndex(0);
+			} else {
+				setIndex(index + 1);
+			}
+		}
+	};
 	return (
 		<div className="flex flex-col items-center w-[100%]  gap-0 justify-center  ">
-			<div className="flex overflow-auto w-full gap-2">
-				{images.map((design, index) => (
-					<div key={index} className=" relative w-[300px] h-[100%]">
-						<img
-							src={design.src}
-                            alt={design.alt}
-                            width="100%"
-                            height="100%"
-							className="rounded-full content-center object-cover "
-                        />
-                        <p className="text-center text-neutral-300 absolute bottom-3 bg-accent-content bg-opacity-40 p-2 rounded-lg ">{design.description}</p>
-					</div>
-				))}
+			<div className="flex items-center justify-between w-full gap-2">
+				{
+					<>
+						<div key={slide[index]} className=" relative w-[300px] h-[100%]">
+							<img
+								src={slide[index].src}
+								alt={slide[index].alt}
+								width="100%"
+								height="100%"
+								className="rounded-full content-center object-cover "
+							/>
+							<p className="text-center text-neutral-300 absolute bottom-3 bg-accent-content bg-opacity-40 p-2 rounded-lg ">
+								{slide[index].description}
+							</p>
+						</div>
+
+						<div
+							key={slide[index + 1]}
+							className=" relative w-[300px] h-[100%]">
+							<img
+								src={slide[index + 1].src}
+								alt={slide[index + 1].alt}
+								width="100%"
+								height="100%"
+								className="rounded-full content-center object-cover "
+							/>
+							<p className="text-center text-neutral-300 absolute bottom-3 bg-accent-content bg-opacity-40 p-2 rounded-lg ">
+								{slide[index + 1].description}
+							</p>
+						</div>
+					</>
+				}
 			</div>
 			<div className="inline-flex ">
-				<button className="btn btn-ghost btn-circle">
-					<FaRegArrowAltCircleLeft size={25} className="text-neutral-500 " />
-				</button>
-				<button className="btn btn-ghost btn-circle">
-					<FaRegArrowAltCircleRight size={25} className="text-neutral-500 " />
-				</button>
+				<div className="p-5 flex items-center gap-3">
+					<IoIosArrowBack
+						onClick={() => changeImage("left")}
+						className="text-base-content w-[16rem] flex-1 btn btn-circle btn-ghost"
+					/>
+					<Link to="/products" className="btn btn-accent rounded-full ml-5 ">
+						View Designs
+					</Link>
+					<IoIosArrowForward
+						onClick={() => changeImage("right")}
+						className="text-base-content w-[16rem] btn btn-circle btn-ghost flex-1"
+					/>
+				</div>
 			</div>
 		</div>
 	);
+};
+
+Slider.propTypes = {
+	slide: PropTypes.array.isRequired,
 };
 
 export default Slider;

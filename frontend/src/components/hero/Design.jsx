@@ -1,5 +1,6 @@
 import { Link } from "react-router-dom";
 import Slider from "../utils/Slider";
+import { images } from "../..";
 
 const Design = () => {
 	return (
@@ -21,7 +22,7 @@ const Design = () => {
 					Product Details
 				</Link>
 			</div>
-			<Slider />
+			<Slider slide={images} />
 		</section>
 	);
 };

@@ -120,3 +120,36 @@ export const fabSteps = [
 		image: fabrication,
 	},
 ];
+
+export const images = [
+	{
+		src: sucrose,
+		alt: "Sucrose",
+		description:
+			"Sucrose is a disaccharide composed of glucose and fructose. It is produced naturally in plants",
+	},
+	{
+		src: kiwi,
+		alt: "Kiwi",
+		description:
+			"Kiwi is a fruit that is rich in vitamins and minerals. Its sugar content is mainly fructose",
+	},
+	{
+		src: pcabbage,
+		alt: "Purple Cabbage",
+		description:
+			"Purple cabbage is a vegetable rich in antioxidants. Its sugar content is mainly glucose",
+	},
+	{
+		src: beet,
+		alt: "Beet",
+		description:
+			"Beet is a root vegetable rich in vitamins and minerals. Its sugar content is mainly sucrose",
+	},
+	{
+		src: molasses,
+		alt: "Molasses",
+		description:
+			"Molasses is a byproduct of sugar production.  Its sugar content is mainly glucose",
+	},
+];
