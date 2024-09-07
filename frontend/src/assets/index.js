@@ -19,6 +19,7 @@ import blob4 from "./blob4.svg";
 import growth from "./growth.png";
 import algowatt from "./Algowatt.jpg";
 import fabrication from "./fabrication.png";
+import bcgrowth from "./bcgrowth.png";
 
 import swirl from "./Swirl.png";
 import lotus from "./Lotus.png";
@@ -52,4 +53,5 @@ export {
 	growth,
 	algowatt,
 	fabrication,
+	bcgrowth
 };

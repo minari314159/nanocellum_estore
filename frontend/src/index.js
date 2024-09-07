@@ -10,6 +10,7 @@ import {
 	beet,
 	molasses,
 	fabrication,
+	bcgrowth,
 } from "./assets";
 
 export const navLinks = [
@@ -92,13 +93,13 @@ export const fabSteps = [
 	{
 		step: "01",
 		description:
-			"Chemically pretuned carbon waste source is chosen depending on desired colour",
-		image: fabrication,
+			"Carbon waste is collected and processed to create a carbon source for the Acetobacter bacteria. In depth research both chemically and computationally has been done to determine the best waste carbon sources, the best bacteria strains to use, and the best environmental conditions for the bacteria to grow in.",
+		image: bcgrowth,
 	},
 	{
 		step: "02",
 		description:
-			"Sheets are grown over a period of 1-2 weeks, depending on desired thickness.  During this time the Acetorbacter “workers”  knit the nanocellulose sheets together. Depending on the waste carbon source, the colour, strength and even fiber alignment is determined ",
+			"Sheets are grown over a period of 1-2 weeks, depending on desired thickness.  During this time the Acetorbacter “workers”  knit the nanocellulose sheets together...the bacteria then produce nanocellulose sheets as a byproduct of the fermentation process. Depending on the waste carbon source, the colour, strength and even fiber alignment is determined ",
 		image: fabrication,
 	},
 	{
