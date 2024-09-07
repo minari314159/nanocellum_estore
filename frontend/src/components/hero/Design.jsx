@@ -1,10 +1,7 @@
 import { Link } from "react-router-dom";
 import Slider from "../utils/Slider";
 
-
 const Design = () => {
-	
-
 	return (
 		<section
 			id="design"
@@ -19,7 +16,7 @@ const Design = () => {
 					from various fruits and vegetables.
 				</p>
 				<Link
-					to="/products"
+					to="/growth"
 					className="text-black btn btn-accent hover:scale-105 cursor-pointer">
 					Product Details
 				</Link>
