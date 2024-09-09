@@ -26,6 +26,7 @@ import lotus from "./Lotus.png";
 import crackle from "./Crackle.png";
 import cellum from "./Cellum.png";
 import basic from "./Basic.png";
+import skeleton from "./skeleton.png";
 
 export {
 	logo,
@@ -53,5 +54,6 @@ export {
 	growth,
 	algowatt,
 	fabrication,
-	bcgrowth
+	bcgrowth,
+	skeleton,	
 };

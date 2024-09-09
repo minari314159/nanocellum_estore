@@ -38,7 +38,7 @@ const App = () => {
 			{isLoading ? (
 				<Loader />
 			) : (
-				<main className="bg-base-200 relative">
+				<main className="bg-base-200 relative w-full">
 					<BrowserRouter>
 						<NavBar />
 						<Routes>

@@ -32,6 +32,7 @@ const Algowatt = () => {
 					providing a sustainable energy solution.
 				</p>
 			</div>
+			<hr className="w-[85%] max-w-[700px] border-1 border-base-300" />
 			<div className="p-5 w-[85%] max-w-[700px]">
 				<h2 className="text-2xl font-semibold">Challenges</h2>
 			</div>
@@ -99,7 +100,7 @@ const Algowatt = () => {
 					detailed computational exploration, see Olsen (2021).
 				</p>
 			</div>
-			<div className="p-5 w-[85%] max-w-[700px] sm:columns-2 ">
+			<div className="p-5 w-[85%] max-w-[700px] sm:columns-2 mb-10 ">
 				<h3 className="text-lg font-semibold mb-3">
 					Macro design: Data-Driven Flexible Panel
 				</h3>

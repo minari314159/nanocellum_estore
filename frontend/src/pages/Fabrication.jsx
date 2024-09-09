@@ -50,7 +50,7 @@ const Fabrication = () => {
 						</div>
 						<img
 							src={fabSteps[imageIndex].image}
-							className="max-w-[300px] md:max-w-[400px] lg:max-w-[500px] h-full rounded-l-lg object-cover"
+							className="max-w-[300px] md:max-w-[400px] lg:max-w-[500px] h-full rounded-bl-[9rem] object-cover"
 						/>
 					</div>
 				}

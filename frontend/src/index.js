@@ -11,6 +11,8 @@ import {
 	molasses,
 	fabrication,
 	bcgrowth,
+	cellumlamp,
+	skeleton,
 } from "./assets";
 
 export const navLinks = [
@@ -93,31 +95,32 @@ export const fabSteps = [
 	{
 		step: "01",
 		description:
-			"Carbon waste is collected and processed to create a carbon source for the Acetobacter bacteria. In depth research both chemically and computationally has been done to determine the best waste carbon sources, the best bacteria strains to use, and the best environmental conditions for the bacteria to grow in.",
+			"Carbon waste is collected and processed to serve as a carbon source for Acetobacter bacteria. Extensive chemical and computational research has been conducted to identify the optimal carbon waste sources, the most efficient bacterial strains, and the ideal environmental conditions to maximize bacterial growth.",
 		image: bcgrowth,
 	},
 	{
 		step: "02",
 		description:
-			"Sheets are grown over a period of 1-2 weeks, depending on desired thickness.  During this time the Acetorbacter “workers”  knit the nanocellulose sheets together...the bacteria then produce nanocellulose sheets as a byproduct of the fermentation process. Depending on the waste carbon source, the colour, strength and even fiber alignment is determined ",
+			"Nanocellulose sheets are cultivated over 1-2 weeks, depending on the desired thickness. During this period, Acetobacter bacteria synthesize and assemble the nanocellulose as a byproduct of fermentation. The choice of carbon waste source influences the color, strength, and fiber alignment of the resulting sheets, allowing for tailored material properties",
 		image: fabrication,
 	},
 	{
 		step: "03",
 		description:
-			"The fibrous structural skeleton is created and the harvested nanocellulose sheets are stretched and dried over the frame",
-		image: fabrication,
+			"The fibrous structural framework is constructed, forming the foundation for the lamp's design. The harvested nanocellulose sheets are then carefully stretched over the frame to ensure uniform coverage and optimal tension. Once in place, the sheets undergo a controlled drying process, allowing the material to bond securely to the frame, creating a stable and resilient structure while preserving the desired aesthetic and functional properties.",
+		image: skeleton,
 	},
 	{
 		step: "04",
 		description:
-			"The entire lamp is set with a naturally occuring non-toxic resin composite, specially designed. ",
+			"The entire lamp is coated with a specially formulated, naturally occurring, non-toxic resin composite. This resin is carefully applied to enhance the structural integrity of the lamp, providing durability while maintaining environmental sustainability. The resin not only protects the nanocellulose sheets but also preserves the lamp's aesthetic, ensuring a long-lasting, eco-friendly final product.",
 		image: fabrication,
 	},
 	{
 		step: "05",
-		description: "Electricals are implemented & the lamp is ready for use.",
-		image: fabrication,
+		description:
+			"The final step involves integrating the electrical components, ensuring seamless functionality and safety. Once the wiring and lighting elements are properly installed, the lamp undergoes a final inspection for performance and quality. At this stage, the lamp is fully operational and ready for use, combining innovative design with sustainable materials and technology.",
+		image: cellumlamp,
 	},
 ];
 
