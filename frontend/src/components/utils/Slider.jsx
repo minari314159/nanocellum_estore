@@ -54,10 +54,10 @@ const Slider = ({ slide }) => {
 				</div>
 			</div>
 			<div className="inline-flex ">
-				<div className="p-5 flex items-center gap-3">
+				<div className="p-5 flex items-center gap-5">
 					<IoIosArrowBack
 						onClick={() => changeImage("left")}
-						className="text-base-content w-[16rem] flex-1 btn btn-circle btn-ghost"
+						className="text-base-content sm:w-[16rem] flex-1 btn btn-circle btn-ghost"
 					/>
 
 					{slide.map((_, i) => (
@@ -70,7 +70,7 @@ const Slider = ({ slide }) => {
 					))}
 					<IoIosArrowForward
 						onClick={() => changeImage("right")}
-						className="text-base-content w-[16rem] btn btn-circle btn-ghost flex-1"
+						className="text-base-content sm:w-[16rem] btn btn-circle btn-ghost flex-1"
 					/>
 				</div>
 			</div>

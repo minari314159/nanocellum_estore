@@ -30,7 +30,7 @@ const Details = () => {
 					ease: "smooth",
 				},
 				{
-					x: screen <= 768 ? window.innerWidth / 4 : window.innerWidth / 2.5,
+					x: screen <= 768 ? window.innerWidth / 3.3 : window.innerWidth / 2.5,
 					y: screen <= 768 ? -window.innerHeight / 4 : "200px",
 					scrollTrigger: {
 						trigger: "#lampimg",
@@ -49,7 +49,7 @@ const Details = () => {
 					ease: "smooth",
 				},
 				{
-					x: screen <= 768 ? -window.innerWidth / 4 : -window.innerWidth / 2.5,
+					x: screen <= 768 ? -window.innerWidth / 3.3 : -window.innerWidth / 2.5,
 					y: screen <= 768 ? window.innerHeight / 4 : "200px",
 					scrollTrigger: {
 						trigger: "#lampimg",
