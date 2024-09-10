@@ -4,18 +4,18 @@ import {
 	Design,
 	ParallaxContent,
 } from "../components/components";
-import { blob4, comingsoon } from "../assets";
+import { bcgrowth, comingsoon } from "../assets";
 
 const App = () => {
 	return (
 		<main className="flex min-h-screen flex-col items-center w-full p-5  font-inter">
 			<Hero />
 			<ParallaxContent
-				subheading=""
-				imgUrl={blob4}
+				subheading="Details."
+				imgUrl={bcgrowth}
 				heading="Nanocellum Presents..."
-				height={580}
-				width={800}>
+				height={500}
+				width={700}>
 				<Detail />
 			</ParallaxContent>
 

@@ -19,7 +19,7 @@ const Design = () => {
 				<Link
 					to="/growth"
 					className="text-black btn btn-accent hover:scale-105 cursor-pointer">
-					Product Details
+					Process Details
 				</Link>
 			</div>
 			<Slider slide={images} />

@@ -24,14 +24,14 @@ const Details = () => {
 			gsap.fromTo(
 				"#lampimg",
 				{
-					x: -window.innerWidth,
-					y: screen <= 768 ? -window.innerHeight / 4 : 0,
+					x: -window.innerWidth * 2,
+					y: screen <= 768 ? -window.innerHeight / 4 : "200px",
 					duration: 1,
 					ease: "smooth",
 				},
 				{
-					x: screen <= 768 ? window.innerWidth / 4 : window.innerWidth / 3,
-					y: screen <= 768 ? -window.innerHeight / 4 : 0,
+					x: screen <= 768 ? window.innerWidth / 4 : window.innerWidth / 2.5,
+					y: screen <= 768 ? -window.innerHeight / 4 : "200px",
 					scrollTrigger: {
 						trigger: "#lampimg",
 						start: "top center",
@@ -43,14 +43,14 @@ const Details = () => {
 			gsap.fromTo(
 				"#para",
 				{
-					x: window.innerWidth,
-					y: screen <= 768 ? window.innerHeight / 4 : 0,
+					x: window.innerWidth * 2,
+					y: screen <= 768 ? window.innerHeight / 4 : "200px",
 					duration: 1,
 					ease: "smooth",
 				},
 				{
-					x: screen <= 768 ? -window.innerWidth / 4 : -window.innerWidth / 2,
-					y: screen <= 768 ? window.innerHeight / 4 : 0,
+					x: screen <= 768 ? -window.innerWidth / 4 : -window.innerWidth / 2.5,
+					y: screen <= 768 ? window.innerHeight / 4 : "200px",
 					scrollTrigger: {
 						trigger: "#lampimg",
 						start: "top center",

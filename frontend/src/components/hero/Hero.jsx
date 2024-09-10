@@ -80,7 +80,7 @@ const Hero = () => {
 		<section
 			id="hero"
 			ref={container}
-			className="  flex flex-col items-center justify-center ">
+			className="  flex flex-col items-center justify-center mb-10">
 			<div className="  flex flex-col items-center justify-center ">
 				<img
 					src={herolamp}
@@ -110,7 +110,7 @@ const Hero = () => {
 			</div>
 			<div id="intro" className="relative z-[0] mt-[6rem] max-w-[470px]  ">
 				<p className="absolute top-[10rem] z-1 text-black font-light text-[16px] md:text-[18px] leading-[30.8px]  text-center">
-					Sustainably grown nanocellulose material that is transparent, strong
+					Sustainably grown nanocellulose- based lamps, strong
 					but still maintaining a fabric-like feel. Developed from the
 					fermentation of fruits and vegetables, no trees involved.
 				</p>
