@@ -20,13 +20,17 @@ import growth from "./growth.png";
 import algowatt from "./Algowatt.jpg";
 import fabrication from "./fabrication.png";
 import bcgrowth from "./bcgrowth.png";
-
+import algo from "./algowatt_dark.jpg";
+import matfab from "./mat_fab.jpg";
+import matint from "./matintegration.jpg";
 import swirl from "./Swirl.png";
 import lotus from "./Lotus.png";
 import crackle from "./Crackle.png";
 import cellum from "./Cellum.png";
 import basic from "./Basic.png";
 import skeleton from "./skeleton.png";
+import macro from "./macroswirl.mp4";
+import micro from "./microswirl.mp4";
 
 export {
 	logo,
@@ -55,5 +59,10 @@ export {
 	algowatt,
 	fabrication,
 	bcgrowth,
-	skeleton,	
+	skeleton,
+	algo,
+	matfab,
+	matint,
+	macro,
+	micro,
 };

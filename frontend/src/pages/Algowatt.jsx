@@ -1,4 +1,4 @@
-import { algowatt } from "../assets";
+import { algowatt, algo, matint, matfab, micro, macro } from "../assets";
 
 const Algowatt = () => {
 	return (
@@ -32,7 +32,11 @@ const Algowatt = () => {
 					providing a sustainable energy solution.
 				</p>
 			</div>
-			<hr className="w-[85%] max-w-[700px] border-1 border-base-300" />
+			<img
+				src={algo}
+				className="p-5 w-[85%] max-w-[700px] h-[300px] object-cover "
+			/>
+
 			<div className="p-5 w-[85%] max-w-[700px]">
 				<h2 className="text-2xl font-semibold">Challenges</h2>
 			</div>
@@ -76,6 +80,10 @@ const Algowatt = () => {
 					enhance performance.
 				</p>
 			</div>
+			<div className="flex p-5 w-[85%] max-w-[700px] justify-start gap-2">
+				<img src={matint} className="w-[50%] aspect-sqaure rounded-sm" />
+				<img src={matfab} className="w-[50%] aspect-sqaure rounded-sm" />
+			</div>
 			<div className="p-5 w-[85%] max-w-[700px]">
 				<h2 className="text-2xl font-semibold">Computational Design</h2>
 			</div>
@@ -113,6 +121,20 @@ const Algowatt = () => {
 					scales, it increases surface area for electrodes and algae, creating a
 					hierarchical design structure.
 				</p>
+			</div>
+			<div className="flex p-5 w-[85%] max-w-[700px] justify-start gap-1">
+				<iframe
+					src={micro}
+					className="w-[50%] aspect-video rounded-lg"
+					title="Micro Desgin: Reaction Diffusion for Surface Area Enhancement"
+					loading="lazy"
+				/>
+				<iframe
+					src={macro}
+					className="w-[50%] aspect-video rounded-lg"
+					title="Macro design: Data-Driven Flexible Panel"
+					loading="lazy"
+				/>
 			</div>
 		</section>
 	);
