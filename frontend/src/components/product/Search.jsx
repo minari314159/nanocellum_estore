@@ -14,8 +14,8 @@ const Search = ({ setFilter, filter }) => {
 		<button
 			onClick={priceFilter}
 			className="inline-flex justify-center items-center gap-1 btn btn-ghost rounded-2xl font-inter font-normal p-1">
-			<span className="text-lg lg:text-xl ">Sort</span>
-			<FiDollarSign className="w-5 h-5" />
+			<span className="text-lg lg:text-xl text-white">Sort</span>
+			<FiDollarSign className="w-5 h-5 text-white" />
 		</button>
 	);
 };

@@ -21,8 +21,10 @@ const Products = () => {
 
 	return (
 		<section className="flex w-full min-h-screen flex-col items-center p-4 pt-[5rem] ">
-			<div className="py-2 px-10 bg-accent rounded-e-full flex flex-col items-center justify-center shadow-lg">
-				<h1 className="text-2xl lg:text-4xl font-bold mt-2">Lamps</h1>
+			<div className="py-2 px-10 bg-base-content rounded-e-full flex flex-col items-center justify-center shadow-lg">
+				<h1 className="text-2xl text-white lg:text-4xl font-bold mt-2">
+					Lamp Designs
+				</h1>
 				<Search setFilter={setFilter} filter={filter} />
 			</div>
 			<div className="grid grid-cols-2 md:grid-cols-3 gap-4 py-5">
@@ -60,18 +62,30 @@ const Products = () => {
 											? "flex transition-all duration-[5s] ease-in-out"
 											: "hidden"
 									} transition-all duration-100 ease-in-out`}>
-									<Link
-										to={`/products/${product._id}`}
-										className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
-										<IoEyeOutline className="w-5 h-5" />
-									</Link>
-									<button className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
-										<FiShoppingCart className="w-5 h-5" />
-									</button>
+									{product._id === "p6" ? (
+										<Link
+											to="/innovation"
+											className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
+											<IoEyeOutline className="w-5 h-5" />
+										</Link>
+									) : (
+										<Link
+											to={`/products/${product._id}`}
+											className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
+											<IoEyeOutline className="w-5 h-5" />
+										</Link>
+									)}
+									{product._id !== "p6" && (
+										<button className="btn hover:bg-opacity-20 hover:border-opacity-20 btn-circle bg-opacity-35 border-opacity-30 shadow-lg ">
+											<FiShoppingCart className="w-5 h-5" />
+										</button>
+									)}
 								</div>
-								<div className="w-full absolute bottom-[0.5rem] left-[1rem] text-xs sm:text-sm md:text-md lg:text-lg">
-									<p className="text-white">Price: ${product.price}.00</p>
-								</div>
+								{product._id !== "p6" && (
+									<div className="w-full absolute bottom-[0.5rem] left-[1rem] text-xs sm:text-sm md:text-md lg:text-lg">
+										<p className="text-white">Price: ${product.price}.00</p>
+									</div>
+								)}
 							</div>
 						</div>
 					</Card>

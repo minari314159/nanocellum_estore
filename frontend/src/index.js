@@ -13,6 +13,7 @@ import {
 	bcgrowth,
 	cellumlamp,
 	skeleton,
+	algowatt,
 } from "./assets";
 
 export const navLinks = [
@@ -36,30 +37,42 @@ export const products = [
 		image: basic,
 		title: "Rose",
 		price: 55,
+		designer: "OLSEN",
 	},
 	{
 		_id: "p2",
 		image: lotus,
 		title: "Lotus",
 		price: 75,
+		designer: "OLSEN",
 	},
 	{
 		_id: "p3",
 		image: swirl,
 		title: "Swirl",
 		price: 150,
+		designer: "OLSEN",
 	},
 	{
 		_id: "p4",
 		image: crackle,
 		title: "Crackle",
 		price: 64,
+		designer: "OLSEN",
 	},
 	{
 		_id: "p5",
 		image: cellum,
 		title: "Wisp",
 		price: 110,
+		designer: "OLSEN",
+	},
+	{
+		_id: "p6",
+		image: algowatt,
+		title: "Innovation",
+		price: 0,
+		designer: "OLSEN",
 	},
 ];
 
