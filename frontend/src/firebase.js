@@ -5,15 +5,15 @@ import { initializeApp } from "firebase/app";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-	apiKey: "AIzaSyAVreRnLkNqXyNXMQO4OE8XZHumSNu_duU",
-	authDomain: "nanocellum-ce572.firebaseapp.com",
-	projectId: "nanocellum-ce572",
-	storageBucket: "nanocellum-ce572.appspot.com",
-	messagingSenderId: "817655391964",
-	appId: "1:817655391964:web:4f0514421a42f25fa5f619",
+	apiKey: "",
+	authDomain: "",
+	projectId: "",
+	storageBucket: "",
+	messagingSenderId: "",
+	appId: "",
 };
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-export default app
+export default app;
