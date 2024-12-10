@@ -19,14 +19,15 @@ export const productSlice = createSlice({
 		//GET ALL
 		getProductSuccess: (state, action) => {
 			state.isFetching = false;
-			state.products = action.payload;
-		},
-		//GET ALL
-		getAProductSuccess: (state, action) => {
-			state.isFetching = false;
 			state.products[
 				state.products.findIndex((item) => item._id === action.payload.id)
 			] = action.payload.product;
+		},
+		//GET ALL
+		getAllProductsSuccess: (state, action) => {
+			state.isFetching = false;
+			state.products = action.payload;
+			
 		},
 		//DELETE
 
@@ -60,7 +61,7 @@ export const {
 	start,
 	failure,
 	getProductSuccess,
-	getAProductSuccess,
+	getAllProductsSuccess,
 	deleteProductSuccess,
 	updateProductSuccess,
 	addProductSuccess,

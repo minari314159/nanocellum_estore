@@ -21,11 +21,16 @@ import {
 } from "./components/components";
 
 import { Footer, NavBar } from "./components/components";
-import { useSelector } from "react-redux";
+import ProtectedRoute from "./components/utils/ProtectedRoute";
+
+function Logout() {
+	localStorage.clear();
+	return <Navigate to="/login" />;
+}
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
-	const user = useSelector((state) => state.user.currentUser);
+
 	useEffect(() => {
 		setIsLoading(true);
 		setTimeout(() => {
@@ -45,18 +50,21 @@ const App = () => {
 							<Route path="/" element={<Home />} />
 							<Route
 								path="/order"
-								element={user ? <Order /> : <Navigate to="/login" />}
+								element={
+									<ProtectedRoute>
+										<Order />
+									</ProtectedRoute>
+								}
 							/>
 
 							<Route path="/products" element={<Products />} />
+
 							<Route
 								path="/products/create"
 								element={
-									user && user.role === "admin" ? (
+									<ProtectedRoute>
 										<CreateProduct />
-									) : (
-										<Navigate to="/products" />
-									)
+									</ProtectedRoute>
 								}
 							/>
 							<Route path="/products/:id" element={<Product />}>
@@ -64,11 +72,9 @@ const App = () => {
 								<Route
 									path="/products/:id/edit"
 									element={
-										user && user.role === "admin" ? (
+										<ProtectedRoute>
 											<EditProduct />
-										) : (
-											<Navigate to="/products" />
-										)
+										</ProtectedRoute>
 									}
 								/>{" "}
 							</Route>
@@ -77,7 +83,11 @@ const App = () => {
 							<Route path="/innovation" element={<Algowatt />} />
 							<Route
 								path="/profile"
-								element={user ? <Profile /> : <Navigate to="/login" />}
+								element={
+									<ProtectedRoute>
+										<Profile />
+									</ProtectedRoute>
+								}
 							/>
 							<Route path="/register" element={<Register />} />
 							<Route path="/login" element={<Login />} />

@@ -13,7 +13,7 @@ import {
 	failure,
 	start,
 	getProductSuccess,
-	getAProductSuccess,
+	getAllProductsSuccess,
 	deleteProductSuccess,
 	updateProductSuccess,
 	addProductSuccess,
@@ -53,12 +53,14 @@ export const logout = async (dispatch) => {
 export const getProducts = async (dispatch, filter) => {
 	dispatch(start());
 	try {
-		// if (filter) {
-		// 	const res = await publicRequest.get(`products?${filter}`);
-		// 	dispatch(getProductSuccess(res.data));
-		// } else {
-		const res = products;
-		dispatch(getProductSuccess(res));
+		if (filter) {
+			console.log(filter);
+			// const res = await publicRequest.get(`products?${filter}`);
+			// dispatch(getAllProductSuccess(res.data));
+		} else {
+			const res = products;
+			dispatch(getAllProductsSuccess(res));
+		}
 	} catch (err) {
 		dispatch(failure());
 	}
@@ -67,7 +69,7 @@ export const getProduct = async (dispatch, id) => {
 	dispatch(start());
 	try {
 		const res = await publicRequest.get(`products/${id}`);
-		dispatch(getAProductSuccess(res.data));
+		dispatch(getProductSuccess(res.data));
 	} catch (err) {
 		dispatch(failure());
 	}

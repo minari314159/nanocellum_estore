@@ -6,18 +6,29 @@ import { FiShoppingCart } from "react-icons/fi";
 import Card from "../components/utils/Card";
 import { useDispatch, useSelector } from "react-redux";
 import { getProducts } from "../redux/apiCalls";
+import { publicRequest } from "../requestMethods";
 
 const Products = () => {
-	const products = useSelector((state) => state.product.products);
-	const dispatch = useDispatch();
+	// const products = useSelector((state) => state.product.products);
+	// const dispatch = useDispatch();
 
 	const [filter, setFilter] = useState(" ");
 	const [hover, setHover] = useState(-1);
 	const overlay = useRef();
-
+	const getProducts = async () => {
+		try {
+			const res = publicRequest.get("/api/products/");
+			if (res.status === 200) {
+				const products = res.data;
+				return products;
+			}
+		} catch (error) {
+			console.log(error);
+		}
+	};
 	useEffect(() => {
-		getProducts(dispatch, filter);
-	}, [dispatch, filter]);
+		getProducts;
+	}, []);
 
 	return (
 		<section className="flex w-full min-h-screen flex-col items-center p-4 pt-[5rem] ">

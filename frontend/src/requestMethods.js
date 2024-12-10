@@ -1,16 +1,25 @@
 import axios from "axios";
+import { ACCESS_TOKEN } from "./constants";
 
-const BASE_URL = "http://localhost:3000/api/";
-const user = JSON.parse(localStorage.getItem("persist:root"))?.user;
-const currentUser = user && JSON.parse(user).currentUser;
-
-const TOKEN = currentUser?.token;
-
-export const publicRequest = axios.create({
-	baseURL: BASE_URL,
+const publicRequest = axios.create({
+	baseURL: import.meta.env.VIT_API_URL,
 });
 
-export const userRequest = axios.create({
-	baseURL: BASE_URL,
-	headers: { Authorization: `Bearer ${TOKEN}` },
+const userRequest = axios.create({
+	baseURL: import.meta.env.VIT_API_URL,
 });
+
+userRequest.interceptors.request.use(
+	(config) => {
+		const token = localStorage.getItem(ACCESS_TOKEN);
+		if (token) {
+			config.headers.Authorization = `Bearer ${token}`;
+		}
+		return config;
+	},
+	(error) => {
+		return Promise.reject(error);
+	}
+);
+
+export { publicRequest, userRequest };
