@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import {
 	Home,
 	Login,
@@ -22,11 +22,6 @@ import {
 
 import { Footer, NavBar } from "./components/components";
 import ProtectedRoute from "./components/utils/ProtectedRoute";
-
-function Logout() {
-	localStorage.clear();
-	return <Navigate to="/login" />;
-}
 
 const App = () => {
 	const [isLoading, setIsLoading] = useState(false);
@@ -67,7 +62,7 @@ const App = () => {
 									</ProtectedRoute>
 								}
 							/>
-							<Route path="/products/:id" element={<Product />}>
+							<Route path="/products/:id/" element={<Product />}>
 								<Route index element={<ProductCard />} />
 								<Route
 									path="/products/:id/edit"

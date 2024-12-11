@@ -12,9 +12,9 @@ class Product(models.Model):
         B = "B", "Boisenberry",
         M = "M", "Dark Burgundy"
 
-    title = models.CharField(max_length=100)
+    title = models.CharField(max_length=255)
     designer = models.CharField(max_length=50, default="49th Parallel")
-    price = models.FloatField()
+    price = models.DecimalField(decimal_places=2, max_digits=6)
     description = models.CharField(max_length=200)
     colour = models.CharField(
         max_length=5, choices=Colour.choices, default=Colour.S)

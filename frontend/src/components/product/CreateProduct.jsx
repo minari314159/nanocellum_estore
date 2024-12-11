@@ -1,65 +1,11 @@
 import { useNavigate, Link } from "react-router-dom";
 import { useState } from "react";
 import { Card } from "../components";
-import {
-	getStorage,
-	ref,
-	uploadBytesResumable,
-	getDownloadURL,
-} from "firebase/storage";
-import app from "../../firebase";
-import { createProduct } from "../../redux/apiCalls";
-import { useDispatch, useSelector } from "react-redux";
 
 const CreateProduct = () => {
-	const [inputs, setInputs] = useState({});
-	const [img, setImg] = useState();
-	const { isFetching, error } = useSelector((state) => state.product.products);
-	const dispatch = useDispatch();
-	const redirect = useNavigate();
-	const handleChange = (e) => {
-		setInputs((prev) => {
-			return { ...prev, [e.target.name]: e.target.value };
-		});
-	};
-
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		//upload image & inputs
-		const fileName = new Date().getTime() + img.name;
-		const storage = getStorage(app);
-		const storageRef = ref(storage, fileName);
-		const uploadTask = uploadBytesResumable(storageRef, img);
-
-		uploadTask.on(
-			"state_changed",
-			(snapshot) => {
-				const progress =
-					(snapshot.bytesTransferred / snapshot.totalBytes) * 100;
-				console.log("Upload is " + progress + "% done");
-				switch (snapshot.state) {
-					case "paused":
-						console.log("Upload is paused");
-						break;
-					case "running":
-						console.log("Upload is running");
-						break;
-					default:
-				}
-			},
-			(error) => {
-				throw new Error(error.message)
-			},
-			() => {
-				getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-					const product = { ...inputs, image: downloadURL };
-					createProduct(product, dispatch);
-				});
-			}
-		);
-		if (!isFetching && !error) {
-			redirect("/products");
-		}
 	};
 	return (
 		<section className="flex w-full min-h-screen flex-col items-center justify-center gap-2 p-4 ">

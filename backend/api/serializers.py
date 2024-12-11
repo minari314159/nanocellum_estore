@@ -20,7 +20,17 @@ class ProductSerializer(serializers.ModelSerializer):
     class Meta:
         model = Product
         fields = ['id', 'title', 'designer', 'price',
-                  'description', 'colour', 'image', 'created_at']
+                  'description', 'colour', 'image']
+        
+
+
+class CartItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = CartItem
+        fields = ['id', 'cart', 'product', 'quantity',
+                  'total_price']
+
+        product = ProductSerializer()
 
 
 class CartSerializer(serializers.ModelSerializer):
@@ -30,12 +40,7 @@ class CartSerializer(serializers.ModelSerializer):
                   'total_price', 'created_at', 'updated_at']
         extra_kwargs = {"user": {"read_only": True}}
 
-
-class CartItemSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = CartItem
-        fields = ['id', 'cart', 'product', 'quantity',
-                  'total_price',]
+    products = CartItemSerializer()
 
 
 class OrderSerializer(serializers.ModelSerializer):

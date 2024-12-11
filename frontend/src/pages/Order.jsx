@@ -2,8 +2,7 @@ import { useState } from "react";
 import FormatCurrency from "../components/utils/FormatCurrency";
 import { useSelector } from "react-redux";
 import Checkout from "../components/order/Checkout";
-import { useDispatch } from "react-redux";
-import { clearProducts } from "../redux/cartRedux";
+
 import { useNavigate } from "react-router-dom";
 
 const Order = () => {

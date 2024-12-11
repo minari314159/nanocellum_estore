@@ -8,7 +8,7 @@ import Dropmenu from "./DropMenu";
 const NavBar = () => {
 	const [active, setActive] = useState(false);
 	const location = useLocation();
-
+	
 	return (
 		<nav
 			className={` ${

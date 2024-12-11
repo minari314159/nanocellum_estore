@@ -1,15 +1,12 @@
 import { Card } from "../components";
 import { useParams, useNavigate } from "react-router-dom";
 import { useState } from "react";
-import { updateProduct } from "../../redux/apiCalls";
-import { useSelector, useDispatch } from "react-redux";
+
 const EditProduct = () => {
 	const { id } = useParams();
-	const product = useSelector((state) =>
-		state.product.products.find((product) => product._id === id)
-	);
+	
 	const [inputs, setInputs] = useState({});
-	const dispatch = useDispatch();
+
 	const redirect = useNavigate();
 
 	const handleChange = (e) => {
@@ -20,7 +17,7 @@ const EditProduct = () => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		try {
-			updateProduct(id, inputs, dispatch);
+			
 			redirect("/products");
 		} catch (err) {
 			console.log(err);

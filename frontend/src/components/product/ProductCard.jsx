@@ -2,29 +2,29 @@ import { Card, DeleteButton } from "../components";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import { getProduct } from "../../redux/apiCalls";
-import { addProduct } from "../../redux/cartRedux";
-import { useDispatch, useSelector } from "react-redux";
+import { publicRequest } from "../../requestMethods";
 
 const ProductCard = () => {
 	const { id } = useParams();
-	const user = useSelector((state) => state.user.currentUser);
-	const product = useSelector((state) =>
-		state.product.products.find((product) => product._id === id)
-	);
-	const colourList = [
-		{ colorId: "s", tcolor: "bg-base-300" },
-		{ colorId: "k", tcolor: "bg-yellow-700" },
-		{ colorId: "p", tcolor: "bg-amber-800" },
-		{ colorId: "b", tcolor: "bg-orange-900" },
-		{ colorId: "m", tcolor: "bg-red-950" },
-	];
+
+	const [product, setProduct] = useState();
+
 	const [quantity, setQuantity] = useState(1);
-	const [color, setColor] = useState(" ");
-	const dispatch = useDispatch();
+
 	useEffect(() => {
-		getProduct(dispatch, id);
-	}, [dispatch, id]);
+		getProduct(id);
+	}, [id]);
+
+	const getProduct = (id) => {
+		publicRequest
+			.get(`api/products/${id}/`)
+			.then((res) => res.data)
+			.then((data) => {
+				setProduct(data);
+			})
+			.catch((error) => alert(error));
+	};
+	console.log(product);
 	const handleQuantity = (type) => {
 		if (type === "dec") {
 			quantity > 1 && setQuantity(quantity - 1);
@@ -33,7 +33,7 @@ const ProductCard = () => {
 		}
 	};
 	const handleClick = () => {
-		dispatch(addProduct({ ...product, quantity, color }));
+		// dispatch(addProduct({ ...product, quantity, color }));
 	};
 
 	return (
@@ -51,14 +51,7 @@ const ProductCard = () => {
 							<b>Designer:</b> {product.designer}
 						</p>
 						<p className="flex items-center gap-3">
-							<b>Colour:</b>{" "}
-							{colourList.map((c, index) => (
-								<span
-									key={index}
-									onClick={() => setColor(c.colorId)}
-									className={`w-4 h-4  border border-neutral-600 ${c.tcolor} rounded-full cursor-pointer hover:scale-105 hover:border-neutral-400`}
-								/>
-							))}
+							<b>Colour:</b> {product.colour}
 						</p>
 						<hr className="w-full my-2 border-neutral-700" />
 						<p className="w-full my-2 ">{product.description}</p>
@@ -69,7 +62,7 @@ const ProductCard = () => {
 									onClick={() => handleQuantity("dec")}>
 									-
 								</span>
-								<p className="font-bold"> {quantity}</p>
+								{/* <p className="font-bold"> {quantity}</p> */}
 								<span
 									className="btn btn-sm btn-ghost btn-circle"
 									onClick={() => handleQuantity("inc")}>
@@ -90,14 +83,12 @@ const ProductCard = () => {
 					/>
 				</div>
 			</Card>
-			{user && user.role === "admin" && (
-				<div>
-					<Link to={`/products/${id}/edit`} className="btn btn-ghost">
-						Edit
-					</Link>
-					<DeleteButton id={id} />
-				</div>
-			)}
+			<div>
+				<Link to={`/products/${id}/edit`} className="btn btn-ghost">
+					Edit
+				</Link>
+				<DeleteButton id={id} />
+			</div>
 		</>
 	);
 };

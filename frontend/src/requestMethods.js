@@ -2,11 +2,11 @@ import axios from "axios";
 import { ACCESS_TOKEN } from "./constants";
 
 const publicRequest = axios.create({
-	baseURL: import.meta.env.VIT_API_URL,
+	baseURL: import.meta.env.VITE_API_URL,
 });
 
 const userRequest = axios.create({
-	baseURL: import.meta.env.VIT_API_URL,
+	baseURL: import.meta.env.VITE_API_URL,
 });
 
 userRequest.interceptors.request.use(

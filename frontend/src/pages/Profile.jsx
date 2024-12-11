@@ -1,21 +1,19 @@
 import { nullprofile } from "../assets";
 
 import { Link, useNavigate } from "react-router-dom";
-import { useSelector } from "react-redux";
+
 import { useState } from "react";
 
 import { Card } from "../components/components";
 const Profile = () => {
-	const user = useSelector((state) => state.user.currentUser);
 	const [toggle, setToggle] = useState(false);
 	const [username, setUsername] = useState("");
 	const refresh = useNavigate();
 
-	console.log(user)
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		await fetch(`http://localhost:3000/api/auth/users/${user._id}`, {
+		await fetch(`http://localhost:3000/api/auth/users/${user.id}`, {
 			method: "PUT",
 			headers: {
 				"Content-Type": "application/json",
@@ -33,16 +31,16 @@ const Profile = () => {
 	return (
 		<section className="flex min-h-screen flex-col items-center w-full p-10 gap-3">
 			<img
-				src={user.imageURL ? user.imageURL : nullprofile}
+				src={ nullprofile}
 				alt="profile picture"
 				className="rounded-full border aspect-square w-[4rem] h-[4rem] content-center object-cover border-black my-3"
 			/>
-			{user.role === "admin" && (
+			{/* {user.role === "admin" && (
 				<p className="font-bold uppercase">{user.role}</p>
-			)}
+			)} */}
 
 			<Card style="p-4 w-80">
-				{toggle === true ? (
+				{/* {toggle === true ? (
 					<form onSubmit={handleSubmit} className="w-full flex flex-col gap-1">
 						<label className="input input-bordered input-md flex items-center gap-2 bg-transparent w-full">
 							<input
@@ -57,12 +55,12 @@ const Profile = () => {
 							Update Profile
 						</button>
 					</form>
-				) : (
+				) : ( */}
 					<>
-						<h1 className="text-4xl font-bold">{user.username}</h1>
-						<p>{user.email}</p>
+						<h1 className="text-4xl font-bold">username</h1>
+						<p>email</p>
 					</>
-				)}
+				{/* )} */}
 
 				<hr className="my-2 border-1 border-gray-500 w-full" />
 				<div className="w-full my-2">
