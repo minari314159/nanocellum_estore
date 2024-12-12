@@ -1,4 +1,4 @@
-
+import uuid
 from django.db import models
 from django.contrib.auth.models import User
 # Create your models here.
@@ -24,39 +24,48 @@ class Product(models.Model):
     def __str__(self):
         return self.title
 
+
+class Review(models.Model):
+    product = models.ForeignKey(
+        Product, on_delete=models.CASCADE, related_name='reviews')
+    name = models.CharField(max_length=255)
+    description = models.TextField()
+    date = models.DateField(auto_now_add=True)
+
 # Represents a user's cart
 
 
 class Cart(models.Model):
-    user = models.OneToOneField(
-        User, on_delete=models.CASCADE)  # Each user has one cart
-    products = models.ManyToManyField(
-        'Product',
-        through='CartItem',  # Through model to manage quantities
-        related_name='carts'
-    )
-    total_quantity = models.PositiveIntegerField(default=0)
-    total_price = models.FloatField(default=0.0)
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
     def __str__(self):
-        return f"Cart of {self.user.username}"
-
-
-# Manages the relationship between a Cart and Product. Includes a quantity field to track the number of each product
-class CartItem(models.Model):
-    cart = models.ForeignKey(
-        Cart, on_delete=models.CASCADE, related_name='cart_items')
-    product = models.ForeignKey('Product', on_delete=models.CASCADE)
-    quantity = models.PositiveIntegerField(default=1)
-
-    def __str__(self):
-        return f"{self.quantity} of {self.product.title} in {self.cart.user.username}'s cart"
+        return f"Cart of {self.id}"
 
     @property
     def total_price(self):
-        return self.product.price * self.quantity
+        return self.items.product.price * self.items.quantity
+
+    @property
+    def total_quantity(self):
+        return self.items.quantity * self.items
+
+# Manages the relationship between a Cart and Product. Includes a quantity field to track the number of each product
+
+
+class CartItem(models.Model):
+    cart = models.ForeignKey(
+        Cart, on_delete=models.CASCADE, related_name='items')
+    product = models.ForeignKey('Product', on_delete=models.CASCADE)
+    quantity = models.PositiveIntegerField(default=1)
+
+    class Meta:
+        unique_together = [['cart', 'product']]
+
+    def __str__(self):
+        return f"{self.quantity} of {self.product.title} in {self.cart.id}'s cart"
 
 
 class Order(models.Model):

@@ -8,7 +8,7 @@ import {
 	bcgrowth,
 	cellumlamp,
 	skeleton,
-	algowatt,
+
 } from "./assets";
 
 export const navLinks = [
@@ -23,45 +23,6 @@ export const navLinks = [
 	{
 		id: "innovation",
 		title: "Innovation",
-	},
-];
-
-export const products = [
-	
-	{
-		_id: "p6",
-		image: algowatt,
-		title: "Innovation",
-		price: 0,
-		designer: "OLSEN",
-	},
-];
-
-export const slides = [
-	{
-		id: "p1",
-		image: sucrose,
-		colour: "Transparent",
-	},
-	{
-		id: "p2",
-		image: kiwi,
-		colour: "Yellow-green",
-	},
-	{
-		id: "p3",
-		image: pcabbage,
-		colour: "Purple",
-	},
-	{
-		id: "p4",
-		image: beet,
-		colour: "Dark Burgundy",
-	},
-	{
-		id: "p5",
-		image: molasses,
-		colour: "Boysenberry",
 	},
 ];
 
