@@ -1,9 +1,4 @@
 import {
-	swirl,
-	lotus,
-	crackle,
-	cellum,
-	basic,
 	sucrose,
 	kiwi,
 	pcabbage,
@@ -32,41 +27,7 @@ export const navLinks = [
 ];
 
 export const products = [
-	{
-		_id: "p1",
-		image: basic,
-		title: "Rose",
-		price: 55,
-		designer: "OLSEN",
-	},
-	{
-		_id: "p2",
-		image: lotus,
-		title: "Lotus",
-		price: 75,
-		designer: "OLSEN",
-	},
-	{
-		_id: "p3",
-		image: swirl,
-		title: "Swirl",
-		price: 150,
-		designer: "OLSEN",
-	},
-	{
-		_id: "p4",
-		image: crackle,
-		title: "Crackle",
-		price: 64,
-		designer: "OLSEN",
-	},
-	{
-		_id: "p5",
-		image: cellum,
-		title: "Wisp",
-		price: 110,
-		designer: "OLSEN",
-	},
+	
 	{
 		_id: "p6",
 		image: algowatt,
