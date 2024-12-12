@@ -56,7 +56,7 @@ class ProductDetail(APIView):
 
     def get(self, request, id):
         product = get_object_or_404(Product, pk=id)
-        serializer = ProductSerializer(product)
+        serializer = ProductSerializer(product, context={'request': request})
         return Response(serializer.data,  status=status.HTTP_200_OK)
 
     def put(self, request, id):

@@ -7,13 +7,8 @@ import { publicRequest } from "../../requestMethods";
 const ProductCard = () => {
 	const { id } = useParams();
 
-	const [product, setProduct] = useState();
-
+	const [product, setProduct] = useState({});
 	const [quantity, setQuantity] = useState(1);
-
-	useEffect(() => {
-		getProduct(id);
-	}, [id]);
 
 	const getProduct = (id) => {
 		publicRequest
@@ -24,6 +19,9 @@ const ProductCard = () => {
 			})
 			.catch((error) => alert(error));
 	};
+	useEffect(() => {
+		getProduct(id);
+	}, [id]);
 	console.log(product);
 	const handleQuantity = (type) => {
 		if (type === "dec") {
@@ -62,7 +60,7 @@ const ProductCard = () => {
 									onClick={() => handleQuantity("dec")}>
 									-
 								</span>
-								{/* <p className="font-bold"> {quantity}</p> */}
+								<p className="font-bold"> {quantity}</p> 
 								<span
 									className="btn btn-sm btn-ghost btn-circle"
 									onClick={() => handleQuantity("inc")}>

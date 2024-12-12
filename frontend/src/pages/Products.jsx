@@ -26,7 +26,7 @@ const Products = () => {
 			})
 			.catch((error) => alert(error));
 	};
-
+	
 	return (
 		<section className="flex w-full min-h-screen flex-col items-center p-4 pt-[5rem] ">
 			<div className="py-2 px-10 bg-base-content rounded-e-full flex flex-col items-center justify-center shadow-lg">
