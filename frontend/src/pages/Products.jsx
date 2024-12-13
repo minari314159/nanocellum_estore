@@ -57,7 +57,7 @@ const Products = () => {
 								}}
 								onMouseLeave={() => setHover(-1)}>
 								<img
-									src={product.image.url || lotus}
+									src={product.image || lotus}
 									alt={product.name}
 									height={300}
 									width={300}
