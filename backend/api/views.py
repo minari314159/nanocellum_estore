@@ -3,8 +3,8 @@ from django.contrib.auth.models import User
 from rest_framework.generics import CreateAPIView, ListCreateAPIView, RetrieveUpdateDestroyAPIView
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CartSerializer, ReviewSerializer, UserSerializer, ProductSerializer
-from .models import Cart, Product, Review
+from .serializers import CartSerializer, ReviewSerializer, UserSerializer, ProductSerializer, CartItemSerializer
+from .models import Cart, CartItem, Product, Review
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAdminUser
 
 # Create your views here.
@@ -74,7 +74,14 @@ class CreateUserView(CreateAPIView):
     permission_classes = [AllowAny]
 
 
-class CartList(CreateAPIView):
+class CreateCart(CreateAPIView):
     queryset = Cart.objects.all()
     serializer_class = CartSerializer
+    permission_classes = [AllowAny]
+
+
+class CartDetail(RetrieveUpdateDestroyAPIView):
+    queryset = CartItem.objects.prefetch_related('items__product').all()
+    serializer_class = CartItemSerializer
+    lookup_field = 'id'
     permission_classes = [AllowAny]

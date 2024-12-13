@@ -44,16 +44,6 @@ class Cart(models.Model):
     def __str__(self):
         return f"Cart of {self.id}"
 
-    @property
-    def total_price(self):
-        return self.items.product.price * self.items.quantity
-
-    @property
-    def total_quantity(self):
-        return self.items.quantity * self.items
-
-# Manages the relationship between a Cart and Product. Includes a quantity field to track the number of each product
-
 
 class CartItem(models.Model):
     cart = models.ForeignKey(
