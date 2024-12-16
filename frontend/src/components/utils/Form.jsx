@@ -2,10 +2,9 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
 import LoadingIndicator from "./LoadingIndicator";
-
 import Card from "./Card";
 import { publicRequest } from "../../requestMethods";
-// import { useDispatch, useSelector } from "react-redux";
+
 
 // eslint-disable-next-line react/prop-types
 const Form = ({ method, route }) => {
@@ -32,12 +31,13 @@ const Form = ({ method, route }) => {
 		e.preventDefault();
 
 		try {
-			const res = await publicRequest.post(route, { username, password });
 			if (method === "login") {
+				const res = await publicRequest.post(route, { username, password });
 				localStorage.setItem(ACCESS_TOKEN, res.data.access);
 				localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
 				navigate("/");
-			} else {
+			} else if (method === "register") {
+				await publicRequest.post(route, { username, password, email });
 				navigate("/login");
 			}
 		} catch (error) {

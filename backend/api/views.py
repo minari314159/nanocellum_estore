@@ -1,10 +1,10 @@
 from django.shortcuts import get_object_or_404
-from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
+from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, UpdateModelMixin
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CartSerializer, ReviewSerializer,  ProductSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
-from .models import Cart, CartItem, Product, Review
+from .serializers import CartSerializer, CustomerSerializer, ReviewSerializer,  ProductSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
+from .models import Cart, CartItem, Customer, Product, Review
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAdminUser
 
 # Create your views here.
@@ -73,3 +73,12 @@ class CartItemViewSet(ModelViewSet):
         return CartItem.objects \
             .filter(cart_id=self.kwargs['cart_pk']) \
             .select_related('product')
+
+
+class CustomerViewSet(CreateModelMixin,
+                      RetrieveModelMixin,
+                      UpdateModelMixin,
+                      GenericViewSet):
+    queryset = Customer.objects.all()
+    serializer_class = CustomerSerializer
+    permission_classes = [AllowAny]
