@@ -10,7 +10,7 @@ import { publicRequest } from "../../requestMethods";
 // eslint-disable-next-line react/prop-types
 const Form = ({ method, route }) => {
 	const [username, setUsername] = useState("");
-	// const [email, setEmail] = useState("");
+	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
 
@@ -51,22 +51,10 @@ const Form = ({ method, route }) => {
 		<Card>
 			<form
 				onSubmit={handleSubmit}
-				className="max-w-sm flex flex-col justify-center items-between gap-5 p-3 mx-5">
-				<h1 className="font-bold text-[2rem]">{methodName}</h1>
-				<div className="flex flex-col justify-center items-between gap-3">
-					<label
-						htmlFor="name"
-						className="input input-bordered input-md flex items-center gap-2">
-						<input
-							className="grow "
-							type="text"
-							value={username}
-							onChange={(e) => setUsername(e.target.value)}
-							placeholder="Name"
-						/>
-					</label>
-
-					{/* {method === "register" ? (
+				className="max-w-md w-[300px] flex flex-col justify-center items-between gap-10 p-3 mx-5">
+				<h1 className="font-bold text-[2rem] text-center">{methodName}</h1>
+				<div className="flex flex-col justify-center items-between gap-3 ">
+					{method === "register" ? (
 						<label className="input input-bordered input-md flex items-center gap-2">
 							<input
 								className="grow"
@@ -76,7 +64,19 @@ const Form = ({ method, route }) => {
 								placeholder="Email"
 							/>
 						</label>
-					) : null} */}
+					) : null}
+					<label
+						htmlFor="name"
+						className="input input-bordered input-md flex items-center gap-2">
+						<input
+							className="grow "
+							type="text"
+							value={username}
+							onChange={(e) => setUsername(e.target.value)}
+							placeholder="Username"
+						/>
+					</label>
+
 					<label className="input input-bordered input-md flex items-center gap-2">
 						<input
 							className="grow "

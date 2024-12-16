@@ -5,7 +5,7 @@ const Register = () => {
 		<section className="m-0 p-0 h-screen bg-base-200">
 			<div className="flex flex-col justify-center items-center w-full">
 				<div className="p-[6rem]"></div>
-				<Form method="register" route="api/user/register/" />
+				<Form method="register" route="auth/users/" />
 			</div>
 		</section>
 	);

@@ -1,11 +1,9 @@
 from django.shortcuts import get_object_or_404
-from django.contrib.auth.models import User
-from rest_framework.generics import CreateAPIView
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from rest_framework.response import Response
 from rest_framework import status
-from .serializers import CartSerializer, ReviewSerializer, UserSerializer, ProductSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
+from .serializers import CartSerializer, ReviewSerializer,  ProductSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
 from .models import Cart, CartItem, Product, Review
 from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAdminUser
 
@@ -46,12 +44,6 @@ class ReviewViewSet(ModelViewSet):
 
     def get_serializer_context(self):
         return {'product_id': self.kwargs['product_pk']}
-
-
-class CreateUserView(CreateAPIView):
-    queryset = User.objects.all()
-    serializer_class = UserSerializer
-    permission_classes = [AllowAny]
 
 
 class CartViewSet(CreateModelMixin,
