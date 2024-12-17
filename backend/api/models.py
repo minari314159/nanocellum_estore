@@ -104,9 +104,15 @@ class Order(models.Model):
         max_length=1, choices=PAYMENT_STATUS_CHOICES, default=PAYMENT_STATUS_PENDING)
     customer = models.ForeignKey(Customer, on_delete=models.PROTECT)
 
+    class Meta:
+        permissions = [
+            ('cancel_order', 'Can cancel order')
+        ]
+
 
 class OrderItem(models.Model):
-    order = models.ForeignKey(Order, on_delete=models.PROTECT)
+    order = models.ForeignKey(
+        Order, on_delete=models.PROTECT, related_name='items')
     product = models.ForeignKey(
         Product, on_delete=models.PROTECT, related_name='orderitems')
     quantity = models.PositiveSmallIntegerField()
@@ -114,11 +120,3 @@ class OrderItem(models.Model):
 
     def __str__(self):
         return f"{self.quantity} x {self.product.title} (Order #{self.order.id})"
-
-    def save(self, *args, **kwargs):
-        """
-        Override save method to calculate the total price dynamically
-        whenever the quantity or price_per_item changes.
-        """
-        self.total_price = self.quantity * self.price_per_item
-        super().save(*args, **kwargs)
