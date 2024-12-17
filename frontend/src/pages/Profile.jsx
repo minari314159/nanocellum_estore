@@ -1,37 +1,51 @@
 import { nullprofile } from "../assets";
-
-import { Link, useNavigate } from "react-router-dom";
-
-import { useState } from "react";
-
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 import { Card } from "../components/components";
+import { userRequest } from "../requestMethods";
+
 const Profile = () => {
 	const [toggle, setToggle] = useState(false);
-	const [username, setUsername] = useState("");
-	const refresh = useNavigate();
+	const [user, setUser] = useState(null);
+	// const [username, setUsername] = useState("");
+	// const refresh = useNavigate();
 
-	const handleSubmit = async (e) => {
-		e.preventDefault();
+	// const handleSubmit = async (e) => {
+	// 	e.preventDefault();
 
-		await fetch(`http://localhost:3000/api/auth/users/${user.id}`, {
-			method: "PUT",
-			headers: {
-				"Content-Type": "application/json",
-				Authorization: `Bearer ${user.token}`,
-			},
-			body: JSON.stringify({ username }),
-		})
-			.then((res) => res.json())
-			.then((data) => {
-				console.log(data)
-				refresh("/");
-			})
-			.catch((err) => console.log(err));
-	};
+	// 	await publicRequest
+	// 		.put(`/auth/users/me/`, {
+	// 			headers: {
+	// 				"Content-Type": "application/json",
+	// 				Authorization: `Bearer ${token}`,
+	// 			},
+	// 			body: JSON.stringify({ username }),
+	// 		})
+	// 		.then((res) => res.json())
+	// 		.then((data) => {
+	// 			console.log(data);
+	// 			refresh("/");
+	// 		})
+	// 		.catch((err) => console.log(err));
+	// };
+
+	useEffect(() => {
+		const getCurrentUser = () => {
+			userRequest
+				.get("/auth/users/me/")
+				.then((res) => res.data)
+				.then((data) => {
+					setUser(data);
+				})
+				.catch((error) => console.log(error));
+		};
+		getCurrentUser();
+	}, []);
+
 	return (
-		<section className="flex min-h-screen flex-col items-center w-full p-10 gap-3">
+		<section className="flex min-h-screen flex-col items-center justify-center w-full p-10  gap-3">
 			<img
-				src={ nullprofile}
+				src={nullprofile}
 				alt="profile picture"
 				className="rounded-full border aspect-square w-[4rem] h-[4rem] content-center object-cover border-black my-3"
 			/>
@@ -39,7 +53,7 @@ const Profile = () => {
 				<p className="font-bold uppercase">{user.role}</p>
 			)} */}
 
-			<Card style="p-4 w-80">
+			<Card style="p-4 w-[600px]">
 				{/* {toggle === true ? (
 					<form onSubmit={handleSubmit} className="w-full flex flex-col gap-1">
 						<label className="input input-bordered input-md flex items-center gap-2 bg-transparent w-full">
@@ -56,10 +70,18 @@ const Profile = () => {
 						</button>
 					</form>
 				) : ( */}
-					<>
-						<h1 className="text-4xl font-bold">username</h1>
-						<p>email</p>
-					</>
+				<div className="w-full flex flex-col items-center gap-1">
+					<h1 className="text-4xl font-bold mb-4">
+						{user.first_name} {user.last_name}
+					</h1>
+
+					<p>
+						Username: <i>{user.username}</i>
+					</p>
+					<p>
+						Email: <i>{user.email}</i>
+					</p>
+				</div>
 				{/* )} */}
 
 				<hr className="my-2 border-1 border-gray-500 w-full" />
