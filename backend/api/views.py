@@ -1,11 +1,16 @@
 from django.shortcuts import get_object_or_404
+
 from rest_framework.mixins import CreateModelMixin, RetrieveModelMixin, DestroyModelMixin, UpdateModelMixin
 from rest_framework.viewsets import GenericViewSet, ModelViewSet
 from rest_framework.response import Response
+from rest_framework.decorators import action
 from rest_framework import status
+from rest_framework.permissions import IsAdminUser, IsAuthenticatedOrReadOnly, AllowAny, IsAuthenticated
+
+from .permissions import IsAdminOrReadOnly
+
 from .serializers import CartSerializer, CustomerSerializer, ReviewSerializer,  ProductSerializer, CartItemSerializer, AddCartItemSerializer, UpdateCartItemSerializer
 from .models import Cart, CartItem, Customer, Product, Review
-from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAdminUser
 
 # Create your views here.
 
@@ -13,19 +18,10 @@ from rest_framework.permissions import IsAuthenticatedOrReadOnly, AllowAny, IsAd
 class ProductViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
+    permission_classes = [IsAdminOrReadOnly]
 
     def get_serializer_context(self):
         return {'request': self.request}
-
-    def get_permissions(self):
-        """
-        Set permissions dynamically:
-        - Allow anyone for GET requests.
-        - Require admin privileges for POST, PUT, DELETE.
-        """
-        if self.request.method == 'GET':
-            return [AllowAny()]
-        return [IsAdminUser()]
 
     def delete(self, request, pk):
         product = get_object_or_404(Product, pk=pk)
@@ -75,10 +71,21 @@ class CartItemViewSet(ModelViewSet):
             .select_related('product')
 
 
-class CustomerViewSet(CreateModelMixin,
-                      RetrieveModelMixin,
-                      UpdateModelMixin,
-                      GenericViewSet):
+class CustomerViewSet(ModelViewSet):
     queryset = Customer.objects.all()
     serializer_class = CustomerSerializer
-    permission_classes = [AllowAny]
+    permission_classes = [IsAdminUser]
+
+    # action availible on the list view of url
+    @action(detail=False, methods=['GET', 'PUT'], permission_classes=[IsAuthenticated])
+    def me(self, request):
+        (customer, created) = Customer.objects.get_or_create(
+            user_id=request.user.id)
+        if request.method == 'GET':
+            serializer = CustomerSerializer(customer)
+            return Response(serializer.data)
+        elif request.method == 'PUT':
+            serializer = CustomerSerializer(customer, data=request.data)
+            serializer.is_valid(raise_exception=True)
+            serializer.save()
+            return Response(serializer.data)

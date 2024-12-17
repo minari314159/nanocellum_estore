@@ -49,9 +49,7 @@ const Profile = () => {
 				alt="profile picture"
 				className="rounded-full border aspect-square w-[4rem] h-[4rem] content-center object-cover border-black my-3"
 			/>
-			{/* {user.role === "admin" && (
-				<p className="font-bold uppercase">{user.role}</p>
-			)} */}
+			{/* {user.is_staff && <p className="font-bold uppercase">Admin</p>} */}
 
 			<Card style="p-4 w-[600px]">
 				{/* {toggle === true ? (
