@@ -1,6 +1,6 @@
 import { nullprofile, bcgrowth } from "../../assets";
 import { NavLink } from "react-router-dom";
-import { ACCESS_TOKEN } from "../../constants";
+import { ACCESS_TOKEN } from "../../services/constants";
 
 const Avatar = () => {
 	const token = localStorage.getItem(ACCESS_TOKEN);

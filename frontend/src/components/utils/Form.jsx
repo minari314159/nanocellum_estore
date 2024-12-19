@@ -1,12 +1,11 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../constants";
 import LoadingIndicator from "./LoadingIndicator";
 import Card from "./Card";
-import { publicRequest } from "../../requestMethods";
+import UserService from "../../services/user-service";
 
 // eslint-disable-next-line react/prop-types
-const Form = ({ method, route }) => {
+const Form = ({ method }) => {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
@@ -29,29 +28,26 @@ const Form = ({ method, route }) => {
 		setLoading(true);
 
 		if (method === "login") {
-			try {
-				const res = await publicRequest.post(route, { username, password });
-				localStorage.setItem(ACCESS_TOKEN, res.data.access);
-				localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-				navigate(-1);
-			} catch (err) {
-				setError(err.message);
-			} finally {
-				setLoading(false);
-			}
+			const res = UserService.login(username, password);
+			res
+				.catch((err) => {
+					setError(err.message);
+				})
+				.finally(() => {
+					setLoading(false);
+				});
+			navigate(-1);
 		} else if (method === "register") {
-			try {
-				publicRequest.post(route, { username, password, email });
-
-				const res = await publicRequest.post(route, { username, password });
-				localStorage.setItem(ACCESS_TOKEN, res.data.access);
-				localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
-				navigate("/");
-			} catch (err) {
-				setError(err.message);
-			} finally {
-				setLoading(false);
-			}
+			const res = UserService.register(username, email, password);
+			res
+				.catch((err) => {
+					setError(err.message);
+				})
+				.finally(() => {
+					setLoading(false);
+					UserService.login(username, password);
+				});
+			navigate(-1);
 		}
 	};
 

@@ -2,12 +2,12 @@ import { nullprofile } from "../assets";
 import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { Card } from "../components/components";
-import { userRequest } from "../requestMethods";
+import userService from "../services/user-service";
 
 const Profile = () => {
 	const [toggle, setToggle] = useState(false);
 	const [user, setUser] = useState({});
-	const [error, setError] = useState();
+	// const [error, setError] = useState();
 	// const [username, setUsername] = useState("");
 	// const refresh = useNavigate();
 
@@ -31,14 +31,14 @@ const Profile = () => {
 	// };
 
 	useEffect(() => {
-		userRequest
-			.get("/auth/users/me/")
+		const res = userService.getMe();
+		res
 			.then((res) => res.data)
 			.then((data) => {
 				setUser(data);
 			})
-			.catch((error) => console.log(error));
-	}, [user]);
+			.catch((error) => alert(error.message));
+	}, []);
 
 	return (
 		<section className="flex min-h-screen flex-col items-center justify-center w-full p-10  gap-3">

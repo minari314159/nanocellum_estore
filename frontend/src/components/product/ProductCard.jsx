@@ -1,8 +1,7 @@
 import { Card, CardSkeleton } from "../components";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-
-import { publicRequest } from "../../requestMethods";
+import ProductService from "../../services/product-service";
 
 const ProductCard = () => {
 	const { id } = useParams();
@@ -12,8 +11,8 @@ const ProductCard = () => {
 
 	useEffect(() => {
 		setIsLoading(true);
-		publicRequest
-			.get(`api/products/${id}/`)
+		const request = ProductService.getSingleProduct(id);
+		request
 			.then((res) => res.data)
 			.then((data) => {
 				setProduct(data);

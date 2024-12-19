@@ -4,21 +4,20 @@ import Search from "../components/product/Search";
 import { IoEyeOutline } from "react-icons/io5";
 import { FiShoppingCart } from "react-icons/fi";
 import Card from "../components/utils/Card";
-import { publicRequest } from "../requestMethods";
 import { lotus } from "../assets";
 import { CardSkeleton } from "../components/components";
+import productService from "../services/product-service";
 
 const Products = () => {
 	const [products, setProducts] = useState([]);
 	const [filter, setFilter] = useState(" ");
-
 	const [error, setError] = useState();
 	const [hover, setHover] = useState(-1);
 	const overlay = useRef();
 
 	useEffect(() => {
-		publicRequest
-			.get("api/products/")
+		const request = productService.getAllProducts();
+		request
 			.then((res) => res.data)
 			.then((data) => {
 				setProducts(data);

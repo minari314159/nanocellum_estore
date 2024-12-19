@@ -1,5 +1,5 @@
 import { useState } from "react";
-import FormatCurrency from "../components/utils/FormatCurrency";
+
 import { useSelector } from "react-redux";
 import Checkout from "../components/order/Checkout";
 
@@ -9,7 +9,7 @@ const Order = () => {
 	const cart = useSelector((state) => state.cart);
 	const [quantity, setQuantity] = useState(1);
 	const [toggle, setToggle] = useState(false);
-	const dispatch = useDispatch();
+
 	const navigate = useNavigate();
 
 	const handleQuantity = (type) => {
@@ -20,7 +20,6 @@ const Order = () => {
 		}
 	};
 	const handleClick = () => {
-		dispatch(clearProducts());
 		navigate("/");
 	};
 
@@ -47,9 +46,7 @@ const Order = () => {
 										Product: {product.title}
 									</h2>
 									<p className="text-xs">Colour: {product.color || "N/A"}</p>
-									<p className="text-xs">
-										Price: <FormatCurrency value={product.price} />
-									</p>
+									<p className="text-xs">Price: {product.price}.00</p>
 								</div>
 								<div className="flex flex-col items-center">
 									<div className="inline-flex items-center   ">

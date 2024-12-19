@@ -7,7 +7,6 @@ import Design from "./hero/Design";
 
 import ProductCard from "./product/ProductCard";
 
-import FormatCurrency from "./utils/FormatCurrency";
 import Form from "./utils/Form";
 import Card from "./utils/Card";
 
@@ -34,7 +33,6 @@ export {
 	itemCard,
 	CartWidget,
 	Design,
-	FormatCurrency,
 	Card,
 	CardSkeleton,
 };

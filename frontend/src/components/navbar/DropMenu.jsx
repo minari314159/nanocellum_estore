@@ -2,7 +2,7 @@ import { navLinks } from "../../index";
 import { BsThreeDotsVertical } from "react-icons/bs";
 import { Link } from "react-router-dom";
 import { SignInButton, SignOutButton } from "./AuthButtons";
-import { ACCESS_TOKEN } from "../../constants";
+import { ACCESS_TOKEN } from "../../services/constants";
 
 // eslint-disable-next-line react/prop-types
 const Dropmenu = ({ active, setActive }) => {

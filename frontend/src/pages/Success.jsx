@@ -1,7 +1,7 @@
 import { Link, useLocation } from "react-router-dom";
 import { Card } from "../components/components";
 import { useEffect, useState } from "react";
-import { userRequest } from "../requestMethods";
+import { userRequest } from "../services/requestMethods";
 
 const Success = () => {
 	const location = useLocation();
