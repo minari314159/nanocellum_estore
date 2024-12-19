@@ -6,15 +6,14 @@ import Hero from "./hero/Hero";
 import Design from "./hero/Design";
 
 import ProductCard from "./product/ProductCard";
-import CreateProduct from "./product/CreateProduct";
-import EditProduct from "./product/EditProduct";
 
 import FormatCurrency from "./utils/FormatCurrency";
 import Form from "./utils/Form";
 import Card from "./utils/Card";
 
 import LoadingIndicator from "./utils/LoadingIndicator";
-import DeleteButton from "./utils/DeleteButton";
+import CardSkeleton from "./utils/CardSkeleton";
+
 import ParallaxContent from "./utils/ParallaxContent";
 import Overlay from "./utils/Overlay";
 import StickyImage from "./utils/StickyImage";
@@ -32,12 +31,10 @@ export {
 	Overlay,
 	StickyImage,
 	ProductCard,
-	EditProduct,
-	CreateProduct,
 	itemCard,
 	CartWidget,
 	Design,
 	FormatCurrency,
 	Card,
-	DeleteButton,
+	CardSkeleton,
 };

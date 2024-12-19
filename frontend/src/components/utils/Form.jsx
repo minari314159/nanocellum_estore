@@ -5,14 +5,13 @@ import LoadingIndicator from "./LoadingIndicator";
 import Card from "./Card";
 import { publicRequest } from "../../requestMethods";
 
-
 // eslint-disable-next-line react/prop-types
 const Form = ({ method, route }) => {
 	const [username, setUsername] = useState("");
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
 	const [loading, setLoading] = useState(false);
-
+	const [error, setError] = useState();
 	const navigate = useNavigate();
 
 	const methodName = method === "login" ? "Login" : "Register";
@@ -28,22 +27,31 @@ const Form = ({ method, route }) => {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		setLoading(true);
-		e.preventDefault();
 
-		try {
-			if (method === "login") {
+		if (method === "login") {
+			try {
+				const res = await publicRequest.post(route, { username, password });
+				localStorage.setItem(ACCESS_TOKEN, res.data.access);
+				localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
+				navigate(-1);
+			} catch (err) {
+				setError(err.message);
+			} finally {
+				setLoading(false);
+			}
+		} else if (method === "register") {
+			try {
+				publicRequest.post(route, { username, password, email });
+
 				const res = await publicRequest.post(route, { username, password });
 				localStorage.setItem(ACCESS_TOKEN, res.data.access);
 				localStorage.setItem(REFRESH_TOKEN, res.data.refresh);
 				navigate("/");
-			} else if (method === "register") {
-				await publicRequest.post(route, { username, password, email });
-				navigate("/login");
+			} catch (err) {
+				setError(err.message);
+			} finally {
+				setLoading(false);
 			}
-		} catch (error) {
-			alert(error);
-		} finally {
-			setLoading(false);
 		}
 	};
 
@@ -86,9 +94,10 @@ const Form = ({ method, route }) => {
 							placeholder="Password"
 						/>
 					</label>
-					{loading && <LoadingIndicator />}
-					<button className="btn btn-accent " type="submit">
+					{error && <p className="text-error">{error}</p>}
+					<button className="btn btn-accent " type="submit" disabled={loading}>
 						{methodName}
+						{loading && <LoadingIndicator />}
 					</button>
 					{method === "login" ? (
 						<div className="flex flex-col justify-center items-center">

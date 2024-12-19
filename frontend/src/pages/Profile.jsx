@@ -6,7 +6,8 @@ import { userRequest } from "../requestMethods";
 
 const Profile = () => {
 	const [toggle, setToggle] = useState(false);
-	const [user, setUser] = useState(null);
+	const [user, setUser] = useState({});
+	const [error, setError] = useState();
 	// const [username, setUsername] = useState("");
 	// const refresh = useNavigate();
 
@@ -30,17 +31,14 @@ const Profile = () => {
 	// };
 
 	useEffect(() => {
-		const getCurrentUser = () => {
-			userRequest
-				.get("/auth/users/me/")
-				.then((res) => res.data)
-				.then((data) => {
-					setUser(data);
-				})
-				.catch((error) => console.log(error));
-		};
-		getCurrentUser();
-	}, []);
+		userRequest
+			.get("/auth/users/me/")
+			.then((res) => res.data)
+			.then((data) => {
+				setUser(data);
+			})
+			.catch((error) => console.log(error));
+	}, [user]);
 
 	return (
 		<section className="flex min-h-screen flex-col items-center justify-center w-full p-10  gap-3">

@@ -1,28 +1,29 @@
-import { Card, DeleteButton } from "../components";
+import { Card, CardSkeleton } from "../components";
 import { useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+
 import { publicRequest } from "../../requestMethods";
 
 const ProductCard = () => {
 	const { id } = useParams();
-
 	const [product, setProduct] = useState({});
+	const [isLoading, setIsLoading] = useState(false);
 	const [quantity, setQuantity] = useState(1);
 
-	const getProduct = (id) => {
+	useEffect(() => {
+		setIsLoading(true);
 		publicRequest
 			.get(`api/products/${id}/`)
 			.then((res) => res.data)
 			.then((data) => {
 				setProduct(data);
 			})
-			.catch((error) => alert(error));
-	};
-	useEffect(() => {
-		getProduct(id);
+			.catch((error) => alert(error))
+			.finally(() => {
+				setIsLoading(false);
+			});
 	}, [id]);
-	console.log(product);
+
 	const handleQuantity = (type) => {
 		if (type === "dec") {
 			quantity > 1 && setQuantity(quantity - 1);
@@ -35,10 +36,11 @@ const ProductCard = () => {
 	};
 
 	return (
-		<>
+		<div>
 			<div className="p-4 px-6 bg-accent rounded-e-full flex flex-col items-center justify-center shadow-lg">
 				<h1 className="text-2xl lg:text-4xl font-bold">{product.title}</h1>
 			</div>{" "}
+			{isLoading && <CardSkeleton />}
 			<Card style="min-w-[300px] max-w-[600px] my-5">
 				<div className="w-full flex gap-2">
 					<div className="flex flex-col justify-start items-start text-xs sm:text-sm md:text-md lg:text-lg text-left p-2">
@@ -60,7 +62,7 @@ const ProductCard = () => {
 									onClick={() => handleQuantity("dec")}>
 									-
 								</span>
-								<p className="font-bold"> {quantity}</p> 
+								<p className="font-bold"> {quantity}</p>
 								<span
 									className="btn btn-sm btn-ghost btn-circle"
 									onClick={() => handleQuantity("inc")}>
@@ -81,13 +83,7 @@ const ProductCard = () => {
 					/>
 				</div>
 			</Card>
-			<div>
-				<Link to={`/products/${id}/edit`} className="btn btn-ghost">
-					Edit
-				</Link>
-				<DeleteButton id={id} />
-			</div>
-		</>
+		</div>
 	);
 };
 

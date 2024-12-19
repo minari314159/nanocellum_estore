@@ -22,8 +22,9 @@ class Product(models.Model):
     price = models.DecimalField(decimal_places=2, max_digits=6)
     description = models.CharField(max_length=200)
     colour = models.CharField(
-        max_length=5, choices=COLOUR_CHOICES)
-    image = models.ImageField(upload_to='uploads/product/')
+        max_length=5, choices=COLOUR_CHOICES, default=COLOUR_CHOICES[0])
+    image = models.ImageField(upload_to='uploads/product/',
+                              default='backend/uploads/uploads/product/Lotus.png')
     created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
