@@ -3,7 +3,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { Card } from "../components/components";
 import useAuth from "../context/users/useAuth";
-import UserService from "../services/user-service";
+import { userRequest } from "../services/requestMethods";
 
 const Profile = () => {
 	const [toggle, setToggle] = useState(false);
@@ -22,7 +22,7 @@ const Profile = () => {
 
 		// Update user details
 		try {
-			const res = await UserService.updateUser({
+			const res = await userRequest.put("/auth/users/me/", {
 				first_name: newFirstName,
 				last_name: newLastName,
 			});

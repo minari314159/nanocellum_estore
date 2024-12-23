@@ -3,10 +3,9 @@ import { useNavigate, Link } from "react-router-dom";
 import LoadingIndicator from "../components/utils/LoadingIndicator";
 import { Card } from "../components/components";
 import { authReducer, initialState } from "../context/users/authReducer";
-import UserService from "../services/user-service";
 
 const Register = () => {
-	const [user, dispatch] = useReducer(authReducer, initialState);
+	const [user, register, dispatch] = useReducer(authReducer, initialState);
 
 	const navigate = useNavigate();
 	const handleChange = (e) => {
@@ -18,7 +17,7 @@ const Register = () => {
 		dispatch({ type: "SET_LOADING", value: true });
 
 		try {
-			await UserService.register(user.email, user.username, user.password);
+			register(user.email, user.username, user.password);
 			dispatch({ type: "REGISTER_SUCCESS" });
 			navigate("/");
 		} catch (err) {
