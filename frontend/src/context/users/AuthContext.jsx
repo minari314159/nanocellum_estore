@@ -1,5 +1,6 @@
 import { createContext, useReducer, useEffect } from "react";
 import PropTypes from "prop-types";
+import { jwtDecode } from "jwt-decode";
 import { authReducer, initialState } from "./authReducer";
 import { publicRequest, userRequest } from "../../services/requestMethods";
 import { ACCESS_TOKEN, REFRESH_TOKEN } from "../../services/constants";
@@ -78,13 +79,52 @@ export const AuthProvider = ({ children }) => {
 			dispatch({ type: "SET_LOADING", value: false });
 		}
 	};
+	const refreshToken = async () => {
+		const refreshToken = localStorage.getItem(REFRESH_TOKEN);
+		try {
+			const res = await userRequest.post("/api/token/refresh/", {
+				refresh: refreshToken,
+			});
+			if (res.status == 200) {
+				localStorage.setItem(ACCESS_TOKEN, res.data.access);
+				dispatch({ type: "SET_AUTH", value: true });
+			} else {
+				dispatch({ type: "SET_ERROR", value: "Failed to refresh token" });
+				logout();
+			}
+		} catch (error) {
+			dispatch({ type: "SET_ERROR", value: "Failed to refresh token" });
+			logout();
+		}
+	};
 
 	// Check if the user is already logged in when the app starts
 	useEffect(() => {
-		const accessToken = localStorage.getItem(ACCESS_TOKEN);
-		if (accessToken) {
-			getCurrentUser();
-		}
+		const checkAuth = async () => {
+			dispatch({ type: "SET_LOADING", value: true });
+			const accessToken = localStorage.getItem(ACCESS_TOKEN);
+			if (!accessToken) {
+				dispatch({ type: "LOGOUT" });
+				return;
+			}
+			try {
+				const decoded = jwtDecode(accessToken);
+				const tokenExpiration = decoded.exp;
+				const now = Date.now() / 1000;
+				if (tokenExpiration < now) {
+					await refreshToken();
+				} else {
+					dispatch({ type: "SET_AUTH", value: true });
+					getCurrentUser();
+				}
+			} catch (error) {
+				dispatch({ type: "SET_ERROR", value: "Failed to authenticate" });
+				logout();
+			} finally {
+				dispatch({ type: "SET_LOADING", value: false });
+			}
+		};
+		checkAuth();
 	}, []);
 
 	// Provide state and actions to children

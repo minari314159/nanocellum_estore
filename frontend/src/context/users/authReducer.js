@@ -21,6 +21,8 @@ export const authReducer = (user, action) => {
 			return { ...user, error: null };
 		case "LOGIN_SUCCESS":
 			return { ...user, isAuthenticated: true, error: null };
+		case "SET_AUTH":
+			return { ...user, loading: false, isAuthenticated: true, error: null };
 		case "LOGOUT":
 			return { ...initialState }; // Reset to initial state
 		case "REGISTER_SUCCESS":
