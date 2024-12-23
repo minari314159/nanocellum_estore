@@ -1,7 +1,7 @@
 import { Card, CardSkeleton } from "../components";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
-import { AiFillDelete } from "react-icons/ai";
+
 import useProducts from "../../hooks/useProducts";
 
 const ProductCard = () => {

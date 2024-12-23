@@ -94,7 +94,7 @@ const Hero = () => {
 				<div className="absolute left-0 top-6 flex flex-col h-screen w-full items-center justify-center  ">
 					<p
 						id="herotitles"
-						className="inline-block text-center bg-gradient-to-r from-amber-900 via-yellow-500 to-amber-900 text-transparent bg-clip-text text-4xl font-bold md:mb-4 text-[3.5rem] md:text-[4.5rem] xl:text-[5rem] p-1 lg:p-3 z-[2]">
+						className="inline-block text-center bg-gradient-to-r from-amber-900 via-yellow-500 to-amber-900 text-transparent bg-clip-text  text-4xl font-bold md:mb-4 text-[3.5rem] md:text-[5rem] xl:text-[5rem] p-1 lg:p-3 z-[2]">
 						{title.split("").map((letter, index) => (
 							<span className="reveal-text" key={index}>
 								{letter}

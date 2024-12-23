@@ -1,7 +1,9 @@
 export const initialState = {
 	username: "",
 	password: "",
-	email: "",	
+	email: "",
+	firstName: "",
+	lastName: "",
 	loading: false,
 	error: null,
 	isAuthenticated: false,
@@ -23,6 +25,15 @@ export const authReducer = (user, action) => {
 			return { ...initialState }; // Reset to initial state
 		case "REGISTER_SUCCESS":
 			return { ...user, isAuthenticated: true, error: null };
+		case "SET_USER_DETAILS":
+			// Update all user details (username, email, firstName, lastName) from fetched user data
+			return {
+				...user,
+				username: action.username,
+				email: action.email,
+				firstName: action.firstName,
+				lastName: action.lastName,
+			};
 		default:
 			return user;
 	}

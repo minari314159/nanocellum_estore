@@ -1,27 +1,45 @@
 import { nullprofile } from "../assets";
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Card } from "../components/components";
-import useUsers from "../context/users/useUsers";
+import useAuth from "../context/users/useAuth";
 import UserService from "../services/user-service";
 
 const Profile = () => {
 	const [toggle, setToggle] = useState(false);
+	const { user, dispatch, getCurrentUser } = useAuth();
 
-	const [firstname, setFirstName] = useState("");
-	const [lastname, setLastName] = useState("");
+	const [newFirstName, setNewFirstName] = useState(user.firstName);
+	const [newLastName, setNewLastName] = useState(user.lastName);
 	const refresh = useNavigate();
-	const { user, error, setError } = useUsers();
+	useEffect(() => {
+		if (user.isAuthenticated && !user.firstName && !user.lastName) {
+			getCurrentUser(); // Fetch user details if not already fetched
+		}
+	}, [user.isAuthenticated, user.firstName, user.lastName, getCurrentUser]);
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
-		const res = UserService.updateUser({ firstname, lastname });
-		res
-			.then((res) => res.json())
-			.catch((err) => setError(err.message))
-			.finally(() => {
-				refresh("/profile");
+		// Update user details
+		try {
+			const res = await UserService.updateUser({
+				first_name: newFirstName,
+				last_name: newLastName,
 			});
+			const updatedUser = await res.json();
+
+			// Dispatch to update user details in context
+			dispatch({
+				type: "SET_USER_DETAILS",
+				username: updatedUser.username,
+				email: updatedUser.email,
+				firstName: updatedUser.first_name,
+				lastName: updatedUser.last_name,
+			});
+			refresh("/profile");
+		} catch (err) {
+			dispatch({ type: "SET_ERROR", value: err.message });
+		}
 	};
 
 	return (
@@ -41,20 +59,20 @@ const Profile = () => {
 								<input
 									className="text-4xl font-bold text-center w-full"
 									type="text"
-									onChange={(e) => setFirstName(e.target.value)}
-									defaultValue={user.first_name}
+									onChange={(e) => setNewFirstName(e.target.value)}
+									defaultValue={user.firstName}
 								/>
 							</label>
 							<label className="input input-bordered input-md flex items-center gap-2 bg-transparent w-[50%]">
 								<input
 									className="text-4xl font-bold text-center w-full"
 									type="text"
-									onChange={(e) => setLastName(e.target.value)}
-									defaultValue={user.last_name}
+									onChange={(e) => setNewLastName(e.target.value)}
+									defaultValue={user.lastName}
 								/>
 							</label>
 						</div>
-						{error && <p className="text-accent">{error}</p>}
+						{user.error && <p className="text-accent">{user.error}</p>}
 						<button type="submit" className="btn btn-ghost btn-sm ">
 							Update Profile
 						</button>
@@ -62,7 +80,7 @@ const Profile = () => {
 				) : (
 					<div className="w-full flex flex-col items-center gap-1">
 						<h1 className="text-4xl font-bold mb-4">
-							{user.first_name} {user.last_name}
+							{user.firstName} {user.lastName}
 						</h1>
 
 						<p>

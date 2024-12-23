@@ -40,7 +40,7 @@ const Products = () => {
 						key={index}
 						style="w-[11rem] sm:w-[14rem] md:w-[15rem] lg:w-[20rem]">
 						<div className="w-full ">
-							<div className="w-full flex mb-2 items-end justify-between ">
+							<div className="w-full flex items-center justify-between ">
 								<h2 className="text-md sm:text-xl md:text-2xl lg:text-3xl font-bold ">
 									{product.title}
 								</h2>

@@ -1,12 +1,11 @@
-import { useReducer } from "react";
 import { useNavigate, Link } from "react-router-dom";
 import LoadingIndicator from "../components/utils/LoadingIndicator";
 import Card from "../components/utils/Card";
-import { authReducer, initialState } from "../context/users/authReducer";
-import UserService from "../services/user-service";
+
+import useAuth from "../context/users/useAuth";
 
 const Login = () => {
-	const [user, dispatch] = useReducer(authReducer, initialState);
+	const { user, login, dispatch } = useAuth();
 
 	const navigate = useNavigate();
 	const handleChange = (e) => {
@@ -15,17 +14,8 @@ const Login = () => {
 	};
 	const handleSubmit = async (e) => {
 		e.preventDefault();
-		dispatch({ type: "SET_LOADING", value: true });
-
-		try {
-			await UserService.login(user.username, user.password);
-			dispatch({ type: "LOGIN_SUCCESS" });
-			navigate("/");
-		} catch (err) {
-			dispatch({ type: "SET_ERROR", value: err.message });
-		} finally {
-			dispatch({ type: "SET_LOADING", value: false });
-		}
+		await login(user.username, user.password);
+		navigate("/");
 	};
 
 	return (
