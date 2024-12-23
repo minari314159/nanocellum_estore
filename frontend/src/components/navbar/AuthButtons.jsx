@@ -1,5 +1,7 @@
+import { useReducer } from "react";
 import { NavLink } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
+import { authReducer, initialState } from "../../context/users/authReducer";
 
 export function SignInButton() {
 	return (
@@ -10,15 +12,20 @@ export function SignInButton() {
 }
 
 export function SignOutButton() {
+	const [user, dispatch] = useReducer(authReducer, initialState);
 	const redirect = useNavigate();
+	const handleLogout = () => {
+		dispatch({ type: "LOGOUT" });
+		// Clear token from localStorage
+		localStorage.clear();
+		window.location.reload();
+		redirect("/");
+	};
 	return (
 		<button
-			onClick={() => {
-				localStorage.clear();
-				redirect("/");
-			}}
+			onClick={handleLogout}
 			className="btn btn-accent rounded-xl w-[95px] ">
-			Sign Out
+			Sign Out {user.username}
 		</button>
 	);
 }

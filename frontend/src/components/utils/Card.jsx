@@ -1,8 +1,6 @@
 import PropTypes from "prop-types";
 
 const Card = ({ children, style }) => {
-	// Rest of the code
-
 	return (
 		<div
 			className={`card card-compact bg-gray-700 rounded-md  backdrop-filter backdrop-blur-md bg-opacity-20  shadow-xl ${style}`}>

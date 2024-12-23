@@ -1,6 +1,7 @@
 import { Card, CardSkeleton } from "../components";
 import { useParams } from "react-router-dom";
 import { useState } from "react";
+import { AiFillDelete } from "react-icons/ai";
 import useProducts from "../../hooks/useProducts";
 
 const ProductCard = () => {
@@ -18,7 +19,7 @@ const ProductCard = () => {
 		}
 	};
 	const handleClick = () => {
-		// dispatch(addProduct({ ...product, quantity, color }));
+		console.log("Added to cart");
 	};
 
 	return (
@@ -44,7 +45,7 @@ const ProductCard = () => {
 							</p>
 							<hr className="w-full my-2 border-neutral-700" />
 							<p className="w-full my-2 ">{products.description}</p>
-							<div className="w-full flex flex-col items-center">
+							<div className="w-full flex flex-col items-center gap-3">
 								<div className="inline-flex items-center  my-2 ">
 									<span
 										className="btn btn-sm btn-ghost btn-circle"
@@ -57,6 +58,11 @@ const ProductCard = () => {
 										onClick={() => handleQuantity("inc")}>
 										+
 									</span>
+									{/* {quantity > 0 && (
+									<button className="btn btn-error  rounded-full">
+										<AiFillDelete />
+									</button>
+								)} */}
 								</div>
 								<button onClick={handleClick} className="btn  w-full">
 									Add to Cart

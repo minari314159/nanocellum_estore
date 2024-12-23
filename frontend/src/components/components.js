@@ -7,7 +7,6 @@ import Design from "./hero/Design";
 
 import ProductCard from "./product/ProductCard";
 
-import Form from "./utils/Form";
 import Card from "./utils/Card";
 
 import LoadingIndicator from "./utils/LoadingIndicator";
@@ -24,7 +23,6 @@ export {
 	Detail,
 	Footer,
 	Hero,
-	Form,
 	LoadingIndicator,
 	ParallaxContent,
 	Overlay,

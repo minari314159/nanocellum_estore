@@ -1,17 +1,17 @@
 import { nullprofile } from "../assets";
 import { Link, useNavigate } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Card } from "../components/components";
+import useUsers from "../context/users/useUsers";
 import UserService from "../services/user-service";
 
 const Profile = () => {
 	const [toggle, setToggle] = useState(false);
-	const [user, setUser] = useState({});
-	const [error, setError] = useState();
+
 	const [firstname, setFirstName] = useState("");
 	const [lastname, setLastName] = useState("");
 	const refresh = useNavigate();
-
+	const { user, error, setError } = useUsers();
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 
@@ -23,16 +23,6 @@ const Profile = () => {
 				refresh("/profile");
 			});
 	};
-
-	useEffect(() => {
-		const res = UserService.getMe();
-		res
-			.then((res) => res.data)
-			.then((data) => {
-				setUser(data);
-			})
-			.catch((error) => alert(error.message));
-	}, []);
 
 	return (
 		<section className="flex min-h-screen flex-col items-center justify-center w-full p-10  gap-3">
